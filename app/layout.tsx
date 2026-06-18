@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Saikiran Bavandla', url: 'https://probeshield.com' }],
   creator: 'Saikiran Bavandla',
   publisher: 'ProbeShield',
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+    shortcut: '/logo.png',
+  },
   robots: {
     index: true,
     follow: true,
