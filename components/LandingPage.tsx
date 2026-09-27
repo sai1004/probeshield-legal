@@ -306,10 +306,11 @@ function LandingNav() {
       </Link>
 
       {/* Desktop nav links (hidden on mobile via CSS) */}
-      <ul className="lp-nav-links" style={{ display: 'flex', gap: '1.6rem', listStyle: 'none', margin: 0, padding: 0 }}>
+      <ul className="lp-nav-links">
         {[
           { label: 'Features', href: '#features' },
           { label: 'How It Works', href: '#how-it-works' },
+          { label: 'Blog', href: '/blog' },
           { label: 'Privacy', href: '/privacy' },
           { label: 'Terms', href: '/terms' },
         ].map(({ label, href }) => (
@@ -1023,6 +1024,7 @@ function LandingFooter() {
   const currentYear = new Date().getFullYear()
 
   const links = [
+    { label: 'Blog', href: '/blog' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
     { label: 'GitHub', href: 'https://github.com/sai1004/probeshield-releases' },

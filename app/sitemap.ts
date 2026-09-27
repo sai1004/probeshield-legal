@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { posts } from '@/content/posts'
 
 const BASE_URL = 'https://probeshield.com'
 
@@ -10,6 +11,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1.0,
     },
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...posts.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
     {
       url: `${BASE_URL}/privacy`,
       lastModified: new Date('2025-01-01'),

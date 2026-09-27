@@ -403,6 +403,165 @@ a:hover { opacity: 0.8; }
 .legal-section { animation: fadeUp 0.5s ease 0.15s both; }
 
 /* ════════════════════════════════════════════
+   BLOG STYLES (/blog, /blog/[slug])
+   ════════════════════════════════════════════ */
+
+.blog-index-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.blog-card {
+  display: block;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.6rem 1.8rem;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+  animation: fadeUp 0.5s ease both;
+}
+
+.blog-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.blog-card-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.blog-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.blog-card-desc {
+  font-size: 0.9rem;
+  color: #C4CDD8;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.blog-card-link {
+  font-size: 0.85rem;
+  color: var(--cyan);
+  font-weight: 500;
+}
+
+.blog-prose { animation: fadeUp 0.5s ease 0.1s both; }
+
+.blog-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+  margin: 2.2rem 0 1rem;
+}
+
+.blog-prose .legal-text code,
+.blog-prose .legal-list code {
+  background: var(--bg-high);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.85em;
+  color: var(--cyan);
+}
+
+.legal-list-numbered {
+  counter-reset: legal-step;
+}
+
+.legal-list-numbered li {
+  counter-increment: legal-step;
+}
+
+.legal-list-numbered li::before {
+  content: counter(legal-step);
+  width: auto;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(75, 220, 193, 0.15);
+  color: var(--cyan);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.15rem;
+  padding: 0 0.3rem;
+}
+
+.blog-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: rgba(75, 220, 193, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  margin: 3rem 0 2.5rem;
+}
+
+.blog-cta-text {
+  font-size: 0.9rem;
+  color: #C4CDD8;
+  line-height: 1.6;
+  flex: 1;
+  min-width: 220px;
+}
+
+.blog-cta-text strong { color: var(--text); }
+
+.blog-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  background: var(--primary);
+  color: var(--primary-on);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.blog-related {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 2rem;
+}
+
+.blog-related-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.blog-related-list a {
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.blog-related-list a:hover { color: var(--cyan); }
+
+/* ════════════════════════════════════════════
    LANDING PAGE STYLES (/ home)
    ════════════════════════════════════════════ */
 
@@ -463,6 +622,13 @@ a:hover { opacity: 0.8; }
   border: 1px solid var(--border-subtle);
 }
 
+/* Grid items default to min-width: auto, which lets an unbreakable
+   label (e.g. "On-device processing") force its column wider than
+   the grid's own container — then get clipped by overflow: hidden. */
+.lp-stats-grid > * {
+  min-width: 0;
+}
+
 /* Features grid */
 .lp-features-grid {
   display: grid;
@@ -499,6 +665,9 @@ a:hover { opacity: 0.8; }
   display: flex;
   align-items: center;
   gap: 1.8rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* ─── Responsive ─────────────────────────────── */

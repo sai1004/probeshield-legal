@@ -14,6 +14,7 @@ export default function Navbar() {
         <span className="navbar-wordmark">Probe<span>Shield</span></span>
       </Link>
       <ul className="navbar-links">
+        <li><Link href="/blog" className={path?.startsWith('/blog') ? 'active' : ''}>Blog</Link></li>
         <li><Link href="/privacy" className={path === '/privacy' ? 'active' : ''}>Privacy Policy</Link></li>
         <li><Link href="/terms" className={path === '/terms' ? 'active' : ''}>Terms of Service</Link></li>
         <li><a href="mailto:sai.bsk1@gmail.com">Contact</a></li>

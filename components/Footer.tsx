@@ -5,6 +5,7 @@ export default function Footer() {
     <footer className="legal-footer">
       <div className="footer-brand">Probe<span>Shield</span></div>
       <ul className="footer-links">
+        <li><Link href="/blog">Blog</Link></li>
         <li><Link href="/privacy">Privacy Policy</Link></li>
         <li><Link href="/terms">Terms of Service</Link></li>
         <li><a href="mailto:sai.bsk1@gmail.com">Contact</a></li>
