@@ -39,7 +39,7 @@ const jsonLd = {
         'ProbeShield scans your local WiFi network to identify connected devices, open ports, ' +
         'and security vulnerabilities — giving you a clear risk picture of everything on your network. ' +
         '100% on-device. No scan data ever leaves your phone.',
-      softwareVersion: '1.0.4',
+      softwareVersion: '1.2.0',
       datePublished: '2025-01-01',
       author: {
         '@type': 'Person',
