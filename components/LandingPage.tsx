@@ -1065,7 +1065,7 @@ function LandingFooter() {
       </ul>
 
       <p style={{ fontSize: '0.76rem', color: T.muted, lineHeight: 1.5 }}>
-        © {currentYear} ProbeShield &nbsp;·&nbsp; Saikiran Bavandla &nbsp;·&nbsp; All Rights Reserved<br />
+        © {currentYear} ProbeShield &nbsp;·&nbsp; All Rights Reserved<br />
         <span style={{ fontSize: '0.7rem', opacity: 0.6 }}>
           Intended for use on networks you own or have explicit permission to scan.
         </span>
