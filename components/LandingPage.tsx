@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import CookieSettingsButton from '@/components/CookieSettingsButton'
 
 /* ── Animation presets ─────────────────────────────────── */
 const ease = [0.22, 1, 0.36, 1] as const
@@ -1077,6 +1078,7 @@ function LandingFooter() {
             <FooterLink label={label} href={href} />
           </li>
         ))}
+        <CookieSettingsButton />
       </ul>
 
       <p style={{ fontSize: '0.76rem', color: T.muted, lineHeight: 1.5 }}>

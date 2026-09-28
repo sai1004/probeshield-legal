@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
         {/* Intro */}
         <div className="highlight-box" style={{ marginBottom: '2rem' }}>
           <p>
-            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 6). Our website, but not the app, uses Google Analytics to count visits (see Section 7). We have nothing to sell and nothing to share.
+            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 6). Our website, but not the app, can use Google Analytics to count visits if you agree (see Section 7). We have nothing to sell and nothing to share.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export default function PrivacyPolicy() {
           <div className="section-number">Section 01</div>
           <h2 className="section-title">Overview</h2>
           <p className="legal-text">
-            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and the website at probeshield.com. The app does not use analytics; the website does (see Section 7).
+            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and the website at probeshield.com. The app does not use analytics; the website can, but only with your consent (see Section 7).
           </p>
           <p className="legal-text">
             We are committed to protecting your privacy. ProbeShield was built with a privacy-first architecture — the app operates entirely on your device and has no dependency on external servers for its core functionality.
@@ -172,11 +172,11 @@ export default function PrivacyPolicy() {
             This section covers the website at probeshield.com only. <strong>The Android app does not use Google Analytics or any similar analytics tool.</strong>
           </p>
           <p className="legal-text">
-            The website uses <strong>Google Analytics 4</strong> (Google LLC) to count visits and see which pages are read. When you visit, Google Analytics may set cookies and collect technical information such as the pages you view, how long you stay, the site that referred you, your browser and device type, and your approximate location (derived from your IP address). We use this in aggregate to understand how the site is used and to improve it.
+            The website can use <strong>Google Analytics 4</strong> (Google LLC) to count visits and see which pages are read, <strong>but only if you accept</strong>. When you first visit, a banner asks whether to allow analytics cookies. Until you accept, Google Analytics is not loaded and nothing about your visit is sent to Google. If you accept, Google Analytics may set cookies and collect technical information such as the pages you view, how long you stay, the site that referred you, your browser and device type, and your approximate location (derived from your IP address). We use this in aggregate to understand how the site is used and to improve it.
           </p>
           <ul className="legal-list">
+            <li><strong>Your choice:</strong> it is saved in your browser (local storage) so we don&apos;t ask again. You can change it at any time with &quot;Cookie settings&quot; in the page footer; choosing Decline stops analytics and removes the analytics cookies from your browser.</li>
             <li>Google Analytics is governed by Google&apos;s Privacy Policy, available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</li>
-            <li>You can opt out with the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>, or by blocking cookies and scripts in your browser.</li>
             <li>The website is hosted on Cloudflare Pages. Like any web host, Cloudflare processes technical request data, such as your IP address, to deliver pages and protect the service.</li>
           </ul>
           <p className="legal-text">
