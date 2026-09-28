@@ -82,7 +82,7 @@ function Body() {
         <p>
           <strong>The fast way to run most of this list:</strong> ProbeShield combines device discovery, port scanning,
           and manufacturer identification into one scan with a five-tier risk score per device, entirely on-device —
-          no cloud account, no data leaving your phone.
+          no cloud account, no scan data leaving your phone.
         </p>
       </div>
     </>

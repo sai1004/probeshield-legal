@@ -104,15 +104,15 @@ const STEPS = [
 
 const STATS = [
   { value: '100+', label: 'TCP ports per device' },
-  { value: '0',    label: 'Bytes sent to cloud' },
+  { value: '0',    label: 'Bytes of scan data uploaded' },
   { value: '5',    label: 'Risk severity tiers' },
   { value: '100%', label: 'On-device processing' },
 ]
 
-const TRUST_BADGES = ['No Cloud', 'No Account', 'No Tracking', 'Fully Offline']
+const TRUST_BADGES = ['No Cloud', 'No Account', 'No Tracking', 'Scans Stay Local']
 
 const PRIVACY_ITEMS = [
-  'Zero data ever leaves your phone',
+  'Your scan data never leaves your phone',
   'No account or sign-up required',
   'No analytics, crash reporters, or ads',
   'Scan history stored in local Room database',
@@ -848,6 +848,21 @@ function PrivacySection() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.p
+              variants={fadeUp}
+              style={{
+                textAlign: 'center',
+                color: T.muted,
+                fontSize: '0.82rem',
+                lineHeight: 1.6,
+                maxWidth: 560,
+                margin: '1.6rem auto 0',
+              }}
+            >
+              The only thing the app fetches on its own is a weekly download of public vulnerability (CVE) data
+              from NIST&apos;s National Vulnerability Database. Nothing about you or your network is sent with it.
+            </motion.p>
 
             <motion.div
               variants={fadeUp}

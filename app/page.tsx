@@ -38,7 +38,7 @@ const jsonLd = {
       description:
         'ProbeShield scans your local WiFi network to identify connected devices, open ports, ' +
         'and security vulnerabilities — giving you a clear risk picture of everything on your network. ' +
-        '100% on-device. No data ever leaves your phone.',
+        '100% on-device. No scan data ever leaves your phone.',
       softwareVersion: '1.0.4',
       datePublished: '2025-01-01',
       author: {
@@ -112,7 +112,7 @@ const jsonLd = {
           name: 'Does ProbeShield send my data to the cloud?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No. ProbeShield is 100% on-device. All scan data is stored locally on your Android device and is never transmitted to any server.',
+            text: 'No. Scanning and analysis run on your Android device, and your scan data is stored locally and never uploaded to any server. The only thing the app downloads on its own is public vulnerability (CVE) data from the NIST National Vulnerability Database, about once a week; nothing about you or your network is sent with that request.',
           },
         },
         {

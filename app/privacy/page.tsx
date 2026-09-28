@@ -23,10 +23,10 @@ export default function PrivacyPolicy() {
               <strong>Effective Date:</strong> March 26, 2026
             </span>
             <span className="page-meta-item">
-              <strong>Last Updated:</strong> March 26, 2026
+              <strong>Last Updated:</strong> September 28, 2026
             </span>
             <span className="page-meta-item">
-              <strong>Version:</strong> 1.0
+              <strong>Version:</strong> 1.1
             </span>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
         {/* Intro */}
         <div className="highlight-box" style={{ marginBottom: '2rem' }}>
           <p>
-            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. We have nothing to sell and nothing to share.
+            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 6). We have nothing to sell and nothing to share.
           </p>
         </div>
 
@@ -157,6 +157,7 @@ export default function PrivacyPolicy() {
             ProbeShield uses a minimal set of third-party services:
           </p>
           <ul className="legal-list">
+            <li><strong>NIST National Vulnerability Database (NVD)</strong> — About once a week, on an unmetered connection (typically Wi-Fi), the app downloads recent public vulnerability records (CVEs) from <code>services.nvd.nist.gov</code> so the on-device scanner can recognise newly published issues. This is a download only: no scan results, device information, or personal data are sent. As with any web request, NVD&apos;s servers can see your device&apos;s IP address and the time of the request, which we do not receive or store. The request identifies itself as &quot;ProbeShield-CVE-Updater/1.0&quot;. NVD is operated by the U.S. National Institute of Standards and Technology and is governed by its own policies.</li>
             <li><strong>Firebase Crashlytics (Google)</strong> — Optional anonymous crash reporting. Governed by Google&apos;s Privacy Policy.</li>
             <li><strong>Google Play Billing</strong> — Handles Pro subscription payments. ProbeShield never sees or stores your payment details. Governed by Google&apos;s Payments Privacy Notice.</li>
             <li><strong>Google Forms</strong> — Used for voluntary user feedback submission. Governed by Google&apos;s Privacy Policy. Submitting feedback is entirely optional.</li>
@@ -177,7 +178,7 @@ export default function PrivacyPolicy() {
             <li>App lock with PIN or biometric authentication to prevent unauthorized access</li>
             <li>PIN stored using Android Keystore — never in plain text</li>
             <li>Local database not world-readable — accessible only by the app</li>
-            <li>No external API calls for core scanning functionality</li>
+            <li>No external API calls for core scanning functionality (the weekly public CVE download is described in Section 6)</li>
             <li>ProGuard/R8 code obfuscation on release builds</li>
           </ul>
         </section>
