@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
         {/* Intro */}
         <div className="highlight-box" style={{ marginBottom: '2rem' }}>
           <p>
-            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 6). We have nothing to sell and nothing to share.
+            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 6). Our website, but not the app, uses Google Analytics to count visits (see Section 7). We have nothing to sell and nothing to share.
           </p>
         </div>
 
@@ -47,8 +47,9 @@ export default function PrivacyPolicy() {
               'Information We Do Not Collect',
               'Information Stored Locally',
               'Network Scanning',
-              'Crash Reporting',
+              'Crash Reports',
               'Third Party Services',
+              'Website and Analytics',
               'Data Security',
               'Children\'s Privacy',
               'Changes to This Policy',
@@ -67,7 +68,7 @@ export default function PrivacyPolicy() {
           <div className="section-number">Section 01</div>
           <h2 className="section-title">Overview</h2>
           <p className="legal-text">
-            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and any associated web services.
+            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and the website at probeshield.com. The app does not use analytics; the website does (see Section 7).
           </p>
           <p className="legal-text">
             We are committed to protecting your privacy. ProbeShield was built with a privacy-first architecture — the app operates entirely on your device and has no dependency on external servers for its core functionality.
@@ -137,15 +138,12 @@ export default function PrivacyPolicy() {
         {/* Section 5 */}
         <section className="legal-section" id="section-5">
           <div className="section-number">Section 05</div>
-          <h2 className="section-title">Crash Reporting</h2>
+          <h2 className="section-title">Crash Reports</h2>
           <p className="legal-text">
-            With your opt-in consent during onboarding, ProbeShield may use <strong>Firebase Crashlytics</strong> (by Google) to collect anonymous crash reports. This helps us identify and fix bugs.
+            If ProbeShield crashes, it saves a short report <strong>on your device only</strong> (the 10 most recent are kept; older ones are deleted automatically). A report contains the time of the crash, the app version, your Android version, your device&apos;s manufacturer and model, and the technical error details (a stack trace). It does <strong>not</strong> include your scan results, but technical error messages can occasionally mention details such as a network address, so please look a report over before you share it.
           </p>
           <p className="legal-text">
-            Crash reports contain technical information about the crash (stack trace, device model, Android version, app version) and do <strong>not</strong> include any personal data or scan results. You can opt out of crash reporting at any time in the app Settings.
-          </p>
-          <p className="legal-text">
-            Firebase Crashlytics is governed by Google&apos;s Privacy Policy, available at <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">firebase.google.com/support/privacy</a>.
+            <strong>Nothing is sent automatically.</strong> When reports are waiting, Settings shows a &quot;Share crash report&quot; option. Tapping it opens Android&apos;s share sheet so you decide where the reports go (for example, an email to us), and they are then removed from your device. ProbeShield does not use a third-party crash-reporting service.
           </p>
         </section>
 
@@ -158,18 +156,37 @@ export default function PrivacyPolicy() {
           </p>
           <ul className="legal-list">
             <li><strong>NIST National Vulnerability Database (NVD)</strong> — About once a week, on an unmetered connection (typically Wi-Fi), the app downloads recent public vulnerability records (CVEs) from <code>services.nvd.nist.gov</code> so the on-device scanner can recognise newly published issues. This is a download only: no scan results, device information, or personal data are sent. As with any web request, NVD&apos;s servers can see your device&apos;s IP address and the time of the request, which we do not receive or store. The request identifies itself as &quot;ProbeShield-CVE-Updater/1.0&quot;. NVD is operated by the U.S. National Institute of Standards and Technology and is governed by its own policies.</li>
-            <li><strong>Firebase Crashlytics (Google)</strong> — Optional anonymous crash reporting. Governed by Google&apos;s Privacy Policy.</li>
             <li><strong>Google Play Billing</strong> — Handles Pro subscription payments. ProbeShield never sees or stores your payment details. Governed by Google&apos;s Payments Privacy Notice.</li>
             <li><strong>Google Forms</strong> — Used for voluntary user feedback submission. Governed by Google&apos;s Privacy Policy. Submitting feedback is entirely optional.</li>
           </ul>
           <p className="legal-text">
-            No advertising SDKs, tracking libraries, analytics platforms, or data brokers are integrated into ProbeShield.
+            No advertising SDKs, tracking libraries, analytics platforms, or data brokers are integrated into the ProbeShield Android app. The website is covered separately in Section 7.
           </p>
         </section>
 
         {/* Section 7 */}
         <section className="legal-section" id="section-7">
           <div className="section-number">Section 07</div>
+          <h2 className="section-title">Website and Analytics</h2>
+          <p className="legal-text">
+            This section covers the website at probeshield.com only. <strong>The Android app does not use Google Analytics or any similar analytics tool.</strong>
+          </p>
+          <p className="legal-text">
+            The website uses <strong>Google Analytics 4</strong> (Google LLC) to count visits and see which pages are read. When you visit, Google Analytics may set cookies and collect technical information such as the pages you view, how long you stay, the site that referred you, your browser and device type, and your approximate location (derived from your IP address). We use this in aggregate to understand how the site is used and to improve it.
+          </p>
+          <ul className="legal-list">
+            <li>Google Analytics is governed by Google&apos;s Privacy Policy, available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</li>
+            <li>You can opt out with the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>, or by blocking cookies and scripts in your browser.</li>
+            <li>The website is hosted on Cloudflare Pages. Like any web host, Cloudflare processes technical request data, such as your IP address, to deliver pages and protect the service.</li>
+          </ul>
+          <p className="legal-text">
+            The website has no accounts, sign-in, or forms, and nothing you do in the app is linked to your visits to the website.
+          </p>
+        </section>
+
+        {/* Section 8 */}
+        <section className="legal-section" id="section-8">
+          <div className="section-number">Section 08</div>
           <h2 className="section-title">Data Security</h2>
           <p className="legal-text">
             We take security seriously — it is, after all, what ProbeShield is about. Security measures in place include:
@@ -183,18 +200,18 @@ export default function PrivacyPolicy() {
           </ul>
         </section>
 
-        {/* Section 8 */}
-        <section className="legal-section" id="section-8">
-          <div className="section-number">Section 08</div>
+        {/* Section 9 */}
+        <section className="legal-section" id="section-9">
+          <div className="section-number">Section 09</div>
           <h2 className="section-title">Children&apos;s Privacy</h2>
           <p className="legal-text">
             ProbeShield is not directed at children under the age of 13. We do not knowingly collect any personal information from children. If you believe a child has provided personal information through our app, please contact us and we will take immediate steps to address it.
           </p>
         </section>
 
-        {/* Section 9 */}
-        <section className="legal-section" id="section-9">
-          <div className="section-number">Section 09</div>
+        {/* Section 10 */}
+        <section className="legal-section" id="section-10">
+          <div className="section-number">Section 10</div>
           <h2 className="section-title">Changes to This Policy</h2>
           <p className="legal-text">
             We may update this Privacy Policy from time to time. When we do, we will update the &quot;Last Updated&quot; date at the top of this page and notify users via an in-app notification on the next app launch following a material change.
@@ -204,9 +221,9 @@ export default function PrivacyPolicy() {
           </p>
         </section>
 
-        {/* Section 10 */}
-        <section className="legal-section" id="section-10">
-          <div className="section-number">Section 10</div>
+        {/* Section 11 */}
+        <section className="legal-section" id="section-11">
+          <div className="section-number">Section 11</div>
           <h2 className="section-title">Contact Us</h2>
           <p className="legal-text">
             If you have any questions, concerns, or requests regarding this Privacy Policy or ProbeShield&apos;s data practices, please contact us:

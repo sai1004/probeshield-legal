@@ -109,7 +109,7 @@ const STATS = [
   { value: '100%', label: 'On-device processing' },
 ]
 
-const TRUST_BADGES = ['No Cloud', 'No Account', 'No Tracking', 'Scans Stay Local']
+const TRUST_BADGES = ['No Cloud', 'No Account', 'No App Tracking', 'Scans Stay Local']
 
 const PRIVACY_ITEMS = [
   'Your scan data never leaves your phone',

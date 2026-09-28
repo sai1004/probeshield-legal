@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'ProbeShield — Network Security Auditor for Android',
   description:
     'Discover hidden devices, scan open ports, and get a clear risk picture of your home WiFi. ' +
-    '100% on-device. No cloud, no account, no tracking. Free Android app.',
+    '100% on-device. No cloud, no account, no tracking in the app. Free Android app.',
   alternates: {
     canonical: 'https://probeshield.com',
   },
