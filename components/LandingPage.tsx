@@ -235,6 +235,7 @@ function DownloadBtn({ large = false, small = false }: { large?: boolean; small?
       href="https://play.google.com/store/apps/details?id=com.probeshield"
       target="_blank"
       rel="noopener noreferrer"
+      className={small ? 'lp-download-btn-small' : 'lp-download-btn'}
       whileHover={{ scale: 1.04, boxShadow: '0 0 36px rgba(75,220,193,0.45)' }}
       whileTap={{ scale: 0.97 }}
       style={{
@@ -257,8 +258,14 @@ function DownloadBtn({ large = false, small = false }: { large?: boolean; small?
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
       )}
-      Get it on Google Play
-      {!small && <span style={{ fontSize: '0.72rem', fontWeight: 500, opacity: 0.65 }}>Free · Android 8+</span>}
+      {small ? (
+        <>
+          <span className="lp-download-prefix">Get it on </span>Google Play
+        </>
+      ) : (
+        'Get it on Google Play'
+      )}
+      {!small && <span className="lp-download-subtext" style={{ fontSize: '0.72rem', fontWeight: 500, opacity: 0.65 }}>Free · Android 8+</span>}
     </motion.a>
   )
 }
@@ -266,8 +273,19 @@ function DownloadBtn({ large = false, small = false }: { large?: boolean; small?
 /* ══════════════════════════════════════════════════════════
    NAVBAR
    ══════════════════════════════════════════════════════════ */
+const LP_NAV_ITEMS = [
+  { label: 'Features', href: '#features' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Checklist', href: '/checklist' },
+  { label: 'Default Passwords', href: '/default-passwords' },
+  { label: 'Privacy', href: '/privacy' },
+  { label: 'Terms', href: '/terms' },
+]
+
 function LandingNav() {
   const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -277,6 +295,7 @@ function LandingNav() {
 
   return (
     <motion.nav
+      className="lp-navbar"
       initial={{ y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.65, ease }}
@@ -284,11 +303,10 @@ function LandingNav() {
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 200,
         height: 64,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 2rem',
-        background: scrolled ? 'rgba(5,20,36,0.92)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? `1px solid ${T.borderSub}` : '1px solid transparent',
+        background: scrolled || open ? 'rgba(5,20,36,0.92)' : 'transparent',
+        backdropFilter: scrolled || open ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: scrolled || open ? 'blur(20px)' : 'none',
+        borderBottom: scrolled || open ? `1px solid ${T.borderSub}` : '1px solid transparent',
         transition: 'background 0.35s, border-color 0.35s',
       }}
     >
@@ -308,30 +326,49 @@ function LandingNav() {
 
       {/* Desktop nav links (hidden on mobile via CSS) */}
       <ul className="lp-nav-links">
-        {[
-          { label: 'Features', href: '#features' },
-          { label: 'How It Works', href: '#how-it-works' },
-          { label: 'Blog', href: '/blog' },
-          { label: 'Privacy', href: '/privacy' },
-          { label: 'Terms', href: '/terms' },
-        ].map(({ label, href }) => (
+        {LP_NAV_ITEMS.map(({ label, href }) => (
           <li key={label}>
             <NavLink label={label} href={href} />
           </li>
         ))}
       </ul>
 
-      {/* Download button — always visible */}
-      <DownloadBtn small />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
+        {/* Download button — always visible */}
+        <DownloadBtn small />
+
+        {/* Hamburger — visible on mobile via CSS */}
+        <button
+          type="button"
+          className={`lp-nav-toggle${open ? ' lp-nav-toggle-open' : ''}`}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
+
+      {/* Mobile dropdown menu */}
+      <ul className={`lp-nav-links-mobile${open ? ' lp-nav-links-mobile-open' : ''}`}>
+        {LP_NAV_ITEMS.map(({ label, href }) => (
+          <li key={label}>
+            <NavLink label={label} href={href} onClick={() => setOpen(false)} />
+          </li>
+        ))}
+      </ul>
     </motion.nav>
   )
 }
 
-function NavLink({ label, href }: { label: string; href: string }) {
+function NavLink({ label, href, onClick }: { label: string; href: string; onClick?: () => void }) {
   const [hovered, setHovered] = useState(false)
   return (
     <Link
       href={href}
+      onClick={onClick}
       style={{ color: hovered ? T.text : T.muted, fontSize: '0.88rem', textDecoration: 'none', transition: 'color 0.2s' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -1041,6 +1078,8 @@ function LandingFooter() {
 
   const links = [
     { label: 'Blog', href: '/blog' },
+    { label: 'Checklist', href: '/checklist' },
+    { label: 'Default Passwords', href: '/default-passwords' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Terms of Service', href: '/terms' },
     { label: 'GitHub', href: 'https://github.com/sai1004/probeshield-releases' },

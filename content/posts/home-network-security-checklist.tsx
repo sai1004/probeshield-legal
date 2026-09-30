@@ -21,7 +21,8 @@ function Body() {
       <p className="legal-text">
         Every smart plug, camera, thermostat, and speaker ships with a default admin password. Manufacturers rarely
         force a change. If you&apos;ve never explicitly set a password on a device, assume it&apos;s still the default —
-        that&apos;s the single most exploited weakness in home networks.
+        that&apos;s the single most exploited weakness in home networks. See our{' '}
+        <Link href="/default-passwords">list of default passwords by brand</Link> to check yours.
       </p>
 
       <h2 className="blog-h2">3. Scan for open ports on anything IoT</h2>
@@ -34,7 +35,9 @@ function Body() {
       <p className="legal-text">
         This is the highest-leverage single fix on this list. Your router is the one device that, if compromised, gives
         an attacker visibility into everything else. If you&apos;ve never changed the admin login from what was printed
-        on the box or sticker, do this first, before anything else here.
+        on the box or sticker, do this first, before anything else here — check{' '}
+        <Link href="/default-passwords">your router brand&apos;s default</Link> if you&apos;re not sure what it shipped
+        with.
       </p>
 
       <h2 className="blog-h2">5. Turn off WPS</h2>
@@ -77,6 +80,14 @@ function Body() {
         that was clean when you last checked isn&apos;t guaranteed to still be clean. Treat this checklist as something
         to re-run every couple of months, not a one-time setup task.
       </p>
+
+      <div className="highlight-box">
+        <p>
+          <strong>Want to check these off as you go?</strong> Use the{' '}
+          <Link href="/checklist">interactive version of this checklist</Link> — it saves your progress on your
+          device so you can come back and re-check it in a few months.
+        </p>
+      </div>
 
       <div className="highlight-box">
         <p>

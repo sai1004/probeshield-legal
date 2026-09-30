@@ -116,6 +116,33 @@ a:hover { opacity: 0.8; }
   opacity: 1;
 }
 
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.navbar-toggle-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar-toggle-open span:nth-child(2) { opacity: 0; }
+.navbar-toggle-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 .page-wrapper {
   max-width: 780px;
   margin: 0 auto;
@@ -152,6 +179,7 @@ a:hover { opacity: 0.8; }
   line-height: 1.1;
   color: var(--text);
   margin-bottom: 1rem;
+  overflow-wrap: break-word;
 }
 
 .page-title span { color: var(--cyan); }
@@ -255,6 +283,7 @@ a:hover { opacity: 0.8; }
   color: #C4CDD8;
   line-height: 1.8;
   margin-bottom: 1rem;
+  overflow-wrap: anywhere;
 }
 
 .legal-text strong {
@@ -277,6 +306,8 @@ a:hover { opacity: 0.8; }
   font-size: 0.95rem;
   color: #C4CDD8;
   line-height: 1.6;
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
 .legal-list li::before {
@@ -370,10 +401,17 @@ a:hover { opacity: 0.8; }
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
   list-style: none;
   margin: 1rem 0;
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    gap: 0.9rem 1.2rem;
+  }
 }
 
 .footer-links a {
@@ -468,14 +506,15 @@ a:hover { opacity: 0.8; }
   margin: 2.2rem 0 1rem;
 }
 
-.blog-prose .legal-text code,
-.blog-prose .legal-list code {
+.legal-text code,
+.legal-list code {
   background: var(--bg-high);
   border: 1px solid var(--border-subtle);
   border-radius: 4px;
   padding: 0.1rem 0.4rem;
   font-size: 0.85em;
   color: var(--cyan);
+  overflow-wrap: anywhere;
 }
 
 .legal-list-numbered {
@@ -660,6 +699,10 @@ a:hover { opacity: 0.8; }
   margin-top: 2.5rem;
 }
 
+.lp-navbar {
+  padding: 0 2rem;
+}
+
 /* Nav links (hidden on mobile) */
 .lp-nav-links {
   display: flex;
@@ -668,6 +711,39 @@ a:hover { opacity: 0.8; }
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+/* Hamburger toggle (hidden on desktop) */
+.lp-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.lp-nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.lp-nav-toggle-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.lp-nav-toggle-open span:nth-child(2) { opacity: 0; }
+.lp-nav-toggle-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile dropdown menu (hidden on desktop) */
+.lp-nav-links-mobile {
+  display: none;
 }
 
 /* ─── Responsive ─────────────────────────────── */
@@ -690,6 +766,48 @@ a:hover { opacity: 0.8; }
   }
 }
 
+/* Homepage nav collapses earlier than other mobile breakpoints — 7 links plus the
+   brand and download button need ~1000px to stay on one line without wrapping. */
+@media (max-width: 1024px) {
+  .lp-nav-links {
+    display: none;
+  }
+
+  .lp-navbar {
+    padding: 0 1rem;
+  }
+
+  .lp-nav-toggle {
+    display: flex;
+  }
+
+  .lp-download-btn-small {
+    padding: 0.35rem 0.6rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  .lp-nav-links-mobile.lp-nav-links-mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    gap: 1.1rem;
+    background: rgba(5, 20, 36, 0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1.2rem 1.2rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    z-index: 150;
+  }
+
+  .lp-nav-links-mobile.lp-nav-links-mobile-open a {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 600px) {
   .lp-features-grid {
     grid-template-columns: 1fr;
@@ -697,10 +815,6 @@ a:hover { opacity: 0.8; }
 
   .lp-stats-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .lp-nav-links {
-    display: none;
   }
 
   .lp-section {
@@ -720,11 +834,52 @@ a:hover { opacity: 0.8; }
     display: none;
   }
 
-  /* Legal pages */
-  .navbar { padding: 0 1rem; }
-  .navbar-links { display: none; }
   .page-wrapper { padding: 2.5rem 1.2rem 4rem; }
   .page-meta { flex-direction: column; gap: 0.5rem; }
+}
+
+/* Legal-page navbar collapses earlier than other mobile breakpoints — 5 links
+   (including "Default Passwords") need ~766px to stay on one line without wrapping. */
+@media (max-width: 900px) {
+  .navbar { padding: 0 1rem; position: relative; }
+  .navbar-toggle { display: flex; }
+  .navbar-links {
+    display: none;
+  }
+  .navbar-links.navbar-links-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    gap: 1.1rem;
+    background: rgba(5, 20, 36, 0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1.2rem 1.2rem 1.5rem;
+    z-index: 150;
+  }
+  .navbar-links.navbar-links-open a {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .lp-download-prefix {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .lp-download-btn {
+    padding: 0.7rem 1.1rem !important;
+    font-size: 0.85rem !important;
+    gap: 0.4rem !important;
+  }
+  .lp-download-subtext {
+    display: none;
+  }
 }
 
 /* ════════════════════════════════════════════
@@ -817,4 +972,333 @@ a:hover { opacity: 0.8; }
 
 @media (prefers-reduced-motion: reduce) {
   .consent-banner { animation: none; }
+}
+
+/* ════════════════════════════════════════════
+   INTERACTIVE CHECKLIST (/checklist)
+   ════════════════════════════════════════════ */
+
+.checklist-tool {
+  animation: fadeUp 0.5s ease both;
+}
+
+.checklist-score {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.checklist-ring {
+  --pct: 0%;
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--cyan) var(--pct), var(--bg-high) var(--pct));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checklist-ring::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--bg-card2);
+}
+
+.checklist-ring-number {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.checklist-ring-total {
+  position: relative;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-left: 1px;
+  margin-top: 10px;
+}
+
+.checklist-score-text {
+  flex: 1;
+  min-width: 160px;
+}
+
+.checklist-score-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.checklist-score-sub {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.checklist-reset {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--muted);
+  border-radius: 8px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.checklist-reset:hover {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+.checklist-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  transition: border-color 0.2s, opacity 0.2s;
+}
+
+.checklist-item-checked {
+  border-color: rgba(75, 220, 193, 0.35);
+  opacity: 0.7;
+}
+
+.checklist-checkbox {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-subtle);
+  background: var(--bg-high);
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.checklist-item-checked .checklist-checkbox {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--primary-on);
+}
+
+.checklist-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.checklist-item-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.checklist-item-checked .checklist-item-label {
+  text-decoration: line-through;
+  text-decoration-color: var(--border-subtle);
+}
+
+.checklist-item-detail {
+  font-size: 0.85rem;
+  color: #C4CDD8;
+  line-height: 1.5;
+}
+
+.checklist-privacy-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 1.6rem;
+}
+
+@media (max-width: 600px) {
+  .checklist-score {
+    flex-direction: column;
+    text-align: center;
+  }
+  .checklist-reset {
+    width: 100%;
+  }
+}
+
+/* ════════════════════════════════════════════
+   DEFAULT CREDENTIALS FINDER (/default-passwords)
+   ════════════════════════════════════════════ */
+
+.creds-tool {
+  animation: fadeUp 0.5s ease both;
+}
+
+.creds-search {
+  margin-bottom: 1.6rem;
+}
+
+.creds-search input {
+  width: 100%;
+  background: var(--bg-card2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+.creds-search input:focus {
+  outline: none;
+  border-color: var(--cyan);
+}
+
+.creds-search input::placeholder {
+  color: var(--muted);
+}
+
+.creds-empty {
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+}
+
+.creds-empty a {
+  color: var(--cyan);
+}
+
+.creds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.creds-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.creds-card-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.creds-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.creds-row code {
+  background: var(--bg-high);
+  border-radius: 6px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.82rem;
+  color: var(--cyan);
+  overflow-wrap: anywhere;
+}
+
+.creds-service {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: var(--bg-high);
+  border-radius: 6px;
+  padding: 0.15rem 0.4rem;
+}
+
+.creds-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.creds-section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.creds-generic-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.6rem;
+  margin: 1rem 0 2rem;
+}
+
+.creds-row-generic {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+}
+
+.creds-cta {
+  background: var(--bg-card2);
+  border: 1px solid rgba(75, 220, 193, 0.25);
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  font-size: 0.9rem;
+}
+
+.creds-cta a {
+  color: var(--cyan);
+}
+
+@media (max-width: 600px) {
+  .creds-grid,
+  .creds-generic-list {
+    grid-template-columns: 1fr;
+  }
 }
