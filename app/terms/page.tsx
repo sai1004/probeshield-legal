@@ -49,7 +49,6 @@ export default function TermsOfService() {
               'Prohibited Use',
               'User Responsibilities',
               'Intellectual Property',
-              'Subscriptions and Payments',
               'Disclaimer of Warranties',
               'Limitation of Liability',
               'Indemnification',
@@ -93,7 +92,7 @@ export default function TermsOfService() {
             <li>Guided remediation recommendations</li>
           </ul>
           <p className="legal-text">
-            ProbeShield is available in a free tier and a Pro subscription tier with additional features. The features available in each tier are as described in the App and on probeshield.com.
+            ProbeShield is currently free to download and use, with no in-app purchases or subscriptions.
           </p>
         </section>
 
@@ -179,22 +178,6 @@ export default function TermsOfService() {
         {/* Section 7 */}
         <section className="legal-section" id="section-7">
           <div className="section-number">Section 07</div>
-          <h2 className="section-title">Subscriptions and Payments</h2>
-          <p className="legal-text">
-            ProbeShield offers a Pro subscription tier with additional features. The following terms apply to paid subscriptions:
-          </p>
-          <ul className="legal-list">
-            <li>Subscriptions are processed by Google Play Billing. We do not store or process payment information directly.</li>
-            <li>Subscriptions automatically renew at the end of each billing period unless cancelled.</li>
-            <li>You may cancel your subscription at any time through the Google Play Store. Cancellation takes effect at the end of the current billing period.</li>
-            <li>Refunds are subject to Google Play&apos;s refund policy. We do not offer independent refunds outside of Google Play processes.</li>
-            <li>We reserve the right to change subscription pricing with reasonable notice. Existing subscribers will be notified before any price change takes effect.</li>
-          </ul>
-        </section>
-
-        {/* Section 8 */}
-        <section className="legal-section" id="section-8">
-          <div className="section-number">Section 08</div>
           <h2 className="section-title">Disclaimer of Warranties</h2>
           <p className="legal-text">
             ProbeShield is provided on an &quot;as is&quot; and &quot;as available&quot; basis without warranties of any kind, either express or implied.
@@ -207,9 +190,9 @@ export default function TermsOfService() {
           </ul>
         </section>
 
-        {/* Section 9 */}
-        <section className="legal-section" id="section-9">
-          <div className="section-number">Section 09</div>
+        {/* Section 8 */}
+        <section className="legal-section" id="section-8">
+          <div className="section-number">Section 08</div>
           <h2 className="section-title">Limitation of Liability</h2>
           <p className="legal-text">
             To the maximum extent permitted by applicable law, ProbeShield and its developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from:
@@ -226,9 +209,9 @@ export default function TermsOfService() {
           </p>
         </section>
 
-        {/* Section 10 */}
-        <section className="legal-section" id="section-10">
-          <div className="section-number">Section 10</div>
+        {/* Section 9 */}
+        <section className="legal-section" id="section-9">
+          <div className="section-number">Section 09</div>
           <h2 className="section-title">Indemnification</h2>
           <p className="legal-text">
             You agree to indemnify, defend, and hold harmless ProbeShield, its developer, and affiliates from any claims, damages, losses, liabilities, costs, and expenses (including legal fees) arising from:
@@ -242,9 +225,9 @@ export default function TermsOfService() {
           </ul>
         </section>
 
-        {/* Section 11 */}
-        <section className="legal-section" id="section-11">
-          <div className="section-number">Section 11</div>
+        {/* Section 10 */}
+        <section className="legal-section" id="section-10">
+          <div className="section-number">Section 10</div>
           <h2 className="section-title">Termination</h2>
           <p className="legal-text">
             We reserve the right to terminate or suspend your access to ProbeShield at our sole discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties.
@@ -254,9 +237,9 @@ export default function TermsOfService() {
           </p>
         </section>
 
-        {/* Section 12 */}
-        <section className="legal-section" id="section-12">
-          <div className="section-number">Section 12</div>
+        {/* Section 11 */}
+        <section className="legal-section" id="section-11">
+          <div className="section-number">Section 11</div>
           <h2 className="section-title">Changes to Terms</h2>
           <p className="legal-text">
             We may update these Terms of Service at any time. We will notify you of material changes via an in-app notification. The updated Terms will be effective immediately upon posting to probeshield.com/terms.
@@ -266,9 +249,9 @@ export default function TermsOfService() {
           </p>
         </section>
 
-        {/* Section 13 */}
-        <section className="legal-section" id="section-13">
-          <div className="section-number">Section 13</div>
+        {/* Section 12 */}
+        <section className="legal-section" id="section-12">
+          <div className="section-number">Section 12</div>
           <h2 className="section-title">Governing Law</h2>
           <p className="legal-text">
             These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the competent courts in India.
@@ -278,9 +261,9 @@ export default function TermsOfService() {
           </p>
         </section>
 
-        {/* Section 14 */}
-        <section className="legal-section" id="section-14">
-          <div className="section-number">Section 14</div>
+        {/* Section 13 */}
+        <section className="legal-section" id="section-13">
+          <div className="section-number">Section 13</div>
           <h2 className="section-title">Contact Us</h2>
           <p className="legal-text">
             If you have any questions about these Terms of Service, please contact us:

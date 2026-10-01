@@ -156,7 +156,7 @@ export default function PrivacyPolicy() {
           </p>
           <ul className="legal-list">
             <li><strong>NIST National Vulnerability Database (NVD)</strong> — About once a week, on an unmetered connection (typically Wi-Fi), the app downloads recent public vulnerability records (CVEs) from <code>services.nvd.nist.gov</code> so the on-device scanner can recognise newly published issues. This is a download only: no scan results, device information, or personal data are sent. As with any web request, NVD&apos;s servers can see your device&apos;s IP address and the time of the request, which we do not receive or store. The request identifies itself as &quot;ProbeShield-CVE-Updater/1.0&quot;. NVD is operated by the U.S. National Institute of Standards and Technology and is governed by its own policies.</li>
-            <li><strong>Google Play Billing</strong> — Handles Pro subscription payments. ProbeShield never sees or stores your payment details. Governed by Google&apos;s Payments Privacy Notice.</li>
+            <li><strong>Google Play Billing</strong> — The app connects to Google Play&apos;s billing service on startup to check available subscription products and restore any existing purchase. Google Play Billing may receive your device&apos;s product query and purchase history as part of this; ProbeShield never sees or stores your payment details. A purchase flow is not currently available in the app. Governed by Google&apos;s Payments Privacy Notice.</li>
             <li><strong>Google Forms</strong> — Used for voluntary user feedback submission. Governed by Google&apos;s Privacy Policy. Submitting feedback is entirely optional.</li>
           </ul>
           <p className="legal-text">
