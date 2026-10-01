@@ -300,24 +300,23 @@ a:hover { opacity: 0.8; }
 }
 
 .legal-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
+  position: relative;
+  padding-left: 1.1rem;
   font-size: 0.95rem;
   color: #C4CDD8;
   line-height: 1.6;
   overflow-wrap: anywhere;
-  min-width: 0;
 }
 
 .legal-list li::before {
   content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--cyan);
-  margin-top: 0.55rem;
-  flex-shrink: 0;
 }
 
 .highlight-box {
@@ -523,6 +522,7 @@ a:hover { opacity: 0.8; }
 
 .legal-list-numbered li {
   counter-increment: legal-step;
+  padding-left: 1.8rem;
 }
 
 .legal-list-numbered li::before {
