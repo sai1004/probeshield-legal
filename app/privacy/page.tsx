@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
         {/* Intro */}
         <div className="highlight-box" style={{ marginBottom: '2rem' }}>
           <p>
-            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 6). Our website, but not the app, can use Google Analytics to count visits if you agree (see Section 7). We have nothing to sell and nothing to share.
+            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 7). Our website, but not the app, can use Google Analytics to count visits if you agree (see Section 8). We have nothing to sell and nothing to share.
           </p>
         </div>
 
@@ -47,6 +47,7 @@ export default function PrivacyPolicy() {
               'Information We Do Not Collect',
               'Information Stored Locally',
               'Network Scanning',
+              'Content Guard (Optional)',
               'Crash Reports',
               'Third Party Services',
               'Website and Analytics',
@@ -68,7 +69,7 @@ export default function PrivacyPolicy() {
           <div className="section-number">Section 01</div>
           <h2 className="section-title">Overview</h2>
           <p className="legal-text">
-            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and the website at probeshield.com. The app does not use analytics; the website can, but only with your consent (see Section 7).
+            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and the website at probeshield.com. The app does not use analytics; the website can, but only with your consent (see Section 8).
           </p>
           <p className="legal-text">
             We are committed to protecting your privacy. ProbeShield was built with a privacy-first architecture — the app operates entirely on your device and has no dependency on external servers for its core functionality.
@@ -138,6 +139,21 @@ export default function PrivacyPolicy() {
         {/* Section 5 */}
         <section className="legal-section" id="section-5">
           <div className="section-number">Section 05</div>
+          <h2 className="section-title">Content Guard (Optional)</h2>
+          <p className="legal-text">
+            Content Guard is an optional, off-by-default feature that blocks selected categories of domains (such as adult content or gambling) across your whole device, using Android&apos;s built-in VPN API entirely on-device — <strong>there is no remote VPN server</strong>, and no ProbeShield server of any kind is involved.
+          </p>
+          <p className="legal-text">
+            When enabled, it sees the domain names your apps look up (for example, &quot;instagram.com&quot;) — not the content of your traffic, and not which app made the request. Domains you&apos;ve chosen to block are stopped locally with no further network activity; everything else is forwarded, unmodified, to a public DNS resolver (Cloudflare, 1.1.1.1) to complete the lookup. Blocked domain names and the time they were blocked are logged locally on your device only, to show you a &quot;recently blocked&quot; list, and are deleted if you uninstall the app.
+          </p>
+          <p className="legal-text">
+            Before you can turn Content Guard on, the app shows its own explanation of what it does, separate from Android&apos;s system VPN permission prompt. A persistent notification stays visible the entire time it is active, and you can disable it at any time from the app or from that notification.
+          </p>
+        </section>
+
+        {/* Section 6 */}
+        <section className="legal-section" id="section-6">
+          <div className="section-number">Section 06</div>
           <h2 className="section-title">Crash Reports</h2>
           <p className="legal-text">
             If ProbeShield crashes, it saves a short report <strong>on your device only</strong> (the 10 most recent are kept; older ones are deleted automatically). A report contains the time of the crash, the app version, your Android version, your device&apos;s manufacturer and model, and the technical error details (a stack trace). It does <strong>not</strong> include your scan results, but technical error messages can occasionally mention details such as a network address, so please look a report over before you share it.
@@ -148,8 +164,8 @@ export default function PrivacyPolicy() {
         </section>
 
         {/* Section 6 */}
-        <section className="legal-section" id="section-6">
-          <div className="section-number">Section 06</div>
+        <section className="legal-section" id="section-7">
+          <div className="section-number">Section 07</div>
           <h2 className="section-title">Third Party Services</h2>
           <p className="legal-text">
             ProbeShield uses a minimal set of third-party services:
@@ -160,13 +176,13 @@ export default function PrivacyPolicy() {
             <li><strong>Google Forms</strong> — Used for voluntary user feedback submission. Governed by Google&apos;s Privacy Policy. Submitting feedback is entirely optional.</li>
           </ul>
           <p className="legal-text">
-            No advertising SDKs, tracking libraries, analytics platforms, or data brokers are integrated into the ProbeShield Android app. The website is covered separately in Section 7.
+            No advertising SDKs, tracking libraries, analytics platforms, or data brokers are integrated into the ProbeShield Android app. The website is covered separately in Section 8.
           </p>
         </section>
 
         {/* Section 7 */}
-        <section className="legal-section" id="section-7">
-          <div className="section-number">Section 07</div>
+        <section className="legal-section" id="section-8">
+          <div className="section-number">Section 08</div>
           <h2 className="section-title">Website and Analytics</h2>
           <p className="legal-text">
             This section covers the website at probeshield.com only. <strong>The Android app does not use Google Analytics or any similar analytics tool.</strong>
@@ -185,8 +201,8 @@ export default function PrivacyPolicy() {
         </section>
 
         {/* Section 8 */}
-        <section className="legal-section" id="section-8">
-          <div className="section-number">Section 08</div>
+        <section className="legal-section" id="section-9">
+          <div className="section-number">Section 09</div>
           <h2 className="section-title">Data Security</h2>
           <p className="legal-text">
             We take security seriously — it is, after all, what ProbeShield is about. Security measures in place include:
@@ -195,14 +211,14 @@ export default function PrivacyPolicy() {
             <li>App lock with PIN or biometric authentication to prevent unauthorized access</li>
             <li>PIN stored using Android Keystore — never in plain text</li>
             <li>Local database not world-readable — accessible only by the app</li>
-            <li>No external API calls for core scanning functionality (the weekly public CVE download is described in Section 6)</li>
+            <li>No external API calls for core scanning functionality (the weekly public CVE download is described in Section 7)</li>
             <li>ProGuard/R8 code obfuscation on release builds</li>
           </ul>
         </section>
 
         {/* Section 9 */}
-        <section className="legal-section" id="section-9">
-          <div className="section-number">Section 09</div>
+        <section className="legal-section" id="section-10">
+          <div className="section-number">Section 10</div>
           <h2 className="section-title">Children&apos;s Privacy</h2>
           <p className="legal-text">
             ProbeShield is not directed at children under the age of 13. We do not knowingly collect any personal information from children. If you believe a child has provided personal information through our app, please contact us and we will take immediate steps to address it.
@@ -210,8 +226,8 @@ export default function PrivacyPolicy() {
         </section>
 
         {/* Section 10 */}
-        <section className="legal-section" id="section-10">
-          <div className="section-number">Section 10</div>
+        <section className="legal-section" id="section-11">
+          <div className="section-number">Section 11</div>
           <h2 className="section-title">Changes to This Policy</h2>
           <p className="legal-text">
             We may update this Privacy Policy from time to time. When we do, we will update the &quot;Last Updated&quot; date at the top of this page and notify users via an in-app notification on the next app launch following a material change.
@@ -222,8 +238,8 @@ export default function PrivacyPolicy() {
         </section>
 
         {/* Section 11 */}
-        <section className="legal-section" id="section-11">
-          <div className="section-number">Section 11</div>
+        <section className="legal-section" id="section-12">
+          <div className="section-number">Section 12</div>
           <h2 className="section-title">Contact Us</h2>
           <p className="legal-text">
             If you have any questions, concerns, or requests regarding this Privacy Policy or ProbeShield&apos;s data practices, please contact us:
