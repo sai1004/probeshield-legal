@@ -239,7 +239,7 @@ export default function PrivacyPolicy() {
             </div>
             <div className="contact-row">
               <span className="contact-label">Email</span>
-              <span className="contact-value"><a href="mailto:sai.bsk1@gmail.com">sai.bsk1@gmail.com</a></span>
+              <span className="contact-value"><a href="mailto:support@probeshield.com">support@probeshield.com</a></span>
             </div>
             <div className="contact-row">
               <span className="contact-label">Website</span>

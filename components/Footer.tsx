@@ -12,7 +12,7 @@ export default function Footer() {
         <li><Link href="/privacy">Privacy Policy</Link></li>
         <li><Link href="/terms">Terms of Service</Link></li>
         <CookieSettingsButton />
-        <li><a href="mailto:sai.bsk1@gmail.com">Contact</a></li>
+        <li><a href="mailto:support@probeshield.com">Contact</a></li>
       </ul>
       <p className="footer-copy">© {new Date().getFullYear()} ProbeShield. All Rights Reserved.</p>
     </footer>
