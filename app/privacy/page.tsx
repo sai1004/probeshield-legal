@@ -234,10 +234,6 @@ export default function PrivacyPolicy() {
               <span className="contact-value">ProbeShield</span>
             </div>
             <div className="contact-row">
-              <span className="contact-label">Developer</span>
-              <span className="contact-value">Saikiran Bavandla</span>
-            </div>
-            <div className="contact-row">
               <span className="contact-label">Email</span>
               <span className="contact-value"><a href="mailto:support@probeshield.com">support@probeshield.com</a></span>
             </div>
