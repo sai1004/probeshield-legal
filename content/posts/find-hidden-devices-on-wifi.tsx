@@ -11,6 +11,25 @@ function Body() {
         networking expertise. It requires the right discovery method and five minutes.
       </p>
 
+      <h2 className="blog-h2">Checking manually: your router&apos;s admin panel</h2>
+      <p className="legal-text">
+        Before reaching for an app, it helps to know how to check this by hand — every router keeps a live connected-devices
+        list, you just have to log in to see it.
+      </p>
+      <ol className="legal-list legal-list-numbered">
+        <li>
+          Find your router&apos;s IP address. On most home networks it&apos;s <code>192.168.1.1</code> or{' '}
+          <code>192.168.0.1</code>. On Android: Settings → WiFi → tap your network → Advanced → look for
+          &quot;Gateway.&quot;
+        </li>
+        <li>Open that address in a browser and log in — check the sticker on the router itself if you&apos;ve never changed the default login.</li>
+        <li>Look for &quot;Connected Devices,&quot; &quot;Attached Devices,&quot; or &quot;DHCP Client List&quot; — the exact wording depends on your router brand.</li>
+      </ol>
+      <p className="legal-text">
+        This works, but it&apos;s exactly the limitation the next section covers: you&apos;ll see IP and MAC addresses, not
+        &quot;Mom&apos;s iPad&quot; or &quot;Living Room Camera.&quot;
+      </p>
+
       <h2 className="blog-h2">Why your router&apos;s device list isn&apos;t enough</h2>
       <p className="legal-text">
         Most routers show a &quot;connected devices&quot; list, but it&apos;s often incomplete or wrong. Routers typically rely on
@@ -52,6 +71,31 @@ function Body() {
         </p>
       </div>
 
+      <h2 className="blog-h2">Frequently asked questions</h2>
+      <p className="legal-text">
+        <strong>How many devices should normally be on my home network?</strong> There&apos;s no fixed number — it depends on
+        your household. A typical home with a few people and some smart devices might have 10–20 connected devices once
+        you count phones, laptops, TVs, speakers, and IoT gadgets. What matters isn&apos;t the count, it&apos;s whether you
+        recognize everything on the list.
+      </p>
+      <p className="legal-text">
+        <strong>Can someone connect to my WiFi without knowing the password?</strong> Yes, in specific cases — WPS (WiFi
+        Protected Setup) can be exploited without the actual password on some older routers, and a password that was
+        shared once and never changed is effectively public. Changing your password periodically and disabling WPS
+        closes both of these.
+      </p>
+      <p className="legal-text">
+        <strong>Will a scan show devices that are turned off?</strong> No — both router admin panels and network scanners
+        only show devices currently active on the network. A device that&apos;s switched off or out of range won&apos;t
+        appear until it reconnects.
+      </p>
+      <p className="legal-text">
+        <strong>Is ProbeShield open source?</strong> Not at this time. What we can tell you concretely: the scan runs
+        entirely on your device, nothing about your network is uploaded anywhere, and there&apos;s no account or server
+        involved — see our <Link href="/privacy">privacy policy</Link> for the full, specific breakdown of what the app
+        does and doesn&apos;t do with your data.
+      </p>
+
       <h2 className="blog-h2">Scanning regularly, not just once</h2>
       <p className="legal-text">
         Device discovery is most useful as a habit, not a one-time check. New devices join home networks constantly —
@@ -69,7 +113,19 @@ export const post: BlogPost = {
   description:
     'A practical guide to discovering every device on your home network — including the ones your router\'s device list misses — and what to do when you find one you don\'t recognize.',
   date: '2026-09-27',
-  readTime: '6 min read',
-  keywords: ['who is on my wifi', 'find hidden devices on network', 'unknown device connected to wifi', 'wifi device scanner'],
+  readTime: '8 min read',
+  keywords: [
+    'who is on my wifi',
+    'find hidden devices on network',
+    'unknown device connected to wifi',
+    'wifi device scanner',
+    'see all devices on my network',
+    'how to find devices on your network',
+    'discover network devices',
+    'connected devices on wifi',
+    'monitor devices on my wifi network',
+    'list all connected devices on network',
+    'how to check wifi connected devices',
+  ],
   Body,
 }
