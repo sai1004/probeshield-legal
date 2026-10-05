@@ -23,10 +23,10 @@ export default function PrivacyPolicy() {
               <strong>Effective Date:</strong> March 26, 2026
             </span>
             <span className="page-meta-item">
-              <strong>Last Updated:</strong> September 28, 2026
+              <strong>Last Updated:</strong> October 5, 2026
             </span>
             <span className="page-meta-item">
-              <strong>Version:</strong> 1.1
+              <strong>Version:</strong> 1.2
             </span>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
         {/* Intro */}
         <div className="highlight-box" style={{ marginBottom: '2rem' }}>
           <p>
-            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 6). Our website, but not the app, can use Google Analytics to count visits if you agree (see Section 7). We have nothing to sell and nothing to share.
+            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet request the app makes on its own is a weekly download of public vulnerability data (see Section 6). Our website, but not the app, can use Google Analytics to count visits if you agree (see Section 7), and offers a couple of optional lookup tools that send a small amount of technical data to our own minimal server (see Section 8). We have nothing to sell and nothing to share.
           </p>
         </div>
 
@@ -50,6 +50,7 @@ export default function PrivacyPolicy() {
               'Crash Reports',
               'Third Party Services',
               'Website and Analytics',
+              'Website Tools (MAC Lookup & Port Checker)',
               'Data Security',
               'Children\'s Privacy',
               'Changes to This Policy',
@@ -95,6 +96,9 @@ export default function PrivacyPolicy() {
           <div className="highlight-box">
             <p><strong>Your scan data never leaves your device.</strong> ProbeShield has no servers that receive or store scan results. Every vulnerability finding, device record, and scan history item lives exclusively in your phone&apos;s local storage.</p>
           </div>
+          <p className="legal-text">
+            This describes the Android app&apos;s scanning feature specifically. The website separately offers a couple of optional, standalone lookup tools that do send a small, different category of technical data — covered honestly in Section 8, not hidden behind this section&apos;s claims about the app.
+          </p>
         </section>
 
         {/* Section 3 */}
@@ -187,6 +191,28 @@ export default function PrivacyPolicy() {
         {/* Section 8 */}
         <section className="legal-section" id="section-8">
           <div className="section-number">Section 08</div>
+          <h2 className="section-title">Website Tools (MAC Lookup &amp; Port Checker)</h2>
+          <p className="legal-text">
+            probeshield.com offers a couple of small, free, optional tools — a <strong>MAC address vendor lookup</strong> and an <strong>external open-port checker</strong> — that are separate from the Android app and run on their own minimal server (<code>api.probeshield.com</code>), not the app&apos;s.
+          </p>
+          <ul className="legal-list">
+            <li><strong>MAC lookup</strong> sends only the first 6 characters of a MAC address (the manufacturer prefix) — never the full address, which is truncated in your browser before anything is sent, so the part that identifies your specific device never leaves it.</li>
+            <li><strong>Port checker</strong> sends the port number you choose and, necessarily, your device&apos;s public IP address — checking whether a port is reachable from outside your network requires testing from an external server by definition; there is no way to check a different target.</li>
+          </ul>
+          <div className="highlight-box">
+            <p><strong>Server logs for these tools, including IP addresses, are kept for approximately 14 days and then deleted automatically.</strong> They exist solely to detect and prevent abuse of the service (for example, automated scanning) — we do not use them for analytics, profiling, advertising, or any purpose beyond that.</p>
+          </div>
+          <p className="legal-text">
+            These tools require no account and aren&apos;t linked to any app usage, Play Store purchase, or identity. Requests to them pass through <strong>Cloudflare</strong>, which provides DNS, reverse-proxy routing, DDoS protection, and the tunnel connecting our server to the internet — as with any web request, Cloudflare processes technical request data (such as your IP address) to deliver and protect the service.
+          </p>
+          <p className="legal-text">
+            None of this affects the Android app&apos;s core scanning feature, which remains entirely on-device as described throughout this policy. These are separate, optional website utilities you choose to use — not something the app does on its own.
+          </p>
+        </section>
+
+        {/* Section 9 */}
+        <section className="legal-section" id="section-9">
+          <div className="section-number">Section 09</div>
           <h2 className="section-title">Data Security</h2>
           <p className="legal-text">
             We take security seriously — it is, after all, what ProbeShield is about. Security measures in place include:
@@ -200,18 +226,18 @@ export default function PrivacyPolicy() {
           </ul>
         </section>
 
-        {/* Section 9 */}
-        <section className="legal-section" id="section-9">
-          <div className="section-number">Section 09</div>
+        {/* Section 10 */}
+        <section className="legal-section" id="section-10">
+          <div className="section-number">Section 10</div>
           <h2 className="section-title">Children&apos;s Privacy</h2>
           <p className="legal-text">
             ProbeShield is not directed at children under the age of 13. We do not knowingly collect any personal information from children. If you believe a child has provided personal information through our app, please contact us and we will take immediate steps to address it.
           </p>
         </section>
 
-        {/* Section 10 */}
-        <section className="legal-section" id="section-10">
-          <div className="section-number">Section 10</div>
+        {/* Section 11 */}
+        <section className="legal-section" id="section-11">
+          <div className="section-number">Section 11</div>
           <h2 className="section-title">Changes to This Policy</h2>
           <p className="legal-text">
             We may update this Privacy Policy from time to time. When we do, we will update the &quot;Last Updated&quot; date at the top of this page and notify users via an in-app notification on the next app launch following a material change.
@@ -221,9 +247,9 @@ export default function PrivacyPolicy() {
           </p>
         </section>
 
-        {/* Section 11 */}
-        <section className="legal-section" id="section-11">
-          <div className="section-number">Section 11</div>
+        {/* Section 12 */}
+        <section className="legal-section" id="section-12">
+          <div className="section-number">Section 12</div>
           <h2 className="section-title">Contact Us</h2>
           <p className="legal-text">
             If you have any questions, concerns, or requests regarding this Privacy Policy or ProbeShield&apos;s data practices, please contact us:
