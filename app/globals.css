@@ -1302,3 +1302,118 @@ a:hover { opacity: 0.8; }
     grid-template-columns: 1fr;
   }
 }
+
+.mac-tool {
+  animation: fadeUp 0.5s ease both;
+}
+
+.mac-search {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.mac-search input {
+  flex: 1 1 280px;
+  background: var(--bg-card2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+.mac-search input:focus {
+  outline: none;
+  border-color: var(--cyan);
+}
+
+.mac-search input::placeholder {
+  color: var(--muted);
+}
+
+.mac-search button {
+  background: var(--cyan);
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 1.4rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.mac-search button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.mac-live-hint {
+  font-size: 0.8rem;
+  color: var(--risk-medium);
+  margin: -0.4rem 0 0.8rem;
+}
+
+.mac-privacy-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+}
+
+.mac-result {
+  border-radius: 12px;
+  padding: 1.2rem 1.3rem;
+  margin-bottom: 1.6rem;
+}
+
+.mac-result-found {
+  background: var(--bg-card2);
+  border: 1px solid rgba(75, 220, 193, 0.25);
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.mac-result-oui {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--cyan);
+  font-size: 1rem;
+}
+
+.mac-result-vendor {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.mac-result-empty {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.mac-result-empty code {
+  background: var(--bg-high);
+  border-radius: 6px;
+  padding: 0.1rem 0.4rem;
+  color: var(--cyan);
+}
+
+@media (max-width: 600px) {
+  .mac-search {
+    flex-direction: column;
+  }
+  .mac-search button {
+    width: 100%;
+  }
+}

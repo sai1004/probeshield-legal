@@ -36,7 +36,10 @@ function Body() {
         DHCP lease tables, which miss devices using static IPs, devices that connected briefly and dropped off, and
         anything hiding behind a MAC address randomization feature (which is now default on most phones). You end up
         with a list of cryptic hostnames like <code>android-7f3a91</code> and no way to tell which one is your
-        neighbor&apos;s smart plug and which one is an actual intruder.
+        neighbor&apos;s smart plug and which one is an actual intruder. If you do have a MAC address but not a
+        name, our free{' '}
+        <Link href="/tools/mac-lookup">MAC address vendor lookup tool</Link> will at least tell you the
+        manufacturer in a few seconds.
       </p>
 
       <h2 className="blog-h2">The three ways devices reveal themselves</h2>
