@@ -8,8 +8,7 @@ const NAV_LINKS = [
   { href: '/blog', label: 'Blog' },
   { href: '/checklist', label: 'Checklist' },
   { href: '/default-passwords', label: 'Default Passwords' },
-  { href: '/privacy', label: 'Privacy Policy' },
-  { href: '/terms', label: 'Terms of Service' },
+  { href: '/tools/mac-lookup', label: 'MAC Lookup' },
 ]
 
 export default function Navbar() {

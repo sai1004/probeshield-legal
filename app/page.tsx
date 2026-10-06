@@ -54,7 +54,6 @@ const jsonLd = {
       },
       url: 'https://probeshield.com',
       downloadUrl: 'https://play.google.com/store/apps/details?id=com.probeshield',
-      releaseNotes: 'https://github.com/sai1004/probeshield-releases/blob/main/CHANGELOG.md',
       featureList: [
         'ARP + mDNS + Ping device discovery',
         'Top 100 TCP port scanning per device',
@@ -83,9 +82,6 @@ const jsonLd = {
         email: 'support@probeshield.com',
         contactType: 'customer support',
       },
-      sameAs: [
-        'https://github.com/sai1004/probeshield-releases',
-      ],
     },
     {
       '@type': 'WebSite',
