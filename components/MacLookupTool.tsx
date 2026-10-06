@@ -15,7 +15,7 @@ type LookupState =
 // Only hex digits and common MAC separators are ever valid input. Anything
 // else means the user pasted something that isn't a MAC address at all —
 // reject it outright rather than silently stripping it, since silently
-// stripping stray characters (e.g. the "e" in "hello3ca6f6") would otherwise
+// stripping stray characters (e.g. the "e" in "hellob827eb") would otherwise
 // extract a plausible-looking but wrong OUI instead of flagging the mistake.
 const ALLOWED_CHARS = /^[0-9A-Fa-f:\-.\s]*$/
 const SEPARATORS = /[:\-.\s]/g
@@ -72,7 +72,7 @@ export default function MacLookupTool() {
           inputMode="text"
           required
           maxLength={32}
-          placeholder="Paste a MAC address, e.g. 3C:A6:F6:9D:2E:11"
+          placeholder="Paste a MAC address, e.g. B8:27:EB:A1:B2:C3"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           aria-label="MAC address or OUI"
@@ -114,7 +114,7 @@ export default function MacLookupTool() {
 
       {state.status === 'invalid' && (
         <div className="mac-result mac-result-empty">
-          <p>That doesn&apos;t look like a MAC address — paste at least the first 6 hex characters (e.g. <code>3CA6F6</code> or <code>3C:A6:F6</code>).</p>
+          <p>That doesn&apos;t look like a MAC address — paste at least the first 6 hex characters (e.g. <code>B827EB</code> or <code>B8:27:EB</code>).</p>
         </div>
       )}
 

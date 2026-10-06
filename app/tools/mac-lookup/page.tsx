@@ -23,7 +23,7 @@ export default function MacLookupPage() {
           </h1>
           <p className="legal-text" style={{ marginTop: '0.5rem' }}>
             Router admin panels and network scanners show a MAC address like{' '}
-            <code>3C:A6:F6:9D:2E:11</code> — not a name you&apos;d recognize. Paste it here to find out
+            <code>B8:27:EB:A1:B2:C3</code> — not a name you&apos;d recognize. Paste it here to find out
             the manufacturer. Looked up against the IEEE&apos;s public registry, entirely server-side,
             with only the first 6 characters (the vendor prefix) ever transmitted.
           </p>
@@ -33,8 +33,8 @@ export default function MacLookupPage() {
 
         <div className="blog-cta">
           <div className="blog-cta-text">
-            <strong>Want to see every device on your network, labeled automatically?</strong> ProbeShield
-            scans your WiFi and does this lookup for every device at once — 100% on-device, free.
+            <strong>Want to see every device on your network?</strong> ProbeShield scans your WiFi and
+            shows you what&apos;s connected — 100% on-device, free.
           </div>
           <a
             href="https://play.google.com/store/apps/details?id=com.probeshield"
