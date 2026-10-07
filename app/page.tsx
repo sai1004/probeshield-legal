@@ -108,7 +108,7 @@ const jsonLd = {
           name: 'Does ProbeShield send my data to the cloud?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No. Scanning and analysis run on your Android device, and your scan data is stored locally and never uploaded to any server. The only thing the app downloads on its own is public vulnerability (CVE) data from the NIST National Vulnerability Database, about once a week; nothing about you or your network is sent with that request.',
+            text: 'No. Scanning and vulnerability matching run on your Android device, and your scan data is stored locally and never uploaded to any server. The only thing the app does on its own is sync public CVE data from our own server about once a week, sourced from the NIST National Vulnerability Database; nothing about you, your network, or your scan results is sent with that request.',
           },
         },
         {
