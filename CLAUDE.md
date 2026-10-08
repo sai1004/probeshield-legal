@@ -124,6 +124,30 @@ https://play.google.com/store/apps/details?id=com.probeshield
 
 Update this in `components/LandingPage.tsx` if the Play Store URL changes.
 
+## URL conventions (read before touching metadata/sitemap)
+
+`next.config.mjs` sets `trailingSlash: true`. Every route except the root is
+served at `/path/` and 308-redirects from `/path` (no slash) — Cloudflare
+Pages enforces this at the edge to match the static export's `path/index.html`
+file layout. `next/link` already respects this automatically in rendered
+`href`s; it's only ever a problem in **hardcoded URL strings** — `app/sitemap.ts`,
+each page's `alternates.canonical`, and any JSON-LD `url`/`@id` field. All of
+those must include the trailing slash (except the bare root). A sitemap entry
+or canonical tag that points at a URL which just redirects elsewhere is
+exactly what Google Search Console flags as "Page with redirect" — this
+happened for real here once (every non-root sitemap URL was wrong) before
+being caught and fixed; don't reintroduce it when adding a new page.
+
+**www/apex**: both `probeshield.com` and `www.probeshield.com` are attached
+as custom domains on the same Cloudflare Pages project, and currently both
+serve `200` directly — there is no host-level redirect consolidating them,
+only a self-referencing canonical tag (soft signal, not a hard fix). Fixing
+this requires a zone-level Cloudflare **Redirect Rule** ("Redirect from WWW
+to root" template, dashboard → zone → Rules → Redirect Rules) — not a
+`public/_redirects` file, which is path-only and cannot match by hostname.
+Nobody has set this up yet; it's not in the repo and won't be found by
+searching the codebase.
+
 ## Deployment
 
 The site is a fully static export. No Node.js server needed in production.

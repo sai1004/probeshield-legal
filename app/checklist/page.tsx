@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Home Network Security Checklist (Interactive)',
   description:
     'Check off the 10 things that actually matter for home network security, and come back to re-check them. Saved on your device only — nothing is sent anywhere.',
-  alternates: { canonical: 'https://probeshield.com/checklist' },
+  alternates: { canonical: 'https://probeshield.com/checklist/' },
 }
 
 export default function ChecklistPage() {

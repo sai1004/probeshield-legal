@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Privacy Policy — ProbeShield',
   description: 'Privacy Policy for ProbeShield Android app and web services. Learn how we handle your data.',
-  alternates: { canonical: 'https://probeshield.com/privacy' },
+  alternates: { canonical: 'https://probeshield.com/privacy/' },
 }
 
 export default function PrivacyPolicy() {
@@ -159,10 +159,18 @@ export default function PrivacyPolicy() {
             ProbeShield uses a minimal set of third-party services:
           </p>
           <ul className="legal-list">
-            <li><strong>NIST National Vulnerability Database (NVD)</strong> — About once a week, on an unmetered connection (typically Wi-Fi), the app downloads recent public vulnerability records (CVEs) from <code>services.nvd.nist.gov</code> so the on-device scanner can recognise newly published issues. This is a download only: no scan results, device information, or personal data are sent. As with any web request, NVD&apos;s servers can see your device&apos;s IP address and the time of the request, which we do not receive or store. The request identifies itself as &quot;ProbeShield-CVE-Updater/1.0&quot;. NVD is operated by the U.S. National Institute of Standards and Technology and is governed by its own policies.</li>
             <li><strong>Google Play Billing</strong> — The app connects to Google Play&apos;s billing service on startup to check available subscription products and restore any existing purchase. Google Play Billing may receive your device&apos;s product query and purchase history as part of this; ProbeShield never sees or stores your payment details. A purchase flow is not currently available in the app. Governed by Google&apos;s Payments Privacy Notice.</li>
             <li><strong>Google Forms</strong> — Used for voluntary user feedback submission. Governed by Google&apos;s Privacy Policy. Submitting feedback is entirely optional.</li>
           </ul>
+          <p className="legal-text">
+            The app also makes one request of its own, to our own server rather than a third party — described next.
+          </p>
+          <p className="legal-text">
+            <strong>CVE catalog sync (our own server).</strong> About once a week, on an unmetered connection (typically Wi-Fi), the app asks <code>api.probeshield.com</code> — a server we operate — for any public vulnerability records (CVEs) added or changed since its last check, so the on-device scanner can recognise newly published issues. The request sends only a sync timestamp; no scan results, device information, or personal data are included or requested. Vulnerability <em>matching</em> itself — comparing something the scanner found against this catalog — always happens on your device, using the locally-synced copy; our server never sees or receives what your scanner finds.
+          </p>
+          <p className="legal-text">
+            Our server, in turn, builds that catalog from the U.S. National Institute of Standards and Technology&apos;s public National Vulnerability Database (NVD), on its own periodic schedule — not per device. Because of this, NVD never sees your device&apos;s IP address or knows your device exists; only our server contacts NVD directly.
+          </p>
           <p className="legal-text">
             No advertising SDKs, tracking libraries, analytics platforms, or data brokers are integrated into the ProbeShield Android app. The website is covered separately in Section 7.
           </p>
@@ -193,7 +201,7 @@ export default function PrivacyPolicy() {
           <div className="section-number">Section 08</div>
           <h2 className="section-title">Website Tools (MAC Lookup &amp; Port Checker)</h2>
           <p className="legal-text">
-            probeshield.com offers a couple of small, free, optional tools — a <strong>MAC address vendor lookup</strong> and an <strong>external open-port checker</strong> — that are separate from the Android app and run on their own minimal server (<code>api.probeshield.com</code>), not the app&apos;s.
+            probeshield.com also offers a couple of small, free, optional tools — a <strong>MAC address vendor lookup</strong> and an <strong>external open-port checker</strong> — on the same minimal server (<code>api.probeshield.com</code>) the app uses for CVE catalog sync (Section 6). These two tools are separate from the Android app itself: they&apos;re used from your browser on the website, not from inside the app.
           </p>
           <ul className="legal-list">
             <li><strong>MAC lookup</strong> sends only the first 6 characters of a MAC address (the manufacturer prefix) — never the full address, which is truncated in your browser before anything is sent, so the part that identifies your specific device never leaves it.</li>
@@ -206,7 +214,7 @@ export default function PrivacyPolicy() {
             These tools require no account and aren&apos;t linked to any app usage, Play Store purchase, or identity. Requests to them pass through <strong>Cloudflare</strong>, which provides DNS, reverse-proxy routing, DDoS protection, and the tunnel connecting our server to the internet — as with any web request, Cloudflare processes technical request data (such as your IP address) to deliver and protect the service.
           </p>
           <p className="legal-text">
-            None of this affects the Android app&apos;s core scanning feature, which remains entirely on-device as described throughout this policy. These are separate, optional website utilities you choose to use — not something the app does on its own.
+            None of this affects the Android app&apos;s core scanning and vulnerability-matching, which remain entirely on-device as described throughout this policy. These two tools are separate, optional website utilities you choose to use in your browser — not something the app does on its own. (The app&apos;s own, narrower use of this same server — CVE catalog sync only — is described in Section 6.)
           </p>
         </section>
 

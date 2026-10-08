@@ -874,8 +874,9 @@ function PrivacySection() {
                 margin: '1.6rem auto 0',
               }}
             >
-              The only thing the app fetches on its own is a weekly download of public vulnerability (CVE) data
-              from NIST&apos;s National Vulnerability Database. Nothing about you or your network is sent with it.
+              The only thing the app does on its own is a weekly sync of public vulnerability (CVE) data from our
+              own server, sourced from NIST&apos;s National Vulnerability Database. Nothing about you, your network,
+              or your scan results is sent with it.
             </motion.p>
 
             <motion.div
