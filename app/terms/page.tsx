@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Terms of Service — ProbeShield',
   description: 'Terms of Service for ProbeShield Android app. Read our usage terms before using the app.',
-  alternates: { canonical: 'https://probeshield.com/terms' },
+  alternates: { canonical: 'https://probeshield.com/terms/' },
 }
 
 export default function TermsOfService() {

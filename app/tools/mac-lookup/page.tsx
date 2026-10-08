@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'MAC Address Vendor Lookup — Free Tool',
   description:
     'Paste a MAC address from your router\'s device list and find out the manufacturer instantly. Free, no account, and only the vendor prefix ever leaves your browser.',
-  alternates: { canonical: 'https://probeshield.com/tools/mac-lookup' },
+  alternates: { canonical: 'https://probeshield.com/tools/mac-lookup/' },
 }
 
 export default function MacLookupPage() {

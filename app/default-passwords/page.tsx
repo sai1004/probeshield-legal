@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Default Router & Device Passwords by Brand',
   description:
     "The default admin logins ProbeShield's own scanner tests, by brand — not a claim to cover every model. Check yours, then change it.",
-  alternates: { canonical: 'https://probeshield.com/default-passwords' },
+  alternates: { canonical: 'https://probeshield.com/default-passwords/' },
 }
 
 function groupByBrand() {

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Blog — Home Network Security Guides',
   description:
     'Practical, no-nonsense guides to home network security — finding devices on your WiFi, checking open ports, securing IP cameras, and auditing your network.',
-  alternates: { canonical: 'https://probeshield.com/blog' },
+  alternates: { canonical: 'https://probeshield.com/blog/' },
 }
 
 export default function BlogIndex() {

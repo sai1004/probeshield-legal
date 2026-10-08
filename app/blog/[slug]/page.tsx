@@ -16,10 +16,10 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: post.title,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: `https://probeshield.com/blog/${post.slug}` },
+    alternates: { canonical: `https://probeshield.com/blog/${post.slug}/` },
     openGraph: {
       type: 'article',
-      url: `https://probeshield.com/blog/${post.slug}`,
+      url: `https://probeshield.com/blog/${post.slug}/`,
       title: post.title,
       description: post.description,
       publishedTime: post.date,
@@ -53,7 +53,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       url: 'https://probeshield.com',
       logo: { '@type': 'ImageObject', url: 'https://probeshield.com/logo.png' },
     },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://probeshield.com/blog/${post.slug}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://probeshield.com/blog/${post.slug}/` },
   }
 
   return (

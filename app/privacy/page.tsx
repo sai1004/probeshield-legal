@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Privacy Policy — ProbeShield',
   description: 'Privacy Policy for ProbeShield Android app and web services. Learn how we handle your data.',
-  alternates: { canonical: 'https://probeshield.com/privacy' },
+  alternates: { canonical: 'https://probeshield.com/privacy/' },
 }
 
 export default function PrivacyPolicy() {
