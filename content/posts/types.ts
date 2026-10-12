@@ -1,3 +1,5 @@
+export type BlogFaq = { question: string; answer: string }
+
 export type BlogPost = {
   slug: string
   title: string
@@ -5,5 +7,6 @@ export type BlogPost = {
   date: string
   readTime: string
   keywords: string[]
+  faqs?: BlogFaq[]
   Body: React.ComponentType
 }
