@@ -1,4 +1,5 @@
 import type { BlogPost } from './types'
+import { post as stealingWifi } from './how-to-know-if-someone-is-stealing-your-wifi'
 import { post as findHiddenDevices } from './find-hidden-devices-on-wifi'
 import { post as openPorts } from './open-ports-home-network-risk'
 import { post as ipCamera } from './is-my-ip-camera-exposed'
@@ -8,6 +9,7 @@ import { post as wifiDisconnects } from './wifi-disconnects-android'
 export type { BlogPost }
 
 export const posts: BlogPost[] = [
+  stealingWifi,
   wifiDisconnects,
   checklist,
   findHiddenDevices,

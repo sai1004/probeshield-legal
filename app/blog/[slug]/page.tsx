@@ -56,9 +56,22 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://probeshield.com/blog/${post.slug}/` },
   }
 
+  const faqJsonLd = post.faqs && {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: post.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  }
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
       <Navbar />
       <main className="page-wrapper">
         <div className="page-header">
@@ -77,6 +90,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
         <article className="blog-prose">
           <Body />
+          {post.faqs && (
+            <>
+              <h2 className="blog-h2">Frequently asked questions</h2>
+              {post.faqs.map((f) => (
+                <p key={f.question} className="legal-text">
+                  <strong>{f.question}</strong> {f.answer}
+                </p>
+              ))}
+            </>
+          )}
         </article>
 
         <div className="blog-cta">
