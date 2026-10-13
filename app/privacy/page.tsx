@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
               <strong>Last Updated:</strong> October 13, 2026
             </span>
             <span className="page-meta-item">
-              <strong>Version:</strong> 1.3
+              <strong>Version:</strong> 1.4
             </span>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
         {/* Intro */}
         <div className="highlight-box" style={{ marginBottom: '2rem' }}>
           <p>
-            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet requests the app makes on its own are a weekly download of public vulnerability data (see Section 6), and, only if you turn it on yourself in Settings, automatic crash reports to Google Firebase (off by default — see Section 5). Our website, but not the app, can use Google Analytics to count visits if you agree (see Section 7), and offers a couple of optional lookup tools that send a small amount of technical data to our own minimal server (see Section 8). We have nothing to sell and nothing to share.
+            <strong>Short version:</strong> ProbeShield does not collect, transmit, or store any personal data on external servers. All scanning activity runs entirely on your device. The only internet requests the app makes on its own are a weekly download of public vulnerability data (see Section 6), and automatic crash reports to Google Firebase if the app crashes (see Section 5). Our website, but not the app, can use Google Analytics to count visits if you agree (see Section 7), and offers a couple of optional lookup tools that send a small amount of technical data to our own minimal server (see Section 8). We have nothing to sell and nothing to share.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function PrivacyPolicy() {
           <div className="section-number">Section 01</div>
           <h2 className="section-title">Overview</h2>
           <p className="legal-text">
-            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and the website at probeshield.com. The app does not track your behaviour or usage in any way; the website can use Google Analytics, but only with your consent (see Section 7). The app does have one opt-in exception for crash reporting — off by default, see Section 5.
+            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and the website at probeshield.com. The app does not track your behaviour or usage in any way; the website can use Google Analytics, but only with your consent (see Section 7). The app does automatically send a crash report if it crashes — see Section 5 for exactly what that contains.
           </p>
           <p className="legal-text">
             We are committed to protecting your privacy. ProbeShield was built with a privacy-first architecture — the app operates entirely on your device and has no dependency on external servers for its core functionality.
@@ -144,10 +144,10 @@ export default function PrivacyPolicy() {
           <div className="section-number">Section 05</div>
           <h2 className="section-title">Crash Reports</h2>
           <p className="legal-text">
-            If ProbeShield crashes, it always saves a short report <strong>on your device only</strong> (the 10 most recent are kept; older ones are deleted automatically). A report contains the time of the crash, the app version, your Android version, your device&apos;s manufacturer and model, and the technical error details (a stack trace). It does <strong>not</strong> include your scan results, but technical error messages can occasionally mention details such as a network address, so please look a report over before you share it. By default, <strong>nothing is sent automatically</strong> — when reports are waiting, Settings shows a &quot;Share crash report&quot; option, which opens Android&apos;s share sheet so you decide where the report goes (for example, an email to us), and it is then removed from your device.
+            If ProbeShield crashes, it always saves a short report <strong>on your device</strong> (the 10 most recent are kept; older ones are deleted automatically). A report contains the time of the crash, the app version, your Android version, your device&apos;s manufacturer and model, and the technical error details (a stack trace). It does <strong>not</strong> include your scan results, but technical error messages can occasionally mention details such as a network address, so please look a report over before you share it. When reports are waiting, Settings also shows a &quot;Share crash report&quot; option, which opens Android&apos;s share sheet so you can forward a copy yourself (for example, by email to us) — this is separate from, and in addition to, the automatic reporting described below.
           </p>
           <p className="legal-text">
-            <strong>Automatic crash reporting (opt-in, off by default).</strong> Settings has an &quot;Automatic crash reporting&quot; toggle. Turn it on, and future crashes are also sent automatically to <strong>Google Firebase Crashlytics</strong> — the same device model, Android version, app version, and stack trace described above, plus a Firebase-generated installation identifier (not tied to your name, email, or any account, since the app has none). It is <strong>never</strong> on by default; you have to turn it on yourself, and you can turn it off again at any time in the same place. Turning it off stops future reports from being sent; it does not delete reports Google has already received. Governed by Google&apos;s Privacy Policy and Firebase&apos;s own terms.
+            <strong>Automatic crash reporting.</strong> ProbeShield also sends the same information automatically to <strong>Google Firebase Crashlytics</strong> — the device model, Android version, app version, and stack trace described above, plus a Firebase-generated installation identifier (not tied to your name, email, or any account, since the app has none). This happens for every crash and cannot be turned off from within the app: we need crash reports to find and fix bugs, and an opt-out would mean learning about crashes from only a fraction of the people who hit them. Governed by Google&apos;s Privacy Policy and Firebase&apos;s own terms.
           </p>
         </section>
 
@@ -161,7 +161,7 @@ export default function PrivacyPolicy() {
           <ul className="legal-list">
             <li><strong>Google Play Billing</strong> — The app connects to Google Play&apos;s billing service on startup to check available subscription products and restore any existing purchase. Google Play Billing may receive your device&apos;s product query and purchase history as part of this; ProbeShield never sees or stores your payment details. A purchase flow is not currently available in the app. Governed by Google&apos;s Payments Privacy Notice.</li>
             <li><strong>Google Forms</strong> — Used for voluntary user feedback submission. Governed by Google&apos;s Privacy Policy. Submitting feedback is entirely optional.</li>
-            <li><strong>Google Firebase Crashlytics</strong> — Opt-in, off by default. Only active if you turn on &quot;Automatic crash reporting&quot; in Settings; see Section 5 for exactly what it sends. Governed by Google&apos;s Privacy Policy.</li>
+            <li><strong>Google Firebase Crashlytics</strong> — Active on every crash; see Section 5 for exactly what it sends. Governed by Google&apos;s Privacy Policy.</li>
           </ul>
           <p className="legal-text">
             The app also makes one request of its own, to our own server rather than a third party — described next.
@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
             Our server, in turn, builds that catalog from the U.S. National Institute of Standards and Technology&apos;s public National Vulnerability Database (NVD), on its own periodic schedule — not per device. Because of this, NVD never sees your device&apos;s IP address or knows your device exists; only our server contacts NVD directly.
           </p>
           <p className="legal-text">
-            No advertising SDKs, tracking libraries, behavioural-analytics platforms, or data brokers are integrated into the ProbeShield Android app. The one exception is the opt-in crash reporter above, which only ever sees crash data, never your scan results, device list, or how you use the app — and is off until you turn it on yourself. The website is covered separately in Section 7.
+            No advertising SDKs, tracking libraries, behavioural-analytics platforms, or data brokers are integrated into the ProbeShield Android app. The one exception is the crash reporter above, which only ever sees crash data — never your scan results, device list, or how you use the app. The website is covered separately in Section 7.
           </p>
         </section>
 
