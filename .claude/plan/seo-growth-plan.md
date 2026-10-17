@@ -91,9 +91,12 @@ Draft 3 targeted articles in `content/posts/`:
 - **Structured FAQ:** 6 Q&As targeting Google FAQPage rich snippet.
 - **ProbeShield CTA:** Contextual recommendation to scan the device's open ports and verify manufacturer identity on-device.
 
-### Article 2: "How to Tell If Your Router Is Hacked (10 Warning Signs & Fixes)"
+### Article 2: "How to Tell If Your Router Is Hacked (10 Warning Signs & Fixes)" — COMPLETED
+- [x] **File:** [`content/posts/how-to-tell-if-your-router-is-hacked.tsx`](file:///Users/shravan/work/projects/probeshield/probeshield-legal/content/posts/how-to-tell-if-your-router-is-hacked.tsx)
+- **Slug:** `/blog/how-to-tell-if-your-router-is-hacked/`
 - **Intent:** Catches worried users searching for DNS hijacking, rogue admin logins, redirect ads, and unfamiliar connected IPs.
-- **Content:** DNS check (1.1.1.1 / 8.8.8.8 vs rogue DNS), unauthorized port forwards, firmware version checks, remote management settings.
+- **Content:** 10 warning signs, DNS verification, gateway port audit, UPnP check, and the 6-step recovery protocol.
+- **Structured FAQ:** 6 Q&As targeting Google FAQPage rich snippet.
 - **ProbeShield CTA:** *"Scan for open management ports (Telnet 23, SSH 22, Web 80/8080) on your gateway."*
 
 ### Article 3: "Why Is My Router Showing Devices That Aren't Home? (Ghost Devices & Private MACs)"

@@ -6,10 +6,12 @@ import { post as ipCamera } from './is-my-ip-camera-exposed'
 import { post as checklist } from './home-network-security-checklist'
 import { post as wifiDisconnects } from './wifi-disconnects-android'
 import { post as espressifDevice } from './what-is-espressif-device-on-wifi'
+import { post as routerHacked } from './how-to-tell-if-your-router-is-hacked'
 
 export type { BlogPost }
 
 export const posts: BlogPost[] = [
+  routerHacked,
   espressifDevice,
   stealingWifi,
   wifiDisconnects,
