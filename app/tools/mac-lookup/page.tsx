@@ -47,7 +47,7 @@ export default function MacLookupPage() {
         </div>
 
         <p className="legal-text" style={{ fontSize: '0.85rem', marginTop: '1rem' }}>
-          Related: <Link href="/blog/find-hidden-devices-on-wifi">How to find every device connected to your WiFi network</Link>
+          Related: <Link href="/blog/find-hidden-devices-on-wifi/">How to find every device connected to your WiFi network</Link>
         </p>
       </main>
       <Footer />

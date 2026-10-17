@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -36,6 +37,11 @@ const faqs: BlogFaq[] = [
     question: 'Can a guest or neighbor see my files if they are on my WiFi?',
     answer:
       'It depends on what you share. A device on your network can reach other devices on the same network, so open file shares, unprotected cameras, NAS boxes, and printers are exposed. This is why a guest network and a strong password matter beyond the bandwidth loss.',
+  },
+  {
+    question: 'How do I kick someone off my WiFi without changing the password?',
+    answer:
+      'You can block a device without changing your WiFi password by using your router app\'s "Block" or "Pause" feature (Access Control) or by adding their MAC address to the router\'s MAC Filtering blacklist. Note that if the user enables MAC address randomization, they can bypass the filter, so setting up an isolated Guest Network or changing the password remains the most reliable permanent fix.',
   },
 ]
 
@@ -75,7 +81,7 @@ function Body() {
           <strong>Log in to your router.</strong> Open <code>192.168.1.1</code> or <code>192.168.0.1</code> in a browser.
           On Android, Settings → WiFi → your network → Advanced shows the gateway address. The default login is often on
           a sticker on the router. If it still uses it, see our list of{' '}
-          <Link href="/default-passwords">default router passwords</Link> and change it today.
+          <Link href="/default-passwords/">default router passwords</Link> and change it today.
         </li>
         <li>
           <strong>Open the device list.</strong> Look for &quot;Connected Devices,&quot; &quot;Attached Devices,&quot; &quot;Client
@@ -87,16 +93,24 @@ function Body() {
         </li>
         <li>
           <strong>Identify what&apos;s left.</strong> Paste the MAC address into our free{' '}
-          <Link href="/tools/mac-lookup">MAC address vendor lookup</Link>. &quot;Espressif&quot; is usually a smart plug or
+          <Link href="/tools/mac-lookup/">MAC address vendor lookup</Link>. &quot;Espressif&quot; is usually a smart plug or
           bulb, &quot;Apple&quot; or &quot;Samsung&quot; is a phone or TV. A vendor match tells you what kind of device it is, not who
           owns it.
         </li>
         <li>
           <strong>Cross-check with a scan.</strong> Router lists come from DHCP leases and can miss static-IP devices.
           A scanner that combines ARP, mDNS, and ping sweeps finds more. We cover that in{' '}
-          <Link href="/blog/find-hidden-devices-on-wifi">how to find every device on your network</Link>.
+          <Link href="/blog/find-hidden-devices-on-wifi/">how to find every device on your network</Link>.
         </li>
       </ol>
+
+      <BlogCtaCard
+        variant="mid"
+        headline="Scan your WiFi for intruders in one tap"
+        description="Don't spend 20 minutes unplugging devices. ProbeShield runs a real-time Layer 2 ARP sweep directly from your Android phone to catch unauthorized devices instantly."
+        buttonText="Scan My WiFi for Unknown Devices"
+        badgeText="Free Android App • 100% On-Device • Zero Telemetry"
+      />
 
       <div className="warning-box">
         <p>
@@ -117,9 +131,32 @@ function Body() {
         <li><strong>Reconnect your devices</strong>, then recheck the device list to confirm nothing unexpected returns.</li>
         <li><strong>Set up a guest network</strong> for visitors and smart-home devices so the main network stays small and known.</li>
       </ol>
+      <h2 className="blog-h2">Can you kick someone off WiFi without changing your password?</h2>
       <p className="legal-text">
-        Two things that <em>don&apos;t</em> work: hiding your network name (scanning tools still see it) and MAC address
-        filtering (MAC addresses are trivially copied). Don&apos;t spend time on either.
+        Changing your WiFi passphrase disconnects every single device in your home — meaning you have to reconnect your smart TVs,
+        tablets, streaming sticks, and light bulbs one by one. If you want to kick an unauthorized device off without changing your password,
+        here are the three methods and their limitations:
+      </p>
+      <ul className="legal-list">
+        <li>
+          <strong>Router access control (Device Block / Pause):</strong> Most modern mesh routers (Eero, Google Nest WiFi, TP-Link Deco,
+          Asus, Netgear) include a mobile app where you can select the unwanted device and tap &quot;Block&quot; or &quot;Pause Internet.&quot; This instantly
+          cuts off their internet connection without disturbing your other devices.
+        </li>
+        <li>
+          <strong>MAC address blacklisting:</strong> In your router&apos;s admin dashboard (usually under Advanced → Security → Access Control or MAC Filtering),
+          you can add the intruder&apos;s MAC address to the blocklist. While effective for casual users, be aware that modern smartphones can bypass
+          this by toggling &quot;Private MAC address&quot; or MAC randomization to get a new virtual address.
+        </li>
+        <li>
+          <strong>DHCP lease revocation:</strong> In your router&apos;s DHCP table, delete the intruder&apos;s active lease and reboot the router. If you
+          turn off WPS and the user connected via a temporary WPS session or guest pin, they won&apos;t be able to re-authenticate.
+        </li>
+      </ul>
+      <p className="legal-text">
+        <strong>The bottom line:</strong> If someone knows your actual WiFi password, blocking a single MAC address is a temporary band-aid.
+        The permanent fix that saves your smart home sanity is to create a separate <em>Guest WiFi network</em> for friends, neighbors,
+        and contractors, keeping your primary network password completely private.
       </p>
 
       <h2 className="blog-h2">How people get onto a WiFi network</h2>
@@ -145,7 +182,7 @@ function Body() {
         by manufacturer, and keeps a local history, so you can compare today against last time and see exactly what
         changed. It also checks each device for open ports and risky services, which tells you whether a device on your
         network is a problem even when you do recognize it. For the full hardening routine, use the{' '}
-        <Link href="/checklist">home network security checklist</Link>.
+        <Link href="/checklist/">home network security checklist</Link>.
       </p>
     </>
   )
@@ -153,7 +190,7 @@ function Body() {
 
 export const post: BlogPost = {
   slug: 'how-to-know-if-someone-is-stealing-your-wifi',
-  title: 'How to Know If Someone Is Stealing Your WiFi (and Stop Them)',
+  title: 'How to Know If Someone Is Stealing Your WiFi (5-Min Check)',
   description:
     'Check who is on your WiFi in 5 minutes: the signs of WiFi theft, how to see every connected device, how to identify unknown ones, and how to kick them off for good.',
   date: '2026-10-11',
@@ -170,6 +207,12 @@ export const post: BlogPost = {
     'check devices connected to wifi',
     'is my neighbor using my wifi',
   ],
+  cta: {
+    headline: 'Protect your WiFi from unauthorized intruders',
+    description:
+      'ProbeShield runs 100% on-device. Scan your network for unknown devices, verify hardware manufacturers, and check for open ports in seconds.',
+    buttonText: 'Scan My WiFi (Free on Google Play)',
+  },
   faqs,
   Body,
 }

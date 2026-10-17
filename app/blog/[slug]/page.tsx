@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import { posts, getPost } from '@/content/posts'
 
 export function generateStaticParams() {
@@ -102,20 +103,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           )}
         </article>
 
-        <div className="blog-cta">
-          <div className="blog-cta-text">
-            <strong>Run this check in one tap.</strong> ProbeShield scans your WiFi for devices, open ports, and
-            risk — 100% on-device, free, no account required.
-          </div>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.probeshield"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="blog-cta-btn"
-          >
-            Get ProbeShield
-          </a>
-        </div>
+        <BlogCtaCard
+          variant="bottom"
+          headline={post.cta?.headline || 'Audit your home WiFi in seconds with ProbeShield'}
+          description={
+            post.cta?.description ||
+            'Discover hidden devices, scan open ports, and verify device manufacturers — 100% on-device with zero cloud telemetry.'
+          }
+          buttonText={post.cta?.buttonText || 'Get on Google Play'}
+          badgeText={post.cta?.badgeText || 'Free Android App • 100% On-Device • No Account Needed'}
+        />
 
         {related.length > 0 && (
           <div className="blog-related">
@@ -123,7 +120,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <ul className="blog-related-list">
               {related.map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/blog/${p.slug}`}>{p.title}</Link>
+                  <Link href={`/blog/${p.slug}/`}>{p.title}</Link>
                 </li>
               ))}
             </ul>

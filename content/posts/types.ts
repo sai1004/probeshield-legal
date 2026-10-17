@@ -1,5 +1,12 @@
 export type BlogFaq = { question: string; answer: string }
 
+export type BlogCta = {
+  headline?: string
+  description?: string
+  buttonText?: string
+  badgeText?: string
+}
+
 export type BlogPost = {
   slug: string
   title: string
@@ -8,5 +15,7 @@ export type BlogPost = {
   readTime: string
   keywords: string[]
   faqs?: BlogFaq[]
+  cta?: BlogCta
   Body: React.ComponentType
 }
+

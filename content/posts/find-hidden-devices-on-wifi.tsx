@@ -1,5 +1,39 @@
 import Link from 'next/link'
-import type { BlogPost } from './types'
+import BlogCtaCard from '@/components/BlogCtaCard'
+import type { BlogPost, BlogFaq } from './types'
+
+const faqs: BlogFaq[] = [
+  {
+    question: "Why isn't a connected device showing in my router's device list?",
+    answer:
+      "Routers build their client list from DHCP leases, which miss devices with static IP addresses, devices that connected and disconnected quickly, or devices in deep power-saving sleep modes. Network scanners send active ARP, mDNS, and ping sweeps directly across the local subnet to detect devices that bypass DHCP.",
+  },
+  {
+    question: "What does it mean if I see an unknown device named 'Espressif' or 'Tuya' on my WiFi?",
+    answer:
+      "Espressif Systems and Tuya manufacture the WiFi and microcontroller chips inside millions of smart home appliances, such as smart plugs, LED light strips, smart bulbs, and robot vacuums. If you see an Espressif or Tuya device, it is almost certainly one of your smart home gadgets rather than an intruder.",
+  },
+  {
+    question: 'How can I tell which physical device belongs to an unknown IP or MAC address?',
+    answer:
+      'First, look up the manufacturer using a MAC vendor lookup tool. Next, unplug or turn off suspected smart home devices one by one and re-scan the network to see which IP address drops off.',
+  },
+  {
+    question: 'How many devices are normally connected to a home WiFi network?',
+    answer:
+      'A typical household usually has between 10 and 25 connected devices once you account for phones, laptops, smart TVs, streaming sticks, gaming consoles, smart plugs, and smart bulbs. What matters is recognizing every device on the list.',
+  },
+  {
+    question: 'Can someone connect to my WiFi without having the password?',
+    answer:
+      'Yes, if WPS (WiFi Protected Setup) is enabled on an older router, as it has known PIN brute-force vulnerabilities. In other cases, former guests, neighbors, or contractors who were given the WiFi password once might still remain connected. Disabling WPS and updating your WPA2/WPA3 password prevents unauthorized access.',
+  },
+  {
+    question: 'Does a network scan detect devices that are turned off?',
+    answer:
+      "No. Network scanners and router admin tables only detect devices currently powered on, connected, and communicating on the subnet. A device that is switched off will only appear once it reconnects.",
+  },
+]
 
 function Body() {
   return (
@@ -38,7 +72,7 @@ function Body() {
         with a list of cryptic hostnames like <code>android-7f3a91</code> and no way to tell which one is your
         neighbor&apos;s smart plug and which one is an actual intruder. If you do have a MAC address but not a
         name, our free{' '}
-        <Link href="/tools/mac-lookup">MAC address vendor lookup tool</Link> will at least tell you the
+        <Link href="/tools/mac-lookup/">MAC address vendor lookup tool</Link> will at least tell you the
         manufacturer in a few seconds.
       </p>
 
@@ -57,6 +91,49 @@ function Body() {
         or &quot;Espressif (likely a smart plug)&quot; instead of a bare MAC address.
       </p>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Find devices your router's client list misses"
+        description="ProbeShield combines Layer 2 ARP sweeps, mDNS discovery, and ping sweeps directly on your Android phone to catch every hidden or static-IP device."
+        buttonText="Scan for Hidden Devices (Free)"
+        badgeText="100% On-Device • Zero Cloud Tracking • No Account"
+      />
+
+      <h2 className="blog-h2">Common mystery device names on router lists (and what they are)</h2>
+      <p className="legal-text">
+        When people open their router admin panel or run a network scanner, seeing an unfamiliar manufacturer name often causes immediate panic.
+        In reality, most consumer smart home brands do not manufacture their own microchips. Instead, they buy integrated WiFi modules
+        from semiconductor foundries, so your smart plug or robot vacuum appears under the chipmaker&apos;s name:
+      </p>
+      <ul className="legal-list">
+        <li>
+          <strong>Espressif Inc (Espressif Systems):</strong> The #1 most commonly questioned mystery device. Espressif manufactures the
+          ubiquitous ESP8266 and ESP32 WiFi microcontrollers used in millions of smart plugs, LED strips, smart bulbs, Tuya gadgets, and IoT switches.
+        </li>
+        <li>
+          <strong>Tuya Smart / Tuya Inc:</strong> The underlying IoT chipset and cloud platform powering hundreds of budget smart home brands
+          (smart plugs, robotic vacuums, pet feeders, and security sensors).
+        </li>
+        <li>
+          <strong>Hon Hai Precision (Foxconn):</strong> The world&apos;s largest contract electronics manufacturer. Usually corresponds to a Nintendo Switch,
+          smart TV component, gaming console, or Apple device.
+        </li>
+        <li>
+          <strong>Murata Manufacturing:</strong> A Japanese electronics manufacturer that supplies compact wireless modules for smart thermostats,
+          Sony gaming accessories, smart appliances, and smart energy meters.
+        </li>
+        <li>
+          <strong>Chicony Electronics:</strong> A primary OEM supplier of internal webcams, smart video doorbells, and baby monitors.
+        </li>
+        <li>
+          <strong>AzureWave / Wistron / Arcadyan:</strong> Common OEM wireless hardware inside streaming dongles, TV set-top boxes, and WiFi extenders.
+        </li>
+      </ul>
+      <p className="legal-text">
+        If you see an unfamiliar MAC address on your router, use our free{' '}
+        <Link href="/tools/mac-lookup/">MAC address vendor lookup tool</Link> to identify the manufacturer behind it in seconds.
+      </p>
+
       <h2 className="blog-h2">What to do when you find a device you don&apos;t recognize</h2>
       <ol className="legal-list legal-list-numbered">
         <li>Check the manufacturer name first — a lot of &quot;mystery devices&quot; turn out to be your own smart bulb, a partner&apos;s laptop, or a game console you forgot was WiFi-connected.</li>
@@ -70,34 +147,9 @@ function Body() {
           <strong>Don&apos;t stop at &quot;who&apos;s connected.&quot;</strong> A device list only tells you who&apos;s on the
           network. It doesn&apos;t tell you which of those devices have open ports, default credentials, or known
           vulnerabilities — that&apos;s a separate scan. See our guide on{' '}
-          <Link href="/blog/open-ports-home-network-risk">why open ports matter</Link>.
+          <Link href="/blog/open-ports-home-network-risk/">why open ports matter</Link>.
         </p>
       </div>
-
-      <h2 className="blog-h2">Frequently asked questions</h2>
-      <p className="legal-text">
-        <strong>How many devices should normally be on my home network?</strong> There&apos;s no fixed number — it depends on
-        your household. A typical home with a few people and some smart devices might have 10–20 connected devices once
-        you count phones, laptops, TVs, speakers, and IoT gadgets. What matters isn&apos;t the count, it&apos;s whether you
-        recognize everything on the list.
-      </p>
-      <p className="legal-text">
-        <strong>Can someone connect to my WiFi without knowing the password?</strong> Yes, in specific cases — WPS (WiFi
-        Protected Setup) can be exploited without the actual password on some older routers, and a password that was
-        shared once and never changed is effectively public. Changing your password periodically and disabling WPS
-        closes both of these.
-      </p>
-      <p className="legal-text">
-        <strong>Will a scan show devices that are turned off?</strong> No — both router admin panels and network scanners
-        only show devices currently active on the network. A device that&apos;s switched off or out of range won&apos;t
-        appear until it reconnects.
-      </p>
-      <p className="legal-text">
-        <strong>Is ProbeShield open source?</strong> Not at this time. What we can tell you concretely: the scan runs
-        entirely on your device, nothing about your network is uploaded anywhere, and there&apos;s no account or server
-        involved — see our <Link href="/privacy">privacy policy</Link> for the full, specific breakdown of what the app
-        does and doesn&apos;t do with your data.
-      </p>
 
       <h2 className="blog-h2">Scanning regularly, not just once</h2>
       <p className="legal-text">
@@ -112,9 +164,9 @@ function Body() {
 
 export const post: BlogPost = {
   slug: 'find-hidden-devices-on-wifi',
-  title: 'How to Find Every Device Connected to Your WiFi Network',
+  title: 'How to Find Every Device Connected to Your WiFi Network (Even Hidden Ones)',
   description:
-    'A practical guide to discovering every device on your home network — including the ones your router\'s device list misses — and what to do when you find one you don\'t recognize.',
+    'A practical guide to discovering every device on your home network — including the ones your router\'s device list misses — and identifying unknown devices in minutes.',
   date: '2026-09-27',
   readTime: '8 min read',
   keywords: [
@@ -130,5 +182,12 @@ export const post: BlogPost = {
     'list all connected devices on network',
     'how to check wifi connected devices',
   ],
+  cta: {
+    headline: 'Discover every device connected to your network',
+    description:
+      'Instant hardware vendor lookup, open port analysis, and local scan history comparisons on Android.',
+    buttonText: 'Find Hidden Devices (Google Play)',
+  },
+  faqs,
   Body,
 }

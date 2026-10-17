@@ -1,5 +1,34 @@
 import Link from 'next/link'
-import type { BlogPost } from './types'
+import BlogCtaCard from '@/components/BlogCtaCard'
+import type { BlogPost, BlogFaq } from './types'
+
+const faqs: BlogFaq[] = [
+  {
+    question: 'How often should I audit or scan my home network?',
+    answer:
+      'We recommend running a network discovery and port scan every 2 to 3 months, or immediately after adding a new smart device, hosting guests, or updating router firmware. Periodic checks ensure no unauthorized devices or open services go unnoticed.',
+  },
+  {
+    question: 'Why should smart home IoT devices be on a separate guest network?',
+    answer:
+      'Many IoT appliances receive infrequent security patches and have known firmware weaknesses. Isolating them on a guest WiFi network prevents a compromised gadget from communicating with your laptops, phones, or network storage on your private LAN.',
+  },
+  {
+    question: 'What is the single most important step in securing a home router?',
+    answer:
+      'Changing the default router administrator password. Most home router compromises happen because the owner left the factory login (like admin/admin) untouched. Setting a custom password closes the most common attack vector.',
+  },
+  {
+    question: 'Should I disable WPS (WiFi Protected Setup)?',
+    answer:
+      'Yes. WPS contains legacy PIN brute-force vulnerabilities that allow an attacker to bypass even strong WPA2 or WPA3 passphrases. Keep WPS disabled unless you are temporarily pairing a specific device.',
+  },
+  {
+    question: 'Is an interactive network checklist better than static advice?',
+    answer:
+      'An interactive checklist allows you to track and check off each hardening item directly on your device, saving your progress locally so you can return and re-evaluate your network health in a few months.',
+  },
+]
 
 function Body() {
   return (
@@ -13,8 +42,8 @@ function Body() {
       <h2 className="blog-h2">1. Know every device that&apos;s actually connected</h2>
       <p className="legal-text">
         You can&apos;t secure what you don&apos;t know exists. Start with a full device discovery scan rather than trusting
-        your router&apos;s built-in client list — see <Link href="/blog/find-hidden-devices-on-wifi">why the router&apos;s
-        list usually isn&apos;t complete</Link>.
+        your router&apos;s built-in client list — see{' '}
+        <Link href="/blog/find-hidden-devices-on-wifi/">why the router&apos;s list usually isn&apos;t complete</Link>.
       </p>
 
       <h2 className="blog-h2">2. Check for default or reused credentials on IoT devices</h2>
@@ -22,21 +51,30 @@ function Body() {
         Every smart plug, camera, thermostat, and speaker ships with a default admin password. Manufacturers rarely
         force a change. If you&apos;ve never explicitly set a password on a device, assume it&apos;s still the default —
         that&apos;s the single most exploited weakness in home networks. See our{' '}
-        <Link href="/default-passwords">list of default passwords by brand</Link> to check yours.
+        <Link href="/default-passwords/">list of default passwords by brand</Link> to check yours.
       </p>
 
       <h2 className="blog-h2">3. Scan for open ports on anything IoT</h2>
       <p className="legal-text">
         Cameras, DVRs, and cheap smart-home hubs are the most likely devices to have an unnecessary service exposed.
-        See our full breakdown of <Link href="/blog/open-ports-home-network-risk">what open ports mean and which ones matter</Link>.
+        See our full breakdown of{' '}
+        <Link href="/blog/open-ports-home-network-risk/">what open ports mean and which ones matter</Link>.
       </p>
+
+      <BlogCtaCard
+        variant="mid"
+        headline="Audit steps 1, 2, and 3 in one tap with ProbeShield"
+        description="ProbeShield combines device discovery, manufacturer lookup, and open port scanning into an on-device 5-tier risk audit for your home network."
+        buttonText="Audit My Home Network (Free)"
+        badgeText="100% On-Device • Zero Cloud Data • No Account"
+      />
 
       <h2 className="blog-h2">4. Verify your router isn&apos;t using its default admin password</h2>
       <p className="legal-text">
         This is the highest-leverage single fix on this list. Your router is the one device that, if compromised, gives
         an attacker visibility into everything else. If you&apos;ve never changed the admin login from what was printed
         on the box or sticker, do this first, before anything else here — check{' '}
-        <Link href="/default-passwords">your router brand&apos;s default</Link> if you&apos;re not sure what it shipped
+        <Link href="/default-passwords/">your router brand&apos;s default</Link> if you&apos;re not sure what it shipped
         with.
       </p>
 
@@ -71,7 +109,7 @@ function Body() {
       <p className="legal-text">
         Cameras deserve their own pass because they combine the two riskiest properties — always-on network exposure
         and genuinely sensitive footage. See our dedicated{' '}
-        <Link href="/blog/is-my-ip-camera-exposed">IP camera exposure check</Link>.
+        <Link href="/blog/is-my-ip-camera-exposed/">IP camera exposure check</Link>.
       </p>
 
       <h2 className="blog-h2">10. Re-scan on a schedule, not just once</h2>
@@ -84,7 +122,7 @@ function Body() {
       <div className="highlight-box">
         <p>
           <strong>Want to check these off as you go?</strong> Use the{' '}
-          <Link href="/checklist">interactive version of this checklist</Link> — it saves your progress on your
+          <Link href="/checklist/">interactive version of this checklist</Link> — it saves your progress on your
           device so you can come back and re-check it in a few months.
         </p>
       </div>
@@ -102,11 +140,18 @@ function Body() {
 
 export const post: BlogPost = {
   slug: 'home-network-security-checklist',
-  title: 'The Home Network Security Checklist: 10 Things to Check Today',
+  title: 'The Home Network Security Checklist: 10 Steps to Protect Your WiFi',
   description:
-    'Ten specific, concrete things to check on your home network — in priority order — from router credentials to IoT port exposure, each doable in minutes.',
+    'A concrete 10-step checklist to secure your home WiFi network: from router admin credentials to IoT isolation and port exposure checks.',
   date: '2026-09-27',
   readTime: '8 min read',
   keywords: ['home network security checklist', 'how to secure home wifi', 'home network audit', 'iot security checklist'],
+  cta: {
+    headline: 'Take control of your home network security',
+    description:
+      'Run a comprehensive, on-device vulnerability audit on Android with zero cloud tracking or telemetry.',
+    buttonText: 'Audit Network (Google Play)',
+  },
+  faqs,
   Body,
 }

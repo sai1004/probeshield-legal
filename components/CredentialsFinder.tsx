@@ -91,7 +91,7 @@ export default function CredentialsFinder() {
       <div className="creds-cta">
         <p>
           Found one that works? Change it now — then run through the full{' '}
-          <Link href="/checklist">network security checklist</Link> to catch anything else.
+          <Link href="/checklist/">network security checklist</Link> to catch anything else.
         </p>
       </div>
     </div>

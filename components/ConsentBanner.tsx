@@ -41,7 +41,7 @@ export default function ConsentBanner() {
     <div className="consent-banner" role="dialog" aria-label="Analytics cookies">
       <p className="consent-text">
         We&apos;d like to use Google Analytics cookies to count visits and see which pages are read. Nothing is
-        loaded from Google unless you accept. <Link href="/privacy#section-7">Learn more</Link>
+        loaded from Google unless you accept. <Link href="/privacy/#section-7">Learn more</Link>
       </p>
       <div className="consent-actions">
         <button type="button" className="consent-btn" onClick={() => choose('denied')}>

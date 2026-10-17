@@ -1,5 +1,34 @@
 import Link from 'next/link'
-import type { BlogPost } from './types'
+import BlogCtaCard from '@/components/BlogCtaCard'
+import type { BlogPost, BlogFaq } from './types'
+
+const faqs: BlogFaq[] = [
+  {
+    question: "Why does Android say 'Connected, no internet'?",
+    answer:
+      "This typically occurs when your phone connects to the local router over WiFi, but the router cannot route traffic to the broader internet due to an ISP outage, an expired DNS server, or an IP address conflict on the local subnet.",
+  },
+  {
+    question: 'Why does WiFi disconnect on Android when the screen is locked or idle?',
+    answer:
+      "Android's aggressive battery saver features frequently throttle or sleep WiFi radios when the screen turns off. To resolve this, go to Settings → Battery → Battery Optimization (or Background usage limits) and set network and connectivity services to 'Unrestricted' or 'Not optimized'.",
+  },
+  {
+    question: 'Can a VPN or Private DNS cause Android WiFi to drop constantly?',
+    answer:
+      'Yes. If your VPN connection drops or your Private DNS provider has intermittent latency, Android may mark the WiFi connection as degraded and disconnect or fall back to mobile data. Temporarily disabling VPN or custom DNS will confirm if this is the cause.',
+  },
+  {
+    question: 'Does resetting network settings delete my personal files?',
+    answer:
+      'No. Resetting network settings only clears saved WiFi networks, passwords, paired Bluetooth devices, and cellular APNs. It does not delete photos, documents, applications, or personal accounts.',
+  },
+  {
+    question: 'How do I know if my router or my phone is causing the disconnects?',
+    answer:
+      'Observe whether other devices (a laptop, TV, or another phone) lose internet at the exact same moment. If multiple devices drop at once, the issue is router hardware, firmware, or your ISP line. If only your Android device disconnects, the problem is phone-side settings or a local IP conflict.',
+  },
+]
 
 function Body() {
   return (
@@ -73,8 +102,16 @@ function Body() {
         address. A DHCP conflict is a surprisingly common cause of random disconnections that&apos;s completely invisible
         without a scan: your phone just silently drops off and reconnects, with no error message pointing at the real
         cause. See our full guide on{' '}
-        <Link href="/blog/find-hidden-devices-on-wifi">finding every device on your network</Link>.
+        <Link href="/blog/find-hidden-devices-on-wifi/">finding every device on your network</Link>.
       </p>
+
+      <BlogCtaCard
+        variant="mid"
+        headline="Diagnose WiFi drop loops and IP conflicts with ProbeShield"
+        description="ProbeShield scans your subnet in real time to spot DHCP IP collisions, rogue devices hogging bandwidth, and unstable network hosts directly on your Android phone."
+        buttonText="Audit WiFi Network (Free)"
+        badgeText="Free Android App • 100% On-Device • Zero Telemetry"
+      />
 
       <div className="warning-box">
         <p>
@@ -123,9 +160,9 @@ function Body() {
 
 export const post: BlogPost = {
   slug: 'wifi-disconnects-frequently-android',
-  title: 'WiFi Keeps Disconnecting on Android? Here’s How to Actually Fix It',
+  title: 'WiFi Keeps Disconnecting on Android? Here’s How to Actually Fix It (2026)',
   description:
-    'Android WiFi dropping constantly? A step-by-step guide covering every cause — phone settings, network conflicts, router issues, and ISP problems — in the order that actually saves time.',
+    'Android WiFi dropping constantly or disconnecting when idle? A step-by-step troubleshooting guide covering phone settings, router conflicts, and network fixes.',
   date: '2026-10-02',
   readTime: '7 min read',
   keywords: [
@@ -135,5 +172,12 @@ export const post: BlogPost = {
     'android wifi connection unstable',
     'fix wifi dropping android',
   ],
+  cta: {
+    headline: 'Resolve network instability and discover connected devices',
+    description:
+      'Run an on-device network sweep to check for IP conflicts, unknown clients, and open services on Android.',
+    buttonText: 'Audit Network (Google Play)',
+  },
+  faqs,
   Body,
 }

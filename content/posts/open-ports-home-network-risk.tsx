@@ -1,5 +1,34 @@
 import Link from 'next/link'
-import type { BlogPost } from './types'
+import BlogCtaCard from '@/components/BlogCtaCard'
+import type { BlogPost, BlogFaq } from './types'
+
+const faqs: BlogFaq[] = [
+  {
+    question: 'Is port scanning my own home network legal?',
+    answer:
+      'Yes. Scanning devices on a private network you own or have explicit authorization to administer is completely legal. Scanning networks you do not own (such as a neighbor’s WiFi or public hotspots) without authorization can violate computer misuse laws.',
+  },
+  {
+    question: 'Is an open port inherently dangerous?',
+    answer:
+      'No. An open port simply indicates that a software service is active and listening for network traffic. It only becomes a security risk if the listening service has an unpatched vulnerability, lacks authentication, or uses default factory credentials.',
+  },
+  {
+    question: 'Which ports should almost never be open on a home network?',
+    answer:
+      'Port 23 (Telnet) and Port 21 (unencrypted FTP) transmit credentials in cleartext and should almost always be disabled. Port 554 (RTSP video streaming) and Port 445 (SMB file sharing) should never be port-forwarded to the public internet.',
+  },
+  {
+    question: 'How do I close an open port on a device or router?',
+    answer:
+      'To close a port on a local device (like a printer or NAS), log into its admin settings and disable the unnecessary feature. To close a port exposed to the open internet, access your router settings and remove the corresponding rule under Port Forwarding or Virtual Server.',
+  },
+  {
+    question: 'Why does my router have port 80 or 443 open?',
+    answer:
+      'Ports 80 (HTTP) and 443 (HTTPS) are standard web server ports used by your router to display its management interface to devices connected to your LAN. As long as remote WAN management is disabled, having them open on your local subnet is normal and expected.',
+  },
+]
 
 function Body() {
   return (
@@ -52,8 +81,16 @@ function Body() {
       </ul>
       <p className="legal-text">
         If port 554 shows up on a device that turns out to be a security camera, that&apos;s worth a closer look — see our
-        dedicated guide on <Link href="/blog/is-my-ip-camera-exposed">checking whether your camera is exposed</Link>.
+        dedicated guide on <Link href="/blog/is-my-ip-camera-exposed/">checking whether your camera is exposed</Link>.
       </p>
+
+      <BlogCtaCard
+        variant="mid"
+        headline="Check your home network for risky open ports"
+        description="ProbeShield scans the top 100 TCP ports across all devices on your subnet, flags exposed services (Telnet, RTSP, SMB), and computes risk scores on-device."
+        buttonText="Run an On-Device Port Scan"
+        badgeText="100% On-Device • Zero Cloud Telemetry • Free"
+      />
 
       <h2 className="blog-h2">Scanning your own network is legal — scanning others&apos; isn&apos;t</h2>
       <p className="legal-text">
@@ -77,11 +114,18 @@ function Body() {
 
 export const post: BlogPost = {
   slug: 'open-ports-home-network-risk',
-  title: 'What Open Ports Are, and Why You Should Scan Your Own Home Network',
+  title: 'What Open Ports Are & Why to Scan Your Home Network (Explained)',
   description:
-    'A plain-English explanation of what an open port is, which ones actually matter on a home network, and how to check and close the risky ones.',
+    'A plain-English guide to open ports on home networks: which ones are dangerous (Telnet, RTSP, SMB), how to scan them safely, and how to close them.',
   date: '2026-09-27',
   readTime: '7 min read',
   keywords: ['what is port scanning', 'open ports security risk home network', 'port scanner for home network', 'home network vulnerability'],
+  cta: {
+    headline: 'Audit your open ports before attackers find them',
+    description:
+      'ProbeShield matches open ports against known vulnerability patterns and assigns risk scores on-device.',
+    buttonText: 'Run Port Scan (Free on Google Play)',
+  },
+  faqs,
   Body,
 }

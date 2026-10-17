@@ -1,0 +1,27 @@
+# ProbeShield
+
+> ProbeShield is an on-device home network security auditor and vulnerability scanner for Android. It detects hidden and unauthorized devices on local WiFi, identifies device manufacturers via MAC OUI lookups, scans open network ports (such as Telnet, RTSP, SMB), and computes a five-tier risk score for every connected host — entirely on-device without cloud accounts or data telemetry.
+
+## Core Interactive Web Tools
+
+- [MAC Address Vendor Lookup](https://probeshield.com/tools/mac-lookup/): Free web tool to look up device manufacturers and hardware vendors from MAC addresses and OUIs.
+- [Default Router Passwords](https://probeshield.com/default-passwords/): Verified reference directory of factory default usernames and passwords for common home routers, IP cameras, and IoT equipment.
+- [Interactive Network Security Checklist](https://probeshield.com/checklist/): Interactive 10-step home network hardening checklist that tracks security progress locally in the browser.
+
+## In-Depth Guides & Technical Reference
+
+- [Why Is My Router Showing Devices That Aren't Home? (Ghost Devices Explained)](https://probeshield.com/blog/why-router-shows-devices-not-home/): Explains why DHCP lease durations and iPhone/Android Private MAC addresses create ghost devices, and how to verify active clients.
+- [How to Tell If Your Router Is Hacked (10 Warning Signs & Fixes)](https://probeshield.com/blog/how-to-tell-if-your-router-is-hacked/): 10 warning signs of a compromised router, DNS hijacking checks, open management port auditing, and the 6-step recovery protocol.
+- [What Is an 'Espressif' Device on My WiFi? (And Is It Safe?)](https://probeshield.com/blog/what-is-espressif-device-on-wifi/): Explains why smart plugs and IoT bulbs use Espressif chips, how to find the physical device, and if it's safe.
+- [How to Know If Someone Is Stealing Your WiFi (5-Min Check)](https://probeshield.com/blog/how-to-know-if-someone-is-stealing-your-wifi/): Diagnostic routine to identify unauthorized WiFi users, check router DHCP client tables, run elimination tests, and secure access using WPA3/WPA2-AES.
+- [How to Find Every Device Connected to Your WiFi Network (Even Hidden Ones)](https://probeshield.com/blog/find-hidden-devices-on-wifi/): Explains why router DHCP tables miss devices, how ARP sweeps, mDNS/Bonjour discovery, and ICMP ping sweeps detect devices with static IPs or randomized MAC addresses, and how to identify unknown vendors like Espressif and Tuya.
+- [WiFi Keeps Disconnecting on Android? Here's How to Fix It (2026)](https://probeshield.com/blog/wifi-disconnects-frequently-android/): Diagnostic guide for resolving Android WiFi drop loops, battery optimization sleep issues, dual-band 2.4GHz/5GHz channel congestion, private DNS conflicts, and subnet IP collisions.
+- [What Open Ports Are & Why to Scan Your Home Network (Explained)](https://probeshield.com/blog/open-ports-home-network-risk/): Plain-English technical guide on TCP port scanning, dangerous services (Telnet 23, FTP 21, RTSP 554, SMB 445), default credentials risk, and closing exposed services.
+- [Is Your Home Security Camera Exposed to the Internet? How to Check](https://probeshield.com/blog/is-my-ip-camera-exposed/): How to audit IP security cameras for external exposure, UPnP automatic port forwarding leaks, RTSP streaming port 554 security, and default credential risks.
+- [The Home Network Security Checklist: 10 Steps to Protect Your WiFi](https://probeshield.com/blog/home-network-security-checklist/): Complete priority-ranked hardening guide covering router admin credentials, WPS vulnerabilities, IoT guest network isolation, and routine audit schedules.
+
+## Privacy & Android Application
+
+- [ProbeShield Android App on Google Play](https://play.google.com/store/apps/details?id=com.probeshield): The official Android app. 100% on-device scanning, zero cloud accounts, private scan history.
+- [Privacy Policy](https://probeshield.com/privacy/): Complete disclosure of on-device processing and data privacy guarantees.
+- [Terms of Service](https://probeshield.com/terms/): Terms for using ProbeShield web tools and software.

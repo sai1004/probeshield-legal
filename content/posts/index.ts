@@ -5,10 +5,16 @@ import { post as openPorts } from './open-ports-home-network-risk'
 import { post as ipCamera } from './is-my-ip-camera-exposed'
 import { post as checklist } from './home-network-security-checklist'
 import { post as wifiDisconnects } from './wifi-disconnects-android'
+import { post as espressifDevice } from './what-is-espressif-device-on-wifi'
+import { post as routerHacked } from './how-to-tell-if-your-router-is-hacked'
+import { post as ghostDevices } from './why-router-shows-devices-not-home'
 
 export type { BlogPost }
 
 export const posts: BlogPost[] = [
+  ghostDevices,
+  routerHacked,
+  espressifDevice,
   stealingWifi,
   wifiDisconnects,
   checklist,
