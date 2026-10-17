@@ -7,10 +7,12 @@ import { post as checklist } from './home-network-security-checklist'
 import { post as wifiDisconnects } from './wifi-disconnects-android'
 import { post as espressifDevice } from './what-is-espressif-device-on-wifi'
 import { post as routerHacked } from './how-to-tell-if-your-router-is-hacked'
+import { post as ghostDevices } from './why-router-shows-devices-not-home'
 
 export type { BlogPost }
 
 export const posts: BlogPost[] = [
+  ghostDevices,
   routerHacked,
   espressifDevice,
   stealingWifi,

@@ -99,9 +99,13 @@ Draft 3 targeted articles in `content/posts/`:
 - **Structured FAQ:** 6 Q&As targeting Google FAQPage rich snippet.
 - **ProbeShield CTA:** *"Scan for open management ports (Telnet 23, SSH 22, Web 80/8080) on your gateway."*
 
-### Article 3: "Why Is My Router Showing Devices That Aren't Home? (Ghost Devices & Private MACs)"
+### Article 3: "Why Is My Router Showing Devices That Aren't Home? (Ghost Devices & Private MACs)" — COMPLETED
+- [x] **File:** [`content/posts/why-router-shows-devices-not-home.tsx`](file:///Users/shravan/work/projects/probeshield/probeshield-legal/content/posts/why-router-shows-devices-not-home.tsx)
+- **Slug:** `/blog/why-router-shows-devices-not-home/`
 - **Intent:** Addresses confusion caused by iOS/Android "Private WiFi Address" feature (randomized MAC addresses creating duplicate devices in router lists).
-- **Content:** How MAC randomization works, why offline devices stay in DHCP lease tables for 24–72 hours, and how to verify active vs stale leases.
+- **Content:** DHCP lease duration persistence, MAC address randomization (the 2-6-A-E secret rule), connected standby states, mesh router proxy ARPs, and cleanup steps.
+- **Structured FAQ:** 6 Q&As targeting Google FAQPage rich snippet.
+- **ProbeShield CTA:** *"Run real-time Layer 2 ARP sweeps on-device to instantly verify active vs ghost devices."*
 
 ---
 

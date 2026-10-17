@@ -10,6 +10,7 @@
 
 ## In-Depth Guides & Technical Reference
 
+- [Why Is My Router Showing Devices That Aren't Home? (Ghost Devices Explained)](https://probeshield.com/blog/why-router-shows-devices-not-home/): Explains why DHCP lease durations and iPhone/Android Private MAC addresses create ghost devices, and how to verify active clients.
 - [How to Tell If Your Router Is Hacked (10 Warning Signs & Fixes)](https://probeshield.com/blog/how-to-tell-if-your-router-is-hacked/): 10 warning signs of a compromised router, DNS hijacking checks, open management port auditing, and the 6-step recovery protocol.
 - [What Is an 'Espressif' Device on My WiFi? (And Is It Safe?)](https://probeshield.com/blog/what-is-espressif-device-on-wifi/): Explains why smart plugs and IoT bulbs use Espressif chips, how to find the physical device, and if it's safe.
 - [How to Know If Someone Is Stealing Your WiFi (5-Min Check)](https://probeshield.com/blog/how-to-know-if-someone-is-stealing-your-wifi/): Diagnostic routine to identify unauthorized WiFi users, check router DHCP client tables, run elimination tests, and secure access using WPA3/WPA2-AES.
