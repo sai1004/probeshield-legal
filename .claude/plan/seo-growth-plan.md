@@ -136,9 +136,9 @@ Draft 3 targeted articles in `content/posts/`:
 
 - [x] **Trailing Slash Verification:** Confirmed every internal `<Link>` and canonical URL includes the trailing slash (`/blog/slug/`).
 - [x] **Sitemap Update:** Verified `app/sitemap.ts` generates valid XML for all routes and posts.
-- [x] **Git Push to Production:** Pushed all commits to `origin dev` to trigger automated deployment on Cloudflare Pages.
-- [ ] **Search Console Submission:** Once deployed, inspect top URLs in GSC and click **"Request Indexing"** to expedite Google recrawling of FAQ rich snippets.
-- [ ] **IndexNow Ping:** Run `npm run indexnow` post-deployment.
+- [x] **Git Push to Production:** Pushed all commits to `origin dev` and confirmed live deployment on Cloudflare Pages (`https://probeshield.com`).
+- [ ] **Search Console Submission:** In Google Search Console, inspect updated and new URLs to click **"Request Indexing"** (see priority list below).
+- [ ] **IndexNow / Bing Webmaster Tools:** Verified key live on production (`/1bb629e5d7166f96b3507106eb1649dd.txt`). Bing/IndexNow will ingest key within 24h.
 - [ ] **Cloudflare Redirect Rule:** Ensure zone rule redirects `www.probeshield.com` → `probeshield.com` preserving query string and path.
 
 ---
