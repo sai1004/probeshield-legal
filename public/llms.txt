@@ -10,6 +10,7 @@
 
 ## In-Depth Guides & Technical Reference
 
+- [What Is an 'Espressif' Device on My WiFi? (And Is It Safe?)](https://probeshield.com/blog/what-is-espressif-device-on-wifi/): Explains why smart plugs and IoT bulbs use Espressif chips, how to find the physical device, and if it's safe.
 - [How to Know If Someone Is Stealing Your WiFi (5-Min Check)](https://probeshield.com/blog/how-to-know-if-someone-is-stealing-your-wifi/): Diagnostic routine to identify unauthorized WiFi users, check router DHCP client tables, run elimination tests, and secure access using WPA3/WPA2-AES.
 - [How to Find Every Device Connected to Your WiFi Network (Even Hidden Ones)](https://probeshield.com/blog/find-hidden-devices-on-wifi/): Explains why router DHCP tables miss devices, how ARP sweeps, mDNS/Bonjour discovery, and ICMP ping sweeps detect devices with static IPs or randomized MAC addresses, and how to identify unknown vendors like Espressif and Tuya.
 - [WiFi Keeps Disconnecting on Android? Here's How to Fix It (2026)](https://probeshield.com/blog/wifi-disconnects-frequently-android/): Diagnostic guide for resolving Android WiFi drop loops, battery optimization sleep issues, dual-band 2.4GHz/5GHz channel congestion, private DNS conflicts, and subnet IP collisions.

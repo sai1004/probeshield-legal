@@ -83,10 +83,13 @@ graph LR
 
 Draft 3 targeted articles in `content/posts/`:
 
-### Article 1: "What Is an 'Espressif' Device on My WiFi? (Common Mystery Devices Explained)"
+### Article 1: "What Is an 'Espressif' Device on My WiFi? (And Is It Safe?)" — COMPLETED
+- [x] **File:** [`content/posts/what-is-espressif-device-on-wifi.tsx`](file:///Users/shravan/work/projects/probeshield/probeshield-legal/content/posts/what-is-espressif-device-on-wifi.tsx)
+- **Slug:** `/blog/what-is-espressif-device-on-wifi/`
 - **Intent:** High search volume from everyday users who log into their router, panic seeing "Espressif Inc" or "Tuya Smart", and search Google thinking they are hacked.
 - **Content:** Explains smart plugs, light bulbs, ESP32/ESP8266 chips, Tuya IoT devices, how to verify their IP/MAC, and how to isolate them on an IoT VLAN or guest network.
-- **ProbeShield CTA:** *"Use ProbeShield to inspect the device's open ports and identify what smart device it actually is."*
+- **Structured FAQ:** 6 Q&As targeting Google FAQPage rich snippet.
+- **ProbeShield CTA:** Contextual recommendation to scan the device's open ports and verify manufacturer identity on-device.
 
 ### Article 2: "How to Tell If Your Router Is Hacked (10 Warning Signs & Fixes)"
 - **Intent:** Catches worried users searching for DNS hijacking, rogue admin logins, redirect ads, and unfamiliar connected IPs.

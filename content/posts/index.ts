@@ -5,10 +5,12 @@ import { post as openPorts } from './open-ports-home-network-risk'
 import { post as ipCamera } from './is-my-ip-camera-exposed'
 import { post as checklist } from './home-network-security-checklist'
 import { post as wifiDisconnects } from './wifi-disconnects-android'
+import { post as espressifDevice } from './what-is-espressif-device-on-wifi'
 
 export type { BlogPost }
 
 export const posts: BlogPost[] = [
+  espressifDevice,
   stealingWifi,
   wifiDisconnects,
   checklist,
