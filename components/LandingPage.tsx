@@ -884,7 +884,7 @@ function PrivacySection() {
               style={{ textAlign: 'center', marginTop: '2rem' }}
             >
               <Link
-                href="/privacy"
+                href="/privacy/"
                 style={{
                   color: T.primary,
                   fontSize: '0.88rem',

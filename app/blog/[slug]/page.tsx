@@ -123,7 +123,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <ul className="blog-related-list">
               {related.map((p) => (
                 <li key={p.slug}>
-                  <Link href={`/blog/${p.slug}`}>{p.title}</Link>
+                  <Link href={`/blog/${p.slug}/`}>{p.title}</Link>
                 </li>
               ))}
             </ul>

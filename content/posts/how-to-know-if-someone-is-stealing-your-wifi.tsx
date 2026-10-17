@@ -75,7 +75,7 @@ function Body() {
           <strong>Log in to your router.</strong> Open <code>192.168.1.1</code> or <code>192.168.0.1</code> in a browser.
           On Android, Settings → WiFi → your network → Advanced shows the gateway address. The default login is often on
           a sticker on the router. If it still uses it, see our list of{' '}
-          <Link href="/default-passwords">default router passwords</Link> and change it today.
+          <Link href="/default-passwords/">default router passwords</Link> and change it today.
         </li>
         <li>
           <strong>Open the device list.</strong> Look for &quot;Connected Devices,&quot; &quot;Attached Devices,&quot; &quot;Client
@@ -87,14 +87,14 @@ function Body() {
         </li>
         <li>
           <strong>Identify what&apos;s left.</strong> Paste the MAC address into our free{' '}
-          <Link href="/tools/mac-lookup">MAC address vendor lookup</Link>. &quot;Espressif&quot; is usually a smart plug or
+          <Link href="/tools/mac-lookup/">MAC address vendor lookup</Link>. &quot;Espressif&quot; is usually a smart plug or
           bulb, &quot;Apple&quot; or &quot;Samsung&quot; is a phone or TV. A vendor match tells you what kind of device it is, not who
           owns it.
         </li>
         <li>
           <strong>Cross-check with a scan.</strong> Router lists come from DHCP leases and can miss static-IP devices.
           A scanner that combines ARP, mDNS, and ping sweeps finds more. We cover that in{' '}
-          <Link href="/blog/find-hidden-devices-on-wifi">how to find every device on your network</Link>.
+          <Link href="/blog/find-hidden-devices-on-wifi/">how to find every device on your network</Link>.
         </li>
       </ol>
 
@@ -145,7 +145,7 @@ function Body() {
         by manufacturer, and keeps a local history, so you can compare today against last time and see exactly what
         changed. It also checks each device for open ports and risky services, which tells you whether a device on your
         network is a problem even when you do recognize it. For the full hardening routine, use the{' '}
-        <Link href="/checklist">home network security checklist</Link>.
+        <Link href="/checklist/">home network security checklist</Link>.
       </p>
     </>
   )
@@ -153,7 +153,7 @@ function Body() {
 
 export const post: BlogPost = {
   slug: 'how-to-know-if-someone-is-stealing-your-wifi',
-  title: 'How to Know If Someone Is Stealing Your WiFi (and Stop Them)',
+  title: 'How to Know If Someone Is Stealing Your WiFi (5-Min Check)',
   description:
     'Check who is on your WiFi in 5 minutes: the signs of WiFi theft, how to see every connected device, how to identify unknown ones, and how to kick them off for good.',
   date: '2026-10-11',

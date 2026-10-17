@@ -1,5 +1,33 @@
 import Link from 'next/link'
-import type { BlogPost } from './types'
+import type { BlogPost, BlogFaq } from './types'
+
+const faqs: BlogFaq[] = [
+  {
+    question: 'Can someone outside my home view my IP security camera?',
+    answer:
+      'Only if your camera has active port forwarding rules on your router, uses UPnP automatic port mapping, or uses compromised vendor cloud credentials. Cameras restricted strictly to your local LAN with no forwarded ports cannot be reached directly by external internet scanners.',
+  },
+  {
+    question: 'What is RTSP port 554 and why is it important?',
+    answer:
+      'RTSP (Real-Time Streaming Protocol) on port 554 is the standard protocol security cameras use to deliver live video feeds to phones, computers, and NVRs. Port 554 should only be accessible within your private LAN and should never be exposed or forwarded to the public internet.',
+  },
+  {
+    question: 'How do I check if my router is forwarding ports to my camera?',
+    answer:
+      "Log into your router's administration interface (typically 192.168.1.1 or 192.168.0.1) and check the 'Port Forwarding', 'Virtual Server', or 'NAT' section. Look for any active rules pointing to your camera's IP address (particularly ports 554, 80, 8080, or 8443). If you find rules you did not configure, delete them immediately.",
+  },
+  {
+    question: 'Are cloud-based cameras safer than local IP cameras?',
+    answer:
+      'Cloud cameras eliminate the need for manual port forwarding, reducing exposure to automated port scans. However, they rely entirely on the vendor’s cloud security and account credentials. Local cameras accessed via an encrypted VPN connection to your own network provide the strongest privacy.',
+  },
+  {
+    question: 'Why should I disable UPnP on my home router?',
+    answer:
+      'UPnP (Universal Plug and Play) allows IoT gadgets and cameras to automatically open firewall ports on your router without user confirmation. Disabling UPnP prevents devices from silently exposing themselves to the internet.',
+  },
+]
 
 function Body() {
   return (
@@ -25,7 +53,7 @@ function Body() {
         Run a device discovery scan and look for the manufacturer name attached to each result — camera brands (Hikvision,
         Dahua, Reolink, Wyze, TP-Link/Tapo, and generic ODM chipsets) usually resolve clearly through MAC OUI lookup.
         If you&apos;re not sure which device is which, see our guide on{' '}
-        <Link href="/blog/find-hidden-devices-on-wifi">finding every device on your WiFi</Link>.
+        <Link href="/blog/find-hidden-devices-on-wifi/">finding every device on your WiFi</Link>.
       </p>
 
       <h2 className="blog-h2">Step 2 — Check what ports it has open</h2>
@@ -76,11 +104,12 @@ function Body() {
 
 export const post: BlogPost = {
   slug: 'is-my-ip-camera-exposed',
-  title: 'Is Your Home Security Camera Exposed? How to Check',
+  title: 'Is Your Home Security Camera Exposed to the Internet? How to Check',
   description:
-    'How to check whether your IP security camera is reachable from outside your network, why it happens, and how to lock it down in a few minutes.',
+    'How to check whether your IP security camera is reachable from outside your network, why port forwarding and UPnP expose feeds, and how to secure it.',
   date: '2026-09-27',
   readTime: '6 min read',
   keywords: ['is my ip camera hacked', 'check if security camera is exposed', 'ip camera security', 'camera port scan'],
+  faqs,
   Body,
 }

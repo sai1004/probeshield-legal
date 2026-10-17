@@ -1,5 +1,38 @@
 import Link from 'next/link'
-import type { BlogPost } from './types'
+import type { BlogPost, BlogFaq } from './types'
+
+const faqs: BlogFaq[] = [
+  {
+    question: "Why isn't a connected device showing in my router's device list?",
+    answer:
+      "Routers build their client list from DHCP leases, which miss devices with static IP addresses, devices that connected and disconnected quickly, or devices in deep power-saving sleep modes. Network scanners send active ARP, mDNS, and ping sweeps directly across the local subnet to detect devices that bypass DHCP.",
+  },
+  {
+    question: "What does it mean if I see an unknown device named 'Espressif' or 'Tuya' on my WiFi?",
+    answer:
+      "Espressif Systems and Tuya manufacture the WiFi and microcontroller chips inside millions of smart home appliances, such as smart plugs, LED light strips, smart bulbs, and robot vacuums. If you see an Espressif or Tuya device, it is almost certainly one of your smart home gadgets rather than an intruder.",
+  },
+  {
+    question: 'How can I tell which physical device belongs to an unknown IP or MAC address?',
+    answer:
+      'First, look up the manufacturer using a MAC vendor lookup tool. Next, unplug or turn off suspected smart home devices one by one and re-scan the network to see which IP address drops off.',
+  },
+  {
+    question: 'How many devices are normally connected to a home WiFi network?',
+    answer:
+      'A typical household usually has between 10 and 25 connected devices once you account for phones, laptops, smart TVs, streaming sticks, gaming consoles, smart plugs, and smart bulbs. What matters is recognizing every device on the list.',
+  },
+  {
+    question: 'Can someone connect to my WiFi without having the password?',
+    answer:
+      'Yes, if WPS (WiFi Protected Setup) is enabled on an older router, as it has known PIN brute-force vulnerabilities. In other cases, former guests, neighbors, or contractors who were given the WiFi password once might still remain connected. Disabling WPS and updating your WPA2/WPA3 password prevents unauthorized access.',
+  },
+  {
+    question: 'Does a network scan detect devices that are turned off?',
+    answer:
+      "No. Network scanners and router admin tables only detect devices currently powered on, connected, and communicating on the subnet. A device that is switched off will only appear once it reconnects.",
+  },
+]
 
 function Body() {
   return (
@@ -38,7 +71,7 @@ function Body() {
         with a list of cryptic hostnames like <code>android-7f3a91</code> and no way to tell which one is your
         neighbor&apos;s smart plug and which one is an actual intruder. If you do have a MAC address but not a
         name, our free{' '}
-        <Link href="/tools/mac-lookup">MAC address vendor lookup tool</Link> will at least tell you the
+        <Link href="/tools/mac-lookup/">MAC address vendor lookup tool</Link> will at least tell you the
         manufacturer in a few seconds.
       </p>
 
@@ -70,34 +103,9 @@ function Body() {
           <strong>Don&apos;t stop at &quot;who&apos;s connected.&quot;</strong> A device list only tells you who&apos;s on the
           network. It doesn&apos;t tell you which of those devices have open ports, default credentials, or known
           vulnerabilities — that&apos;s a separate scan. See our guide on{' '}
-          <Link href="/blog/open-ports-home-network-risk">why open ports matter</Link>.
+          <Link href="/blog/open-ports-home-network-risk/">why open ports matter</Link>.
         </p>
       </div>
-
-      <h2 className="blog-h2">Frequently asked questions</h2>
-      <p className="legal-text">
-        <strong>How many devices should normally be on my home network?</strong> There&apos;s no fixed number — it depends on
-        your household. A typical home with a few people and some smart devices might have 10–20 connected devices once
-        you count phones, laptops, TVs, speakers, and IoT gadgets. What matters isn&apos;t the count, it&apos;s whether you
-        recognize everything on the list.
-      </p>
-      <p className="legal-text">
-        <strong>Can someone connect to my WiFi without knowing the password?</strong> Yes, in specific cases — WPS (WiFi
-        Protected Setup) can be exploited without the actual password on some older routers, and a password that was
-        shared once and never changed is effectively public. Changing your password periodically and disabling WPS
-        closes both of these.
-      </p>
-      <p className="legal-text">
-        <strong>Will a scan show devices that are turned off?</strong> No — both router admin panels and network scanners
-        only show devices currently active on the network. A device that&apos;s switched off or out of range won&apos;t
-        appear until it reconnects.
-      </p>
-      <p className="legal-text">
-        <strong>Is ProbeShield open source?</strong> Not at this time. What we can tell you concretely: the scan runs
-        entirely on your device, nothing about your network is uploaded anywhere, and there&apos;s no account or server
-        involved — see our <Link href="/privacy">privacy policy</Link> for the full, specific breakdown of what the app
-        does and doesn&apos;t do with your data.
-      </p>
 
       <h2 className="blog-h2">Scanning regularly, not just once</h2>
       <p className="legal-text">
@@ -112,9 +120,9 @@ function Body() {
 
 export const post: BlogPost = {
   slug: 'find-hidden-devices-on-wifi',
-  title: 'How to Find Every Device Connected to Your WiFi Network',
+  title: 'How to Find Every Device Connected to Your WiFi Network (Even Hidden Ones)',
   description:
-    'A practical guide to discovering every device on your home network — including the ones your router\'s device list misses — and what to do when you find one you don\'t recognize.',
+    'A practical guide to discovering every device on your home network — including the ones your router\'s device list misses — and identifying unknown devices in minutes.',
   date: '2026-09-27',
   readTime: '8 min read',
   keywords: [
@@ -130,5 +138,6 @@ export const post: BlogPost = {
     'list all connected devices on network',
     'how to check wifi connected devices',
   ],
+  faqs,
   Body,
 }

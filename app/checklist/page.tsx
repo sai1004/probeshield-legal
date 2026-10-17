@@ -41,7 +41,7 @@ export default function ChecklistPage() {
           <h1 className="page-title">Network Security <span>Checklist</span></h1>
           <p className="legal-text" style={{ marginTop: '0.5rem' }}>
             The same ten things from our{' '}
-            <Link href="/blog/home-network-security-checklist">full checklist guide</Link>, as something you can
+            <Link href="/blog/home-network-security-checklist/">full checklist guide</Link>, as something you can
             actually check off — and come back to re-check in a few months.
           </p>
         </div>

@@ -58,7 +58,7 @@ export default function DefaultPasswordsPage() {
             <Link href="/">ProbeShield</Link>'s own scanner tests when it finds a device on your
             network, laid out so you can check it yourself without installing anything. Part of the
             same idea as our{' '}
-            <Link href="/blog/home-network-security-checklist">network security checklist</Link>.
+            <Link href="/blog/home-network-security-checklist/">network security checklist</Link>.
           </p>
           <p className="legal-text" style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>
             Last reviewed {CREDENTIALS_LAST_REVIEWED}.
