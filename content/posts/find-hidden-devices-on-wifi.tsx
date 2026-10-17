@@ -90,6 +90,41 @@ function Body() {
         or &quot;Espressif (likely a smart plug)&quot; instead of a bare MAC address.
       </p>
 
+      <h2 className="blog-h2">Common mystery device names on router lists (and what they are)</h2>
+      <p className="legal-text">
+        When people open their router admin panel or run a network scanner, seeing an unfamiliar manufacturer name often causes immediate panic.
+        In reality, most consumer smart home brands do not manufacture their own microchips. Instead, they buy integrated WiFi modules
+        from semiconductor foundries, so your smart plug or robot vacuum appears under the chipmaker&apos;s name:
+      </p>
+      <ul className="legal-list">
+        <li>
+          <strong>Espressif Inc (Espressif Systems):</strong> The #1 most commonly questioned mystery device. Espressif manufactures the
+          ubiquitous ESP8266 and ESP32 WiFi microcontrollers used in millions of smart plugs, LED strips, smart bulbs, Tuya gadgets, and IoT switches.
+        </li>
+        <li>
+          <strong>Tuya Smart / Tuya Inc:</strong> The underlying IoT chipset and cloud platform powering hundreds of budget smart home brands
+          (smart plugs, robotic vacuums, pet feeders, and security sensors).
+        </li>
+        <li>
+          <strong>Hon Hai Precision (Foxconn):</strong> The world&apos;s largest contract electronics manufacturer. Usually corresponds to a Nintendo Switch,
+          smart TV component, gaming console, or Apple device.
+        </li>
+        <li>
+          <strong>Murata Manufacturing:</strong> A Japanese electronics manufacturer that supplies compact wireless modules for smart thermostats,
+          Sony gaming accessories, smart appliances, and smart energy meters.
+        </li>
+        <li>
+          <strong>Chicony Electronics:</strong> A primary OEM supplier of internal webcams, smart video doorbells, and baby monitors.
+        </li>
+        <li>
+          <strong>AzureWave / Wistron / Arcadyan:</strong> Common OEM wireless hardware inside streaming dongles, TV set-top boxes, and WiFi extenders.
+        </li>
+      </ul>
+      <p className="legal-text">
+        If you see an unfamiliar MAC address on your router, use our free{' '}
+        <Link href="/tools/mac-lookup/">MAC address vendor lookup tool</Link> to identify the manufacturer behind it in seconds.
+      </p>
+
       <h2 className="blog-h2">What to do when you find a device you don&apos;t recognize</h2>
       <ol className="legal-list legal-list-numbered">
         <li>Check the manufacturer name first — a lot of &quot;mystery devices&quot; turn out to be your own smart bulb, a partner&apos;s laptop, or a game console you forgot was WiFi-connected.</li>

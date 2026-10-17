@@ -72,10 +72,9 @@ graph LR
 - [x] Blog posts link to [Default Passwords](/default-passwords/) when discussing router credentials.
 - [x] Blog posts link to [Checklist](/checklist/) for network hardening.
 
-### 2. Exact-Match Heading & Answer Optimization — IN PROGRESS
-- [ ] Review Google Search Console Query reports for phrases with high impressions and add dedicated `<h3>` blocks answering them directly:
-  - **Query cluster: "Unknown device on router"**: Expand specific smart device chipsets.
-  - **Query cluster: "Kick someone off WiFi without password change"**: Add explanation on MAC filtering vs password reset.
+### 2. Exact-Match Heading & Answer Optimization — COMPLETED
+- [x] **Query cluster: "Unknown device on router"**: Added dedicated exact-match section and FAQ breakdown covering common OEM chipsets (Espressif ESP32/ESP8266, Tuya Smart, Hon Hai/Foxconn, Murata, Chicony, AzureWave) in [`find-hidden-devices-on-wifi.tsx`](file:///Users/shravan/work/projects/probeshield/probeshield-legal/content/posts/find-hidden-devices-on-wifi.tsx).
+- [x] **Query cluster: "Kick someone off WiFi without password change"**: Added dedicated exact-match section and FAQ explaining router access control (device pause), MAC filtering blacklists, and guest network isolation in [`how-to-know-if-someone-is-stealing-your-wifi.tsx`](file:///Users/shravan/work/projects/probeshield/probeshield-legal/content/posts/how-to-know-if-someone-is-stealing-your-wifi.tsx).
 
 ---
 

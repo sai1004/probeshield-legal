@@ -37,6 +37,11 @@ const faqs: BlogFaq[] = [
     answer:
       'It depends on what you share. A device on your network can reach other devices on the same network, so open file shares, unprotected cameras, NAS boxes, and printers are exposed. This is why a guest network and a strong password matter beyond the bandwidth loss.',
   },
+  {
+    question: 'How do I kick someone off my WiFi without changing the password?',
+    answer:
+      'You can block a device without changing your WiFi password by using your router app\'s "Block" or "Pause" feature (Access Control) or by adding their MAC address to the router\'s MAC Filtering blacklist. Note that if the user enables MAC address randomization, they can bypass the filter, so setting up an isolated Guest Network or changing the password remains the most reliable permanent fix.',
+  },
 ]
 
 function Body() {
@@ -117,9 +122,32 @@ function Body() {
         <li><strong>Reconnect your devices</strong>, then recheck the device list to confirm nothing unexpected returns.</li>
         <li><strong>Set up a guest network</strong> for visitors and smart-home devices so the main network stays small and known.</li>
       </ol>
+      <h2 className="blog-h2">Can you kick someone off WiFi without changing your password?</h2>
       <p className="legal-text">
-        Two things that <em>don&apos;t</em> work: hiding your network name (scanning tools still see it) and MAC address
-        filtering (MAC addresses are trivially copied). Don&apos;t spend time on either.
+        Changing your WiFi passphrase disconnects every single device in your home — meaning you have to reconnect your smart TVs,
+        tablets, streaming sticks, and light bulbs one by one. If you want to kick an unauthorized device off without changing your password,
+        here are the three methods and their limitations:
+      </p>
+      <ul className="legal-list">
+        <li>
+          <strong>Router access control (Device Block / Pause):</strong> Most modern mesh routers (Eero, Google Nest WiFi, TP-Link Deco,
+          Asus, Netgear) include a mobile app where you can select the unwanted device and tap &quot;Block&quot; or &quot;Pause Internet.&quot; This instantly
+          cuts off their internet connection without disturbing your other devices.
+        </li>
+        <li>
+          <strong>MAC address blacklisting:</strong> In your router&apos;s admin dashboard (usually under Advanced → Security → Access Control or MAC Filtering),
+          you can add the intruder&apos;s MAC address to the blocklist. While effective for casual users, be aware that modern smartphones can bypass
+          this by toggling &quot;Private MAC address&quot; or MAC randomization to get a new virtual address.
+        </li>
+        <li>
+          <strong>DHCP lease revocation:</strong> In your router&apos;s DHCP table, delete the intruder&apos;s active lease and reboot the router. If you
+          turn off WPS and the user connected via a temporary WPS session or guest pin, they won&apos;t be able to re-authenticate.
+        </li>
+      </ul>
+      <p className="legal-text">
+        <strong>The bottom line:</strong> If someone knows your actual WiFi password, blocking a single MAC address is a temporary band-aid.
+        The permanent fix that saves your smart home sanity is to create a separate <em>Guest WiFi network</em> for friends, neighbors,
+        and contractors, keeping your primary network password completely private.
       </p>
 
       <h2 className="blog-h2">How people get onto a WiFi network</h2>
