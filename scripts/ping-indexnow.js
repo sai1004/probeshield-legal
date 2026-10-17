@@ -24,20 +24,20 @@ const ENDPOINTS = [
  * Discovers all public canonical URLs from sitemap.xml or content files.
  */
 function discoverUrls() {
+  const discovered = new Set()
+
   const sitemapPath = path.join(process.cwd(), 'out', 'sitemap.xml')
   if (fs.existsSync(sitemapPath)) {
     try {
       const xml = fs.readFileSync(sitemapPath, 'utf8')
       const matches = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])
-      if (matches.length > 0) {
-        return matches
-      }
+      matches.forEach((url) => discovered.add(url))
     } catch (e) {
       // Fall through to file-based discovery
     }
   }
 
-  // File-based fallback
+  // File-based guarantee
   const baseUrls = [
     `https://${HOST}/`,
     `https://${HOST}/blog/`,
@@ -47,6 +47,7 @@ function discoverUrls() {
     `https://${HOST}/privacy/`,
     `https://${HOST}/terms/`,
   ]
+  baseUrls.forEach((url) => discovered.add(url))
 
   const postsDir = path.join(process.cwd(), 'content', 'posts')
   if (fs.existsSync(postsDir)) {
@@ -55,12 +56,24 @@ function discoverUrls() {
       const content = fs.readFileSync(path.join(postsDir, file), 'utf8')
       const match = content.match(/slug:\s*['"]([^'"]+)['"]/)
       if (match && match[1]) {
-        baseUrls.push(`https://${HOST}/blog/${match[1]}/`)
+        discovered.add(`https://${HOST}/blog/${match[1]}/`)
       }
     }
   }
 
-  return baseUrls
+  const normalized = Array.from(discovered).map((raw) => {
+    try {
+      const u = new URL(raw)
+      if (!u.pathname.endsWith('/') && !path.extname(u.pathname)) {
+        u.pathname += '/'
+      }
+      return u.href
+    } catch {
+      return raw
+    }
+  })
+
+  return Array.from(new Set(normalized))
 }
 
 /**
