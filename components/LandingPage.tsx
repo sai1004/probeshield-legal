@@ -253,11 +253,16 @@ function DownloadBtn({ large = false, small = false }: { large?: boolean; small?
         whiteSpace: 'nowrap',
       }}
     >
-      {!small && (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-      )}
+      <svg
+        width={large ? 18 : small ? 13 : 16}
+        height={large ? 18 : small ? 13 : 16}
+        viewBox="0 0 512 512"
+        fill="currentColor"
+        aria-hidden="true"
+        style={{ flexShrink: 0 }}
+      >
+        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm447.2 208.6l-60.1-34.5-67.5 67.5 67.5 67.5 60.1-34.5c7.4-4.1 12-11.8 12-20.3v-25.4c0-8.5-4.6-16.2-12-20.3zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+      </svg>
       {small ? (
         <>
           <span className="lp-download-prefix">Get it on </span>Google Play
