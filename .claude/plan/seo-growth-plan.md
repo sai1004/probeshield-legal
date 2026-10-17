@@ -109,18 +109,26 @@ Draft 3 targeted articles in `content/posts/`:
 
 ---
 
-## Phase 4: App Install Conversion Optimization (CRO)
+## Phase 4: App Install Conversion Optimization (CRO) — COMPLETED
 *Objective: Turn search engine visitors into ProbeShield Android app installations.*
 
 1. **Mid-Article Visual CTA Card:**
-   - Add a lightweight, mid-article callout box after the second `<h2>` with a clear Google Play download button.
+   - [x] Created reusable [`components/BlogCtaCard.tsx`](file:///Users/shravan/work/projects/probeshield/probeshield-legal/components/BlogCtaCard.tsx) with official Google Play SVG badge and responsive layout.
+   - [x] Integrated mid-article callout card across all 9 blog guides.
 2. **Action-Driven Button Copy:**
-   - Instead of generic *"Get ProbeShield"*, test context-specific copy:
-     - On WiFi theft post: *"Scan My WiFi for Unknown Devices (Free)"*
+   - [x] Configured topic-specific headline, description, and button copy on every post:
+     - On WiFi theft post: *"Scan My WiFi for Unknown Devices"*
+     - On Find hidden devices post: *"Scan for Hidden Devices (Free)"*
      - On Open ports post: *"Run an On-Device Port Scan"*
-     - On IP camera post: *"Check My Network Security"*
+     - On IP camera post: *"Check My Security Cameras (Free)"*
+     - On Espressif device post: *"Scan My Smart Devices (Free)"*
+     - On Router hacked post: *"Scan My Router Gateway (Free)"*
+     - On Ghost devices post: *"Scan Active Devices (Free)"*
+     - On Android disconnects post: *"Audit WiFi Network (Free)"*
+     - On Checklist post: *"Audit My Home Network (Free)"*
 3. **Trust & Privacy Badging:**
-   - Explicitly highlight: *"100% On-Device • Zero Cloud Tracking • No Account Needed"*.
+   - [x] Explicitly highlighted: *"100% On-Device • Zero Cloud Tracking • No Account Needed"*.
+   - [x] Replaced generic bottom blog-cta in [`app/blog/[slug]/page.tsx`](file:///Users/shravan/work/projects/probeshield/probeshield-legal/app/blog/[slug]/page.tsx) with dynamic `BlogCtaCard` using `post.cta` metadata.
 
 ---
 

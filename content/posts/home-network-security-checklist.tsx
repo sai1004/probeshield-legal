@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -59,6 +60,14 @@ function Body() {
         See our full breakdown of{' '}
         <Link href="/blog/open-ports-home-network-risk/">what open ports mean and which ones matter</Link>.
       </p>
+
+      <BlogCtaCard
+        variant="mid"
+        headline="Audit steps 1, 2, and 3 in one tap with ProbeShield"
+        description="ProbeShield combines device discovery, manufacturer lookup, and open port scanning into an on-device 5-tier risk audit for your home network."
+        buttonText="Audit My Home Network (Free)"
+        badgeText="100% On-Device • Zero Cloud Data • No Account"
+      />
 
       <h2 className="blog-h2">4. Verify your router isn&apos;t using its default admin password</h2>
       <p className="legal-text">
@@ -137,6 +146,12 @@ export const post: BlogPost = {
   date: '2026-09-27',
   readTime: '8 min read',
   keywords: ['home network security checklist', 'how to secure home wifi', 'home network audit', 'iot security checklist'],
+  cta: {
+    headline: 'Take control of your home network security',
+    description:
+      'Run a comprehensive, on-device vulnerability audit on Android with zero cloud tracking or telemetry.',
+    buttonText: 'Audit Network (Google Play)',
+  },
   faqs,
   Body,
 }

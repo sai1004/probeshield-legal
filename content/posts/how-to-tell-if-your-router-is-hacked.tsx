@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -182,6 +183,14 @@ function Body() {
         <Link href="/blog/open-ports-home-network-risk/">open ports and network vulnerabilities</Link>.
       </p>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Audit your router gateway for exposed management ports"
+        description="ProbeShield tests your default gateway (192.168.1.1) for exposed Telnet (port 23), insecure HTTP admin portals, and suspicious open ports — 100% on-device on Android."
+        buttonText="Scan My Router Gateway (Free)"
+        badgeText="100% Local • Zero Cloud Tracking • No Account"
+      />
+
       <h3 style={{ fontSize: '1.15rem', color: '#fff', marginTop: '1.5rem', marginBottom: '0.6rem' }}>
         Check 3: Inspect active UPnP and Port Forwarding rules
       </h3>
@@ -274,6 +283,12 @@ export const post: BlogPost = {
     'factory reset hacked router',
     'router security audit',
   ],
+  cta: {
+    headline: 'Verify your router gateway security with ProbeShield',
+    description:
+      'Run an instant gateway audit on Android to detect dangerous open services and unauthorized connected hosts.',
+    buttonText: 'Scan Gateway (Free on Google Play)',
+  },
   faqs,
   Body,
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -101,6 +102,14 @@ function Body() {
         </li>
       </ul>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Identify mystery Espressif devices in seconds"
+        description="ProbeShield resolves device manufacturers, maps IP addresses, and scans smart devices for unauthenticated open ports — 100% on-device on Android."
+        buttonText="Scan My Smart Devices (Free)"
+        badgeText="100% Local • Zero Cloud Telemetry • No Account"
+      />
+
       <h2 className="blog-h2">How to identify which physical device it is (3 steps)</h2>
       <p className="legal-text">
         If you want to know <em>which specific object</em> in your living room or kitchen is broadcasting as Espressif,
@@ -190,6 +199,12 @@ export const post: BlogPost = {
     'identify unknown device on router',
     'tuya device on wifi',
   ],
+  cta: {
+    headline: 'Audit your smart home devices with ProbeShield',
+    description:
+      'Identify device chipsets, check for risky open ports, and verify manufacturer identity 100% on-device.',
+    buttonText: 'Scan Smart Devices (Google Play)',
+  },
   faqs,
   Body,
 }

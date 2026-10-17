@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -104,6 +105,14 @@ function Body() {
         <Link href="/blog/find-hidden-devices-on-wifi/">finding every device on your network</Link>.
       </p>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Diagnose WiFi drop loops and IP conflicts with ProbeShield"
+        description="ProbeShield scans your subnet in real time to spot DHCP IP collisions, rogue devices hogging bandwidth, and unstable network hosts directly on your Android phone."
+        buttonText="Audit WiFi Network (Free)"
+        badgeText="Free Android App • 100% On-Device • Zero Telemetry"
+      />
+
       <div className="warning-box">
         <p>
           <strong>What to look for:</strong> duplicate IP addresses, unknown devices you don&apos;t recognize, or an
@@ -163,6 +172,12 @@ export const post: BlogPost = {
     'android wifi connection unstable',
     'fix wifi dropping android',
   ],
+  cta: {
+    headline: 'Resolve network instability and discover connected devices',
+    description:
+      'Run an on-device network sweep to check for IP conflicts, unknown clients, and open services on Android.',
+    buttonText: 'Audit Network (Google Play)',
+  },
   faqs,
   Body,
 }

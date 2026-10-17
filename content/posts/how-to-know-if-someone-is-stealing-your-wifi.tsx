@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -103,6 +104,14 @@ function Body() {
         </li>
       </ol>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Scan your WiFi for intruders in one tap"
+        description="Don't spend 20 minutes unplugging devices. ProbeShield runs a real-time Layer 2 ARP sweep directly from your Android phone to catch unauthorized devices instantly."
+        buttonText="Scan My WiFi for Unknown Devices"
+        badgeText="Free Android App • 100% On-Device • Zero Telemetry"
+      />
+
       <div className="warning-box">
         <p>
           <strong>Phones now randomize their MAC address.</strong> Android and iOS use a private MAC per network by default,
@@ -198,6 +207,12 @@ export const post: BlogPost = {
     'check devices connected to wifi',
     'is my neighbor using my wifi',
   ],
+  cta: {
+    headline: 'Protect your WiFi from unauthorized intruders',
+    description:
+      'ProbeShield runs 100% on-device. Scan your network for unknown devices, verify hardware manufacturers, and check for open ports in seconds.',
+    buttonText: 'Scan My WiFi (Free on Google Play)',
+  },
   faqs,
   Body,
 }

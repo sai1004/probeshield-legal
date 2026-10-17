@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -76,6 +77,14 @@ function Body() {
         </p>
       </div>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Scan your IP cameras for open RTSP & admin ports"
+        description="ProbeShield audits your local network for connected cameras, identifies open video streaming ports (554) and HTTP portals, and computes security risks on-device."
+        buttonText="Check My Security Cameras (Free)"
+        badgeText="100% Local Audit • Zero Account Required"
+      />
+
       <h2 className="blog-h2">Step 3 — Change the password, even if you &quot;already did&quot;</h2>
       <p className="legal-text">
         Some camera firmware resets the admin password on factory reset or firmware update without warning. If it&apos;s
@@ -110,6 +119,12 @@ export const post: BlogPost = {
   date: '2026-09-27',
   readTime: '6 min read',
   keywords: ['is my ip camera hacked', 'check if security camera is exposed', 'ip camera security', 'camera port scan'],
+  cta: {
+    headline: 'Lock down exposed IP cameras on your WiFi',
+    description:
+      'Audit internal devices for default credentials and public port exposure with ProbeShield on Android.',
+    buttonText: 'Check Camera Security (Google Play)',
+  },
   faqs,
   Body,
 }

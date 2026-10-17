@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -90,6 +91,14 @@ function Body() {
         or &quot;Espressif (likely a smart plug)&quot; instead of a bare MAC address.
       </p>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Find devices your router's client list misses"
+        description="ProbeShield combines Layer 2 ARP sweeps, mDNS discovery, and ping sweeps directly on your Android phone to catch every hidden or static-IP device."
+        buttonText="Scan for Hidden Devices (Free)"
+        badgeText="100% On-Device • Zero Cloud Tracking • No Account"
+      />
+
       <h2 className="blog-h2">Common mystery device names on router lists (and what they are)</h2>
       <p className="legal-text">
         When people open their router admin panel or run a network scanner, seeing an unfamiliar manufacturer name often causes immediate panic.
@@ -173,6 +182,12 @@ export const post: BlogPost = {
     'list all connected devices on network',
     'how to check wifi connected devices',
   ],
+  cta: {
+    headline: 'Discover every device connected to your network',
+    description:
+      'Instant hardware vendor lookup, open port analysis, and local scan history comparisons on Android.',
+    buttonText: 'Find Hidden Devices (Google Play)',
+  },
   faqs,
   Body,
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -83,6 +84,14 @@ function Body() {
         dedicated guide on <Link href="/blog/is-my-ip-camera-exposed/">checking whether your camera is exposed</Link>.
       </p>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Check your home network for risky open ports"
+        description="ProbeShield scans the top 100 TCP ports across all devices on your subnet, flags exposed services (Telnet, RTSP, SMB), and computes risk scores on-device."
+        buttonText="Run an On-Device Port Scan"
+        badgeText="100% On-Device • Zero Cloud Telemetry • Free"
+      />
+
       <h2 className="blog-h2">Scanning your own network is legal — scanning others&apos; isn&apos;t</h2>
       <p className="legal-text">
         One important boundary: port scanning is only appropriate on networks you own or have explicit permission to
@@ -111,6 +120,12 @@ export const post: BlogPost = {
   date: '2026-09-27',
   readTime: '7 min read',
   keywords: ['what is port scanning', 'open ports security risk home network', 'port scanner for home network', 'home network vulnerability'],
+  cta: {
+    headline: 'Audit your open ports before attackers find them',
+    description:
+      'ProbeShield matches open ports against known vulnerability patterns and assigns risk scores on-device.',
+    buttonText: 'Run Port Scan (Free on Google Play)',
+  },
   faqs,
   Body,
 }

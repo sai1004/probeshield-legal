@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import BlogCtaCard from '@/components/BlogCtaCard'
 import type { BlogPost, BlogFaq } from './types'
 
 const faqs: BlogFaq[] = [
@@ -129,6 +130,14 @@ function Body() {
         </p>
       </div>
 
+      <BlogCtaCard
+        variant="mid"
+        headline="Filter out stale ghost devices with real-time ARP sweeps"
+        description="Don't trust stale DHCP lease tables. ProbeShield sends real-time Layer 2 ARP frames across your subnet to show only devices actively transmitting right now."
+        buttonText="Scan Active Devices (Free)"
+        badgeText="100% On-Device • Zero Cloud Tracking • No Account"
+      />
+
       <h2 className="blog-h2">Reason 3: Low-power &quot;Connected Standby&quot; states in smart appliances</h2>
       <p className="legal-text">
         Many gadgets in your home never actually turn off when you press the power button:
@@ -256,6 +265,12 @@ export const post: BlogPost = {
     'unknown device on wifi router',
     'real time wifi device scan',
   ],
+  cta: {
+    headline: 'Get real-time WiFi device visibility on Android',
+    description:
+      'Accurate Layer 2 ARP discovery, automatic MAC vendor identification, and zero cloud tracking.',
+    buttonText: 'Scan Active WiFi Devices (Google Play)',
+  },
   faqs,
   Body,
 }
