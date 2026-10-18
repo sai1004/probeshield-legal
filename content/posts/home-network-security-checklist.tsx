@@ -34,15 +34,16 @@ function Body() {
   return (
     <>
       <p className="legal-text">
-        Most home network security advice is either too vague (&quot;use a strong password&quot;) or too technical (assumes
-        you already know what VLANs are). This is a checklist built the other way — ten specific, concrete things to
-        check, in the order that matters most, each doable in a few minutes with tools you already have or a free scan.
+        Most home network security advice is either too vague (&quot;use a strong password&quot;) or too technical
+        (assumes you already know what VLANs are). This is a checklist built the other way — ten specific, concrete
+        things to check, in the order that matters most, each doable in a few minutes with tools you already have or a
+        free scan.
       </p>
 
       <h2 className="blog-h2">1. Know every device that&apos;s actually connected</h2>
       <p className="legal-text">
-        You can&apos;t secure what you don&apos;t know exists. Start with a full device discovery scan rather than trusting
-        your router&apos;s built-in client list — see{' '}
+        You can&apos;t secure what you don&apos;t know exists. Start with a full device discovery scan rather than
+        trusting your router&apos;s built-in client list — see{' '}
         <Link href="/blog/find-hidden-devices-on-wifi/">why the router&apos;s list usually isn&apos;t complete</Link>.
       </p>
 
@@ -56,8 +57,8 @@ function Body() {
 
       <h2 className="blog-h2">3. Scan for open ports on anything IoT</h2>
       <p className="legal-text">
-        Cameras, DVRs, and cheap smart-home hubs are the most likely devices to have an unnecessary service exposed.
-        See our full breakdown of{' '}
+        Cameras, DVRs, and cheap smart-home hubs are the most likely devices to have an unnecessary service exposed. See
+        our full breakdown of{' '}
         <Link href="/blog/open-ports-home-network-risk/">what open ports mean and which ones matter</Link>.
       </p>
 
@@ -93,22 +94,22 @@ function Body() {
 
       <h2 className="blog-h2">7. Separate IoT devices onto a guest network</h2>
       <p className="legal-text">
-        Most consumer routers support a second SSID (&quot;guest network&quot;) that isolates connected devices from your main
-        LAN. Putting smart-home gadgets on it means that if one of them is compromised, it can&apos;t directly reach your
-        laptop or phone.
+        Most consumer routers support a second SSID (&quot;guest network&quot;) that isolates connected devices from
+        your main LAN. Putting smart-home gadgets on it means that if one of them is compromised, it can&apos;t directly
+        reach your laptop or phone.
       </p>
 
       <h2 className="blog-h2">8. Check what&apos;s actually port-forwarded on your router</h2>
       <p className="legal-text">
-        Open your router&apos;s Port Forwarding / Virtual Server settings and review every entry. It&apos;s common for a rule
-        added years ago for a game console or a camera app to still be active long after you stopped using the
+        Open your router&apos;s Port Forwarding / Virtual Server settings and review every entry. It&apos;s common for a
+        rule added years ago for a game console or a camera app to still be active long after you stopped using the
         service — each one is a door left open to the internet, not just your LAN.
       </p>
 
       <h2 className="blog-h2">9. Review cameras specifically</h2>
       <p className="legal-text">
-        Cameras deserve their own pass because they combine the two riskiest properties — always-on network exposure
-        and genuinely sensitive footage. See our dedicated{' '}
+        Cameras deserve their own pass because they combine the two riskiest properties — always-on network exposure and
+        genuinely sensitive footage. See our dedicated{' '}
         <Link href="/blog/is-my-ip-camera-exposed/">IP camera exposure check</Link>.
       </p>
 
@@ -122,16 +123,16 @@ function Body() {
       <div className="highlight-box">
         <p>
           <strong>Want to check these off as you go?</strong> Use the{' '}
-          <Link href="/checklist/">interactive version of this checklist</Link> — it saves your progress on your
-          device so you can come back and re-check it in a few months.
+          <Link href="/checklist/">interactive version of this checklist</Link> — it saves your progress on your device
+          so you can come back and re-check it in a few months.
         </p>
       </div>
 
       <div className="highlight-box">
         <p>
           <strong>The fast way to run most of this list:</strong> ProbeShield combines device discovery, port scanning,
-          and manufacturer identification into one scan with a five-tier risk score per device, entirely on-device —
-          no cloud account, no scan data leaving your phone.
+          and manufacturer identification into one scan with a five-tier risk score per device, entirely on-device — no
+          cloud account, no scan data leaving your phone.
         </p>
       </div>
     </>
@@ -145,11 +146,15 @@ export const post: BlogPost = {
     'A concrete 10-step checklist to secure your home WiFi network: from router admin credentials to IoT isolation and port exposure checks.',
   date: '2026-09-27',
   readTime: '8 min read',
-  keywords: ['home network security checklist', 'how to secure home wifi', 'home network audit', 'iot security checklist'],
+  keywords: [
+    'home network security checklist',
+    'how to secure home wifi',
+    'home network audit',
+    'iot security checklist',
+  ],
   cta: {
     headline: 'Take control of your home network security',
-    description:
-      'Run a comprehensive, on-device vulnerability audit on Android with zero cloud tracking or telemetry.',
+    description: 'Run a comprehensive, on-device vulnerability audit on Android with zero cloud tracking or telemetry.',
     buttonText: 'Audit Network (Google Play)',
   },
   faqs,

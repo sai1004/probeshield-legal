@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+# probeshield-legal pre-commit hook
+# Runs: format check → lint → typecheck → unit tests + 80% coverage gate.
+# Blocks commit on any failure.
+
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+pass() { echo -e "${GREEN}✔ $1${NC}"; }
+fail() { echo -e "${RED}✘ $1${NC}"; }
+info() { echo -e "${YELLOW}▶ $1${NC}"; }
+
+# Only run if a source/test/config file that affects the gate changed
+CHANGED=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(ts|tsx|js|jsx|mjs)$' | grep -vE '^(out|\.next|coverage|node_modules)/' || true)
+if [ -z "$CHANGED" ]; then
+  pass "No JS/TS files changed — skipping quality checks"
+  exit 0
+fi
+
+echo ""
+info "probeshield-legal pre-commit quality gate"
+echo "────────────────────────────────────────"
+
+# ── 1. Prettier format check ─────────────────────────────────────────────────
+info "1/4  prettier — format check"
+if npm run --silent format:check 2>&1; then
+  pass "format check passed"
+else
+  fail "formatting issues found — run 'npm run format' to auto-fix, then re-stage"
+  exit 1
+fi
+
+# ── 2. ESLint ─────────────────────────────────────────────────────────────────
+info "2/4  eslint — lint"
+if npm run --silent lint 2>&1; then
+  pass "lint passed"
+else
+  fail "lint failed — see output above"
+  exit 1
+fi
+
+# ── 3. TypeScript typecheck ───────────────────────────────────────────────────
+info "3/4  tsc — typecheck"
+if npm run --silent typecheck 2>&1; then
+  pass "typecheck passed"
+else
+  fail "typecheck failed — see output above"
+  exit 1
+fi
+
+# ── 4. Unit tests + 80% coverage gate ────────────────────────────────────────
+info "4/4  unit tests + coverage (80% statement/branch/function/line minimum)"
+if npm run --silent test -- --silent 2>&1; then
+  pass "tests passed, coverage gate met"
+else
+  fail "tests failed or coverage dropped below 80% — see output above"
+  exit 1
+fi
+
+echo "────────────────────────────────────────"
+pass "All quality checks passed — committing"
+echo ""

@@ -4,7 +4,8 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'ProbeShield — Network Security Auditor',
     short_name: 'ProbeShield',
-    description: 'Discover hidden devices, scan open ports, and get a clear risk picture of your WiFi. 100% on-device. Free Android app.',
+    description:
+      'Discover hidden devices, scan open ports, and get a clear risk picture of your WiFi. 100% on-device. Free Android app.',
     start_url: '/',
     display: 'standalone',
     background_color: '#051424',

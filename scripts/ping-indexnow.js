@@ -15,10 +15,7 @@ const DEFAULT_KEY = '1bb629e5d7166f96b3507106eb1649dd'
 const KEY = process.env.INDEXNOW_KEY || DEFAULT_KEY
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`
 
-const ENDPOINTS = [
-  'https://api.indexnow.org/IndexNow',
-  'https://www.bing.com/IndexNow',
-]
+const ENDPOINTS = ['https://api.indexnow.org/IndexNow', 'https://www.bing.com/IndexNow']
 
 /**
  * Discovers all public canonical URLs from sitemap.xml or content files.

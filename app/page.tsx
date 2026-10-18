@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import LandingPage from '../components/LandingPage'
+import LandingPage from '@/components/landing'
 
 export const metadata: Metadata = {
   title: 'ProbeShield — Network Security Auditor for Android',
@@ -12,8 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: 'https://probeshield.com',
     title: 'ProbeShield — Network Security Auditor for Android',
-    description:
-      'Discover hidden devices, scan open ports, get a clear risk picture. 100% on-device. Free.',
+    description: 'Discover hidden devices, scan open ports, get a clear risk picture. 100% on-device. Free.',
     type: 'website',
   },
 }
@@ -41,12 +40,6 @@ const jsonLd = {
         '100% on-device. No scan data ever leaves your phone.',
       softwareVersion: '1.2.0',
       datePublished: '2025-01-01',
-      author: {
-        '@type': 'Person',
-        name: 'Saikiran Bavandla',
-        email: 'support@probeshield.com',
-        url: 'https://probeshield.com',
-      },
       publisher: {
         '@type': 'Organization',
         name: 'ProbeShield',
@@ -135,10 +128,7 @@ const jsonLd = {
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <LandingPage />
     </>
   )

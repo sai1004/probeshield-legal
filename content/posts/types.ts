@@ -18,4 +18,3 @@ export type BlogPost = {
   cta?: BlogCta
   Body: React.ComponentType
 }
-

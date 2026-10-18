@@ -1,42 +1,50 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   /* Cyber Sentinel Palette — mirrors Android AppColors exactly */
-  --bg:            #051424;
-  --bg-low:        #010f1f;
-  --bg-card:       #0d1c2d;
-  --bg-card2:      #122131;
-  --bg-high:       #1c2b3c;
-  --bg-highest:    #273647;
-  --bg-bright:     #2c3a4c;
+  --bg: #051424;
+  --bg-low: #010f1f;
+  --bg-card: #0d1c2d;
+  --bg-card2: #122131;
+  --bg-high: #1c2b3c;
+  --bg-highest: #273647;
+  --bg-bright: #2c3a4c;
 
-  --primary:       #4bdcc1;
-  --primary-dim:   #12bca2;
-  --primary-on:    #00382f;
+  --primary: #4bdcc1;
+  --primary-dim: #12bca2;
+  --primary-on: #00382f;
 
-  --cyan:          #4bdcc1; /* alias for legacy legal-page CSS */
-  --blue:          #1B4F8A;
+  --cyan: #4bdcc1; /* alias for legacy legal-page CSS */
+  --blue: #1b4f8a;
 
-  --text:          #d4e4fa;
-  --text-secondary:#bbcac4;
-  --muted:         #85948f;
+  --text: #d4e4fa;
+  --text-secondary: #bbcac4;
+  --muted: #85948f;
 
-  --border:        rgba(75, 220, 193, 0.2);
+  --border: rgba(75, 220, 193, 0.2);
   --border-subtle: #3c4a46;
 
-  --risk-critical: #FF3B3B;
-  --risk-high:     #FF6B35;
-  --risk-medium:   #FFB800;
-  --risk-low:      #4FC3F7;
-  --risk-safe:     #00C896;
+  --risk-critical: #ff3b3b;
+  --risk-high: #ff6b35;
+  --risk-medium: #ffb800;
+  --risk-low: #4fc3f7;
+  --risk-safe: #00c896;
 
-  --font-display:  'Syne', sans-serif;
-  --font-body:     'DM Sans', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--bg);
@@ -48,8 +56,14 @@ body {
   min-height: 100vh;
 }
 
-a { color: var(--cyan); text-decoration: none; transition: opacity 0.2s; }
-a:hover { opacity: 0.8; }
+a {
+  color: var(--cyan);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+a:hover {
+  opacity: 0.8;
+}
 
 /* ════════════════════════════════════════════
    LEGAL PAGE STYLES (Privacy / Terms)
@@ -95,7 +109,9 @@ a:hover { opacity: 0.8; }
   color: var(--text);
 }
 
-.navbar-wordmark span { color: var(--cyan); }
+.navbar-wordmark span {
+  color: var(--cyan);
+}
 
 .navbar-links {
   display: flex;
@@ -136,12 +152,20 @@ a:hover { opacity: 0.8; }
   height: 2px;
   background: var(--text);
   border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
 }
 
-.navbar-toggle-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.navbar-toggle-open span:nth-child(2) { opacity: 0; }
-.navbar-toggle-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.navbar-toggle-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.navbar-toggle-open span:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggle-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 .page-wrapper {
   max-width: 780px;
@@ -182,7 +206,9 @@ a:hover { opacity: 0.8; }
   overflow-wrap: break-word;
 }
 
-.page-title span { color: var(--cyan); }
+.page-title span {
+  color: var(--cyan);
+}
 
 .page-meta {
   display: flex;
@@ -280,7 +306,7 @@ a:hover { opacity: 0.8; }
 
 .legal-text {
   font-size: 0.95rem;
-  color: #C4CDD8;
+  color: #c4cdd8;
   line-height: 1.8;
   margin-bottom: 1rem;
   overflow-wrap: anywhere;
@@ -303,7 +329,7 @@ a:hover { opacity: 0.8; }
   position: relative;
   padding-left: 1.1rem;
   font-size: 0.95rem;
-  color: #C4CDD8;
+  color: #c4cdd8;
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
@@ -330,17 +356,19 @@ a:hover { opacity: 0.8; }
 
 .highlight-box p {
   font-size: 0.9rem;
-  color: #C4CDD8;
+  color: #c4cdd8;
   margin: 0;
   line-height: 1.7;
 }
 
-.highlight-box strong { color: var(--cyan); }
+.highlight-box strong {
+  color: var(--cyan);
+}
 
 .warning-box {
   background: rgba(239, 68, 68, 0.06);
   border: 1px solid rgba(239, 68, 68, 0.2);
-  border-left: 3px solid #EF4444;
+  border-left: 3px solid #ef4444;
   border-radius: 8px;
   padding: 1rem 1.2rem;
   margin: 1rem 0;
@@ -348,7 +376,7 @@ a:hover { opacity: 0.8; }
 
 .warning-box p {
   font-size: 0.9rem;
-  color: #C4CDD8;
+  color: #c4cdd8;
   margin: 0;
   line-height: 1.7;
 }
@@ -379,8 +407,12 @@ a:hover { opacity: 0.8; }
   letter-spacing: 0.05em;
 }
 
-.contact-value { color: var(--text); }
-.contact-value a { color: var(--cyan); }
+.contact-value {
+  color: var(--text);
+}
+.contact-value a {
+  color: var(--cyan);
+}
 
 .legal-footer {
   border-top: 1px solid var(--border-subtle);
@@ -396,7 +428,9 @@ a:hover { opacity: 0.8; }
   margin-bottom: 0.5rem;
 }
 
-.footer-brand span { color: var(--cyan); }
+.footer-brand span {
+  color: var(--cyan);
+}
 
 .footer-links {
   display: flex;
@@ -431,13 +465,25 @@ a:hover { opacity: 0.8; }
 
 /* Legal page entrance animations */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.page-header { animation: fadeUp 0.5s ease both; }
-.toc         { animation: fadeUp 0.5s ease 0.1s both; }
-.legal-section { animation: fadeUp 0.5s ease 0.15s both; }
+.page-header {
+  animation: fadeUp 0.5s ease both;
+}
+.toc {
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+.legal-section {
+  animation: fadeUp 0.5s ease 0.15s both;
+}
 
 /* ════════════════════════════════════════════
    BLOG STYLES (/blog, /blog/[slug])
@@ -456,7 +502,9 @@ a:hover { opacity: 0.8; }
   border-radius: 12px;
   padding: 1.6rem 1.8rem;
   text-decoration: none;
-  transition: border-color 0.2s, transform 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
   animation: fadeUp 0.5s ease both;
 }
 
@@ -484,7 +532,7 @@ a:hover { opacity: 0.8; }
 
 .blog-card-desc {
   font-size: 0.9rem;
-  color: #C4CDD8;
+  color: #c4cdd8;
   line-height: 1.6;
   margin-bottom: 0.8rem;
 }
@@ -495,7 +543,9 @@ a:hover { opacity: 0.8; }
   font-weight: 500;
 }
 
-.blog-prose { animation: fadeUp 0.5s ease 0.1s both; }
+.blog-prose {
+  animation: fadeUp 0.5s ease 0.1s both;
+}
 
 .blog-h2 {
   font-family: var(--font-display);
@@ -558,13 +608,15 @@ a:hover { opacity: 0.8; }
 
 .blog-cta-text {
   font-size: 0.9rem;
-  color: #C4CDD8;
+  color: #c4cdd8;
   line-height: 1.6;
   flex: 1;
   min-width: 220px;
 }
 
-.blog-cta-text strong { color: var(--text); }
+.blog-cta-text strong {
+  color: var(--text);
+}
 
 .blog-cta-btn {
   display: inline-flex;
@@ -598,7 +650,9 @@ a:hover { opacity: 0.8; }
   transition: color 0.2s;
 }
 
-.blog-related-list a:hover { color: var(--cyan); }
+.blog-related-list a:hover {
+  color: var(--cyan);
+}
 
 /* ════════════════════════════════════════════
    LANDING PAGE STYLES (/ home)
@@ -734,12 +788,20 @@ a:hover { opacity: 0.8; }
   height: 2px;
   background: var(--text);
   border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
 }
 
-.lp-nav-toggle-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.lp-nav-toggle-open span:nth-child(2) { opacity: 0; }
-.lp-nav-toggle-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.lp-nav-toggle-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.lp-nav-toggle-open span:nth-child(2) {
+  opacity: 0;
+}
+.lp-nav-toggle-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* Mobile dropdown menu (hidden on desktop) */
 .lp-nav-links-mobile {
@@ -834,15 +896,25 @@ a:hover { opacity: 0.8; }
     display: none;
   }
 
-  .page-wrapper { padding: 2.5rem 1.2rem 4rem; }
-  .page-meta { flex-direction: column; gap: 0.5rem; }
+  .page-wrapper {
+    padding: 2.5rem 1.2rem 4rem;
+  }
+  .page-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 /* Legal-page navbar collapses earlier than other mobile breakpoints — 5 links
    (including "Default Passwords") need ~766px to stay on one line without wrapping. */
 @media (max-width: 900px) {
-  .navbar { padding: 0 1rem; position: relative; }
-  .navbar-toggle { display: flex; }
+  .navbar {
+    padding: 0 1rem;
+    position: relative;
+  }
+  .navbar-toggle {
+    display: flex;
+  }
   .navbar-links {
     display: none;
   }
@@ -909,7 +981,7 @@ a:hover { opacity: 0.8; }
   flex: 1;
   font-size: 0.85rem;
   line-height: 1.55;
-  color: #C4CDD8;
+  color: #c4cdd8;
 }
 
 .consent-text a {
@@ -958,7 +1030,9 @@ a:hover { opacity: 0.8; }
   transition: color 0.2s;
 }
 
-.cookie-settings-btn:hover { color: var(--cyan); }
+.cookie-settings-btn:hover {
+  color: var(--cyan);
+}
 
 @media (max-width: 600px) {
   .consent-banner {
@@ -966,12 +1040,18 @@ a:hover { opacity: 0.8; }
     align-items: stretch;
     gap: 0.9rem;
   }
-  .consent-actions { width: 100%; }
-  .consent-btn { flex: 1; }
+  .consent-actions {
+    width: 100%;
+  }
+  .consent-btn {
+    flex: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .consent-banner { animation: none; }
+  .consent-banner {
+    animation: none;
+  }
 }
 
 /* ════════════════════════════════════════════
@@ -1058,7 +1138,9 @@ a:hover { opacity: 0.8; }
   font-size: 0.82rem;
   font-family: var(--font-body);
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .checklist-reset:hover {
@@ -1081,7 +1163,9 @@ a:hover { opacity: 0.8; }
   border: 1px solid var(--border-subtle);
   border-radius: 12px;
   padding: 0.9rem 1.1rem;
-  transition: border-color 0.2s, opacity 0.2s;
+  transition:
+    border-color 0.2s,
+    opacity 0.2s;
 }
 
 .checklist-item-checked {
@@ -1105,7 +1189,10 @@ a:hover { opacity: 0.8; }
   align-items: center;
   justify-content: center;
   padding: 0;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
 }
 
 .checklist-item-checked .checklist-checkbox {
@@ -1133,7 +1220,7 @@ a:hover { opacity: 0.8; }
 
 .checklist-item-detail {
   font-size: 0.85rem;
-  color: #C4CDD8;
+  color: #c4cdd8;
   line-height: 1.5;
 }
 

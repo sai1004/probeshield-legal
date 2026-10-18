@@ -2,8 +2,9 @@
 
 ## Project Overview
 
-Marketing landing page + legal docs (Privacy Policy, Terms of Service) for the ProbeShield Android app.
-Built with Next.js 14 App Router, statically exported, deployed as a plain HTML/CSS/JS site.
+Marketing landing page, a blog, legal docs (Privacy Policy, Terms of Service), and a handful of standalone
+lookup tools (network security checklist, default-password reference, MAC vendor lookup) for the ProbeShield
+Android app. Built with Next.js 14 App Router, statically exported, deployed as a plain HTML/CSS/JS site.
 
 ## Stack
 
@@ -13,34 +14,60 @@ Built with Next.js 14 App Router, statically exported, deployed as a plain HTML/
 - **Styling:** Plain CSS (`app/globals.css`) — no Tailwind, no CSS modules
 - **Fonts:** Syne (display) + DM Sans (body) via Google Fonts
 - **Output:** Static export (`out/`) — no server required
-- **Analytics:** Google Analytics 4 via `NEXT_PUBLIC_GA_ID`
+- **Analytics:** Google Analytics 4 via `NEXT_PUBLIC_GA_ID`, gated behind a Consent Mode v2 banner — nothing
+  loads until the visitor accepts (`lib/consent.ts`, `components/ConsentBanner.tsx`)
+- **Testing:** Jest + React Testing Library, 80% coverage gate (`__tests__/`)
+- **Code quality:** ESLint (`next/core-web-vitals`) + Prettier, enforced by a pre-commit hook
 
 ## Commands
 
 ```bash
-npm run dev      # Start dev server (hot reload)
-npm run build    # Build static export → out/
-npm start        # Serve the built output (preview only)
+npm run dev # Start dev server (hot reload)
+npm run build # check:theme, then build static export → out/
+npm start # Serve the built output (preview only)
+npm test # Jest with coverage (80% gate: statements/branches/functions/lines)
+npm run test:watch # Jest watch mode, no coverage
+npm run lint # next lint (next/core-web-vitals + eslint-config-prettier)
+npm run format # prettier --write .
+npm run format:check # prettier --check . (what the pre-commit hook runs)
+npm run typecheck # tsc --noEmit — catches what Jest's SWC transform doesn't (it never type-checks)
+npm run check:theme # fails if components/landing/theme.ts and globals.css have drifted
+./scripts/install-hooks.sh # Install the pre-commit hook locally (once per clone)
 ```
 
 ## Project Structure
 
 ```
 app/
-  layout.tsx          # Root layout — fonts, GA scripts, global metadata
-  page.tsx            # Landing page — metadata + JSON-LD structured data
-  globals.css         # All styles (Cyber Sentinel design tokens + component styles)
-  icon.png            # Favicon — 512×512 PNG from Android launcher icon
-  privacy/page.tsx    # Privacy Policy page
-  terms/page.tsx      # Terms of Service page
+  layout.tsx                 # Root layout — fonts, ConsentBanner, global metadata
+  page.tsx                   # Landing page — metadata + JSON-LD structured data
+  sitemap.ts / robots.ts / manifest.ts
+  globals.css                # All styles (Cyber Sentinel design tokens + component styles)
+  icon.png                   # Favicon — 512×512 PNG from Android launcher icon
+  privacy/page.tsx           # Privacy Policy page
+  terms/page.tsx             # Terms of Service page
+  blog/page.tsx               # Blog index
+  blog/[slug]/page.tsx         # Blog post (generateStaticParams from content/posts)
+  checklist/page.tsx           # Interactive network security checklist
+  default-passwords/page.tsx    # Default router/device credentials reference
+  tools/mac-lookup/page.tsx      # MAC address vendor lookup tool
 
 components/
-  LandingPage.tsx     # Full animated landing page (client component)
-  Navbar.tsx          # Shared navbar for legal pages (/privacy, /terms)
-  Footer.tsx          # Shared footer for legal pages
+  landing/                   # The landing page, one component per file (see Key Files below)
+  legal/                     # LegalSection, LegalPageHeader — shared by privacy/ and terms/
+  Navbar.tsx                 # Shared navbar for every non-landing page
+  Footer.tsx                 # Shared footer for legal pages
+  ConsentBanner.tsx / CookieSettingsButton.tsx  # Consent Mode v2 UI (lib/consent.ts)
+  ChecklistTool.tsx / CredentialsFinder.tsx / MacLookupTool.tsx  # The three interactive tools
+  BlogCtaCard.tsx             # Shared CTA card rendered inside blog post bodies
+
+content/posts/                # One file per blog post (typed BlogPost export) + index.ts registry
+lib/                          # consent.ts, checklist.ts, defaultCredentials.ts — pure logic, unit-tested
+scripts/                      # check-theme-sync.js, ping-indexnow.js — standalone Node CLI tools
+__tests__/                    # Jest + React Testing Library, mirrors the app/components/lib tree
 
 public/
-  logo.png            # 512×512 Play Store icon — used in navbar + OG images
+  logo.png                   # 512×512 Play Store icon — used in navbar + OG images
 ```
 
 ## Design System
@@ -73,9 +100,14 @@ CSS class prefixes:
 ```bash
 # .env.local (gitignored — never commit)
 NEXT_PUBLIC_GA_ID=G-MRWMD50MC5
+NEXT_PUBLIC_API_URL=http://localhost:8080
 ```
 
-Set this in your hosting platform's env vars for production. GA scripts are guarded — they only inject when the variable is present, so local dev without the var is safe.
+`NEXT_PUBLIC_GA_ID` — GA scripts are guarded and only inject once the visitor accepts the consent banner, so
+local dev without the var is safe either way. Set it in your hosting platform's env vars for production.
+
+`NEXT_PUBLIC_API_URL` — base URL for `probeshield-api` (see `../probeshield-api`), used by `MacLookupTool.tsx`'s
+vendor lookup. Defaults to `http://localhost:8080` if unset; production is `https://api.probeshield.com`.
 
 Copy `.env.example` when onboarding.
 
@@ -96,10 +128,12 @@ Server component. Exports page-level metadata and injects the JSON-LD `@graph`:
 
 Renders `<LandingPage />` client component.
 
-### `components/LandingPage.tsx`
-`'use client'` — all animation logic lives here. Sections in order:
+### `components/landing/`
+Was a single 1,150-line `components/LandingPage.tsx` — split one component per file (see
+`.claude/plan/code-quality-refactor-plan.md` for the full rationale). `index.tsx` is the only file with
+`'use client'` and composes the rest, in order:
 1. `LandingNav` — fixed, glassmorphism on scroll
-2. `HeroSection` — shield pulse, headline, CTA
+2. `HeroSection` — shield pulse, headline, CTA (uses `HeroShield`, `DownloadBtn`, `FloatingScanLines`)
 3. `StatsBar` — 4 animated stat counters
 4. `FeaturesSection` — 6 feature cards (staggered scroll reveal)
 5. `RiskSection` — 5-tier risk bars (animated width on scroll)
@@ -108,7 +142,10 @@ Renders `<LandingPage />` client component.
 8. `CtaSection` — final download CTA
 9. `LandingFooter`
 
-All scroll animations use `useInView` + Framer Motion `whileInView` variants. The `fadeUp` and `stagger` presets are defined at the top of the file.
+Shared across these: `animations.ts` (`ease`/`fadeUp`/`stagger`), `theme.ts` (the `T` color object — **must stay
+in sync with `globals.css`'s CSS custom properties**, enforced by `scripts/check-theme-sync.js` at build time),
+`data.tsx` (`FEATURES`/`RISK_LEVELS`/`STEPS`/`STATS`/`TRUST_BADGES`/`PRIVACY_ITEMS`), and `useScrollReveal.ts`
+(the `useRef` + Framer Motion `useInView` hook every scroll-reveal section uses).
 
 ### `app/globals.css`
 Single CSS file. Two logical sections:
@@ -122,11 +159,13 @@ All download CTAs point to:
 https://play.google.com/store/apps/details?id=com.probeshield
 ```
 
-Update this in `components/LandingPage.tsx` if the Play Store URL changes.
+Update it in `components/landing/DownloadBtn.tsx` if the Play Store URL changes — that's the single source
+other CTAs render through (`HeroSection`, `CtaSection`, `LandingNav`). `components/BlogCtaCard.tsx` and
+`components/Footer.tsx`/`components/landing/LandingFooter.tsx` hardcode it separately and need updating too.
 
 ## URL conventions (read before touching metadata/sitemap)
 
-`next.config.mjs` sets `trailingSlash: true`. Every route except the root is
+`next.config.js` sets `trailingSlash: true`. Every route except the root is
 served at `/path/` and 308-redirects from `/path` (no slash) — Cloudflare
 Pages enforces this at the edge to match the static export's `path/index.html`
 file layout. `next/link` already respects this automatically in rendered
@@ -180,4 +219,23 @@ cp ../probeshield-app/app/src/main/ic_launcher-playstore.png app/icon.png
 - `/privacy` — Privacy Policy (`app/privacy/page.tsx`)
 - `/terms` — Terms of Service (`app/terms/page.tsx`)
 
-Both use the shared `Navbar` and `Footer` from `components/`. They use the `.page-wrapper`, `.toc`, `.legal-section` CSS classes defined in `globals.css`.
+Both use the shared `Navbar` and `Footer` from `components/`, and `LegalPageHeader`/`LegalSection` from
+`components/legal/` for the header block and each numbered section — `LegalSection` derives both
+`id="section-N"` and the visible "Section 0N" label from one `number` prop, so sections can be inserted,
+removed, or reordered without the two drifting out of sync (see `.claude/rules/components.md`). They use the
+`.page-wrapper`, `.toc`, `.legal-section` CSS classes defined in `globals.css`.
+
+## Testing & Code Quality
+
+- `npm test` runs Jest with coverage; the pre-commit hook (`scripts/hooks/pre-commit`, installed via
+  `./scripts/install-hooks.sh`) blocks the commit if coverage drops below 80% on any of
+  statements/branches/functions/lines, or if format/lint/typecheck fail.
+- Coverage is measured across the whole codebase (`collectCoverageFrom` in `jest.config.js`), not just
+  whatever files a test happens to import — `scripts/` is the one deliberate exclusion (standalone Node CLI
+  tools, verified by hand instead).
+- `jest.setup.js` polyfills things jsdom doesn't provide: `IntersectionObserver` (Framer Motion's `useInView`
+  needs one to exist, even though jsdom can't fire real intersection events) and `TextEncoder`/`TextDecoder`
+  (`react-dom/server`'s browser build needs them). `NEXT_PUBLIC_GA_ID` also defaults to a test value there, so
+  consent-gated components don't need `jest.resetModules()` to test — that call resets React's own module
+  instance too and breaks hooks; see `.claude/rules/testing.md`.
+- Rule files live in `.claude/rules/`: `testing.md`, `code-style.md`, `components.md`.
