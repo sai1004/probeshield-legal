@@ -12,8 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: 'https://probeshield.com',
     title: 'ProbeShield — Network Security Auditor for Android',
-    description:
-      'Discover hidden devices, scan open ports, get a clear risk picture. 100% on-device. Free.',
+    description: 'Discover hidden devices, scan open ports, get a clear risk picture. 100% on-device. Free.',
     type: 'website',
   },
 }
@@ -129,10 +128,7 @@ const jsonLd = {
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <LandingPage />
     </>
   )

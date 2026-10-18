@@ -42,22 +42,22 @@ function Body() {
         <p>
           <strong>Short answer:</strong> The most reliable signs of a hacked router are unexpected browser redirects
           (DNS hijacking), sudden loss of access to your router admin panel, unauthorized port forwarding rules,
-          unfamiliar connected devices in your DHCP table, and aggressive pop-up ads appearing across{' '}
-          <em>all</em> household devices simultaneously. If you suspect a breach, disconnect your internet cable,
-          perform a 15-second physical factory reset, update the firmware, and change all passwords.
+          unfamiliar connected devices in your DHCP table, and aggressive pop-up ads appearing across <em>all</em>{' '}
+          household devices simultaneously. If you suspect a breach, disconnect your internet cable, perform a 15-second
+          physical factory reset, update the firmware, and change all passwords.
         </p>
       </div>
 
       <p className="legal-text">
-        Most people assume that malware only infects laptops and smartphones. In reality, your home router is often
-        the most attractive target on your network. Routers run continuously, rarely run antivirus software, and sit
-        directly on the boundary between the public internet and every private phone, computer, and smart camera in
-        your home.
+        Most people assume that malware only infects laptops and smartphones. In reality, your home router is often the
+        most attractive target on your network. Routers run continuously, rarely run antivirus software, and sit
+        directly on the boundary between the public internet and every private phone, computer, and smart camera in your
+        home.
       </p>
       <p className="legal-text">
         When cybercriminals compromise a router, they don&apos;t usually make it obvious with flashing sirens. Instead,
-        they quietly alter network configurations to redirect financial traffic, monitor internet habits, or hijack
-        the router&apos;s processing power for botnet swarms. Here are the 10 telltale signs that your router has been
+        they quietly alter network configurations to redirect financial traffic, monitor internet habits, or hijack the
+        router&apos;s processing power for botnet swarms. Here are the 10 telltale signs that your router has been
         compromised, how to verify each one, and the exact steps to reclaim your network.
       </p>
 
@@ -65,9 +65,9 @@ function Body() {
 
       <div className="warning-box">
         <p>
-          <strong>Key distinction:</strong> Slow WiFi or an occasional disconnect does not mean you have been hacked.
-          A compromised router involves specific configuration tampering — primarily DNS changes, unauthorized port
-          rules, and disabled security controls.
+          <strong>Key distinction:</strong> Slow WiFi or an occasional disconnect does not mean you have been hacked. A
+          compromised router involves specific configuration tampering — primarily DNS changes, unauthorized port rules,
+          and disabled security controls.
         </p>
       </div>
 
@@ -80,8 +80,8 @@ function Body() {
         </li>
         <li>
           <strong>2. Your router admin password suddenly stops working:</strong> If you try logging into your gateway
-          (usually <code>192.168.1.1</code> or <code>192.168.0.1</code>) and your known credentials fail, an attacker
-          or automated bot may have locked you out. If you never changed the default factory credentials (such as{' '}
+          (usually <code>192.168.1.1</code> or <code>192.168.0.1</code>) and your known credentials fail, an attacker or
+          automated bot may have locked you out. If you never changed the default factory credentials (such as{' '}
           <code>admin/admin</code> or <code>admin/password</code>), anyone on the local network or internet could have
           claimed administrative control.
         </li>
@@ -93,15 +93,15 @@ function Body() {
         </li>
         <li>
           <strong>4. Remote management (WAN administration) is enabled:</strong> Consumer routers should never have
-          their web configuration or command-line interfaces exposed to the outside world. If &quot;Remote Management,&quot;
-          &quot;Web Access from WAN,&quot; or port 8080/8443 is turned on in your settings without your knowledge, external
-          attackers can reach your login portal from anywhere on the internet.
+          their web configuration or command-line interfaces exposed to the outside world. If &quot;Remote
+          Management,&quot; &quot;Web Access from WAN,&quot; or port 8080/8443 is turned on in your settings without
+          your knowledge, external attackers can reach your login portal from anywhere on the internet.
         </li>
         <li>
           <strong>5. Rogue port forwarding rules or UPnP entries you didn&apos;t create:</strong> Navigate to your
           router&apos;s Port Forwarding section. If you see open ports (like port 22 for SSH, 23 for Telnet, 3389 for
-          Remote Desktop, or arbitrary high ports like 8088 or 5555) forwarding external traffic to an internal IP,
-          an intruder or malware may have opened a backdoor.
+          Remote Desktop, or arbitrary high ports like 8088 or 5555) forwarding external traffic to an internal IP, an
+          intruder or malware may have opened a backdoor.
         </li>
         <li>
           <strong>6. Fake virus pop-ups appear on multiple devices at once:</strong> If one Windows PC has adware
@@ -115,10 +115,10 @@ function Body() {
           passersby or attackers to siphon your internet connection without needing your WPA2/WPA3 password.
         </li>
         <li>
-          <strong>8. Extreme bandwidth consumption &amp; network sluggishness:</strong> If your internet speeds crawl
-          to a halt even when all streaming and downloads are paused, your router may have been co-opted into an IoT
-          botnet (such as Mirai, Mozi, or TheMoon). These botnets utilize thousands of hijacked home gateways to launch
-          massive Distributed Denial of Service (DDoS) attacks against third-party targets.
+          <strong>8. Extreme bandwidth consumption &amp; network sluggishness:</strong> If your internet speeds crawl to
+          a halt even when all streaming and downloads are paused, your router may have been co-opted into an IoT botnet
+          (such as Mirai, Mozi, or TheMoon). These botnets utilize thousands of hijacked home gateways to launch massive
+          Distributed Denial of Service (DDoS) attacks against third-party targets.
         </li>
         <li>
           <strong>9. Automatic firmware updates are disabled or firmware is outdated:</strong> Many modern routers
@@ -128,8 +128,8 @@ function Body() {
         </li>
         <li>
           <strong>10. Security software and operating system updates fail:</strong> Router-level DNS manipulators often
-          block access to antivirus update servers (like Microsoft Defender, Malwarebytes, or Apple security updates)
-          to prevent your endpoints from detecting the malicious redirection.
+          block access to antivirus update servers (like Microsoft Defender, Malwarebytes, or Apple security updates) to
+          prevent your endpoints from detecting the malicious redirection.
         </li>
       </ul>
 
@@ -158,9 +158,9 @@ function Body() {
           Look at the <strong>Primary DNS</strong> and <strong>Secondary DNS</strong> fields.
         </li>
         <li>
-          They should either be set to &quot;Obtain automatically from ISP&quot; or match known, reputable public resolvers:
-          Cloudflare (<code>1.1.1.1</code> and <code>1.0.0.1</code>), Google (<code>8.8.8.8</code> and <code>8.8.4.4</code>),
-          or Quad9 (<code>9.9.9.9</code>).
+          They should either be set to &quot;Obtain automatically from ISP&quot; or match known, reputable public
+          resolvers: Cloudflare (<code>1.1.1.1</code> and <code>1.0.0.1</code>), Google (<code>8.8.8.8</code> and{' '}
+          <code>8.8.4.4</code>), or Quad9 (<code>9.9.9.9</code>).
         </li>
         <li>
           If you see random foreign IP addresses you never configured, take a screenshot, note the numbers, and replace
@@ -172,13 +172,13 @@ function Body() {
         Check 2: Audit open management ports on your gateway
       </h3>
       <p className="legal-text">
-        A secure home router should only listen on local administrative ports (like HTTPS port 443 or HTTP port 80)
-        and should <em>never</em> expose legacy, unencrypted services like <strong>Telnet (port 23)</strong> or an
+        A secure home router should only listen on local administrative ports (like HTTPS port 443 or HTTP port 80) and
+        should <em>never</em> expose legacy, unencrypted services like <strong>Telnet (port 23)</strong> or an
         unrestricted SSH daemon.
       </p>
       <p className="legal-text">
-        Using an on-device port scanner like ProbeShield on Android, run an immediate audit against your default gateway IP
-        (such as <code>192.168.1.1</code>). If Telnet port 23 is open or unknown debugging ports are listening, your
+        Using an on-device port scanner like ProbeShield on Android, run an immediate audit against your default gateway
+        IP (such as <code>192.168.1.1</code>). If Telnet port 23 is open or unknown debugging ports are listening, your
         gateway has critical exposure. Read our in-depth analysis on{' '}
         <Link href="/blog/open-ports-home-network-risk/">open ports and network vulnerabilities</Link>.
       </p>
@@ -196,13 +196,13 @@ function Body() {
       </h3>
       <p className="legal-text">
         Universal Plug and Play (UPnP) allows software on your network to request port forwarding automatically. While
-        convenient for gaming consoles, malicious software can abuse UPnP to punch holes straight through your router&apos;s
-        firewall without asking for your admin password.
+        convenient for gaming consoles, malicious software can abuse UPnP to punch holes straight through your
+        router&apos;s firewall without asking for your admin password.
       </p>
       <p className="legal-text">
-        Check your router&apos;s <strong>Advanced &gt; UPnP</strong> or <strong>Port Forwarding</strong> page. If you see
-        active rules forwarding traffic to IP addresses that don&apos;t match your gaming consoles or approved servers,
-        delete the rules immediately.
+        Check your router&apos;s <strong>Advanced &gt; UPnP</strong> or <strong>Port Forwarding</strong> page. If you
+        see active rules forwarding traffic to IP addresses that don&apos;t match your gaming consoles or approved
+        servers, delete the rules immediately.
       </p>
 
       <h2 className="blog-h2">How to fix and sanitize a hacked router (Recovery Protocol)</h2>
@@ -213,14 +213,15 @@ function Body() {
 
       <ol className="legal-list">
         <li>
-          <strong>Step 1: Disconnect the internet cable.</strong> Unplug the Ethernet or coax cable connecting your router
-          to your modem or fiber ONT. This cuts off the attacker&apos;s active remote connection while you clean the device.
+          <strong>Step 1: Disconnect the internet cable.</strong> Unplug the Ethernet or coax cable connecting your
+          router to your modem or fiber ONT. This cuts off the attacker&apos;s active remote connection while you clean
+          the device.
         </li>
         <li>
-          <strong>Step 2: Perform a physical factory reset.</strong> Locate the small recessed reset button on the back of
-          the router. While the unit is powered on, press and hold it with a paperclip for 15 to 30 seconds until the LEDs
-          flash in unison. This completely clears volatile memory, wipes rogue DNS modifications, and removes temporary
-          malware payloads.
+          <strong>Step 2: Perform a physical factory reset.</strong> Locate the small recessed reset button on the back
+          of the router. While the unit is powered on, press and hold it with a paperclip for 15 to 30 seconds until the
+          LEDs flash in unison. This completely clears volatile memory, wipes rogue DNS modifications, and removes
+          temporary malware payloads.
         </li>
         <li>
           <strong>Step 3: Connect locally and update firmware.</strong> Connect one computer via an Ethernet cable. Log
@@ -231,8 +232,8 @@ function Body() {
         </li>
         <li>
           <strong>Step 4: Create a strong, unique administrator password.</strong> Never leave the router admin password
-          as <code>admin</code> or blank. Use a unique 16+ character password stored in a password manager. This password
-          controls router configuration and must be different from your WiFi password.
+          as <code>admin</code> or blank. Use a unique 16+ character password stored in a password manager. This
+          password controls router configuration and must be different from your WiFi password.
         </li>
         <li>
           <strong>Step 5: Disable high-risk legacy settings.</strong> In the router interface, disable{' '}

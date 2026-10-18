@@ -18,10 +18,12 @@ export default function BlogIndex() {
       <main className="page-wrapper" style={{ maxWidth: '860px' }}>
         <div className="page-header">
           <div className="page-badge">📚 Guides</div>
-          <h1 className="page-title">Network Security <span>Guides</span></h1>
+          <h1 className="page-title">
+            Network Security <span>Guides</span>
+          </h1>
           <p className="legal-text" style={{ marginTop: '0.5rem' }}>
-            Practical, specific guides to securing your home network — written for people who want the actual steps,
-            not vague advice.
+            Practical, specific guides to securing your home network — written for people who want the actual steps, not
+            vague advice.
           </p>
         </div>
 

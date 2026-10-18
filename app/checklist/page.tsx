@@ -38,11 +38,12 @@ export default function ChecklistPage() {
       <main className="page-wrapper" style={{ maxWidth: '720px' }}>
         <div className="page-header">
           <div className="page-badge">✅ Interactive Checklist</div>
-          <h1 className="page-title">Network Security <span>Checklist</span></h1>
+          <h1 className="page-title">
+            Network Security <span>Checklist</span>
+          </h1>
           <p className="legal-text" style={{ marginTop: '0.5rem' }}>
-            The same ten things from our{' '}
-            <Link href="/blog/home-network-security-checklist/">full checklist guide</Link>, as something you can
-            actually check off — and come back to re-check in a few months.
+            The same ten things from our <Link href="/blog/home-network-security-checklist/">full checklist guide</Link>
+            , as something you can actually check off — and come back to re-check in a few months.
           </p>
         </div>
 

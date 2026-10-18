@@ -1,8 +1,18 @@
 export const FEATURES = [
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
       </svg>
     ),
     title: 'Device Discovery',
@@ -10,8 +20,18 @@ export const FEATURES = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+        <polyline points="13 2 13 9 20 9" />
       </svg>
     ),
     title: 'Port Scanner',
@@ -19,8 +39,18 @@ export const FEATURES = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8m-4-4v4" />
       </svg>
     ),
     title: 'Manufacturer ID',
@@ -28,8 +58,17 @@ export const FEATURES = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L3 7v5c0 5.25 3.84 10.15 9 11.36C17.16 17.15 21 12.25 21 12V7L12 2z"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2L3 7v5c0 5.25 3.84 10.15 9 11.36C17.16 17.15 21 12.25 21 12V7L12 2z" />
       </svg>
     ),
     title: 'Risk Scoring',
@@ -37,8 +76,18 @@ export const FEATURES = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
       </svg>
     ),
     title: 'Scan History',
@@ -46,8 +95,18 @@ export const FEATURES = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
     ),
     title: 'App Lock',
@@ -57,10 +116,10 @@ export const FEATURES = [
 
 export const RISK_LEVELS = [
   { label: 'Critical', color: '#FF3B3B', pct: 100, desc: 'Remote exploit possible' },
-  { label: 'High',     color: '#FF6B35', pct:  78, desc: 'Significant exposure found' },
-  { label: 'Medium',   color: '#FFB800', pct:  52, desc: 'Potential weakness detected' },
-  { label: 'Low',      color: '#4FC3F7', pct:  28, desc: 'Minor issue noted' },
-  { label: 'Safe',     color: '#00C896', pct:   6, desc: 'No threats identified' },
+  { label: 'High', color: '#FF6B35', pct: 78, desc: 'Significant exposure found' },
+  { label: 'Medium', color: '#FFB800', pct: 52, desc: 'Potential weakness detected' },
+  { label: 'Low', color: '#4FC3F7', pct: 28, desc: 'Minor issue noted' },
+  { label: 'Safe', color: '#00C896', pct: 6, desc: 'No threats identified' },
 ]
 
 export const STEPS = [
@@ -83,8 +142,8 @@ export const STEPS = [
 
 export const STATS = [
   { value: '100+', label: 'TCP ports per device' },
-  { value: '0',    label: 'Bytes of scan data uploaded' },
-  { value: '5',    label: 'Risk severity tiers' },
+  { value: '0', label: 'Bytes of scan data uploaded' },
+  { value: '5', label: 'Risk severity tiers' },
   { value: '100%', label: 'On-device processing' },
 ]
 

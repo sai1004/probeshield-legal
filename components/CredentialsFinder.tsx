@@ -40,9 +40,8 @@ export default function CredentialsFinder() {
 
       {filtered.length === 0 ? (
         <p className="creds-empty">
-          No brand-specific entry for that yet. Try the{' '}
-          <a href="#generic-defaults">common generic defaults</a> below, or check the label on the
-          device itself.
+          No brand-specific entry for that yet. Try the <a href="#generic-defaults">common generic defaults</a> below,
+          or check the label on the device itself.
         </p>
       ) : (
         <div className="creds-grid">
@@ -63,19 +62,18 @@ export default function CredentialsFinder() {
       )}
 
       <p className="creds-note">
-        {BRAND_CREDENTIALS.length} entries across {BRAND_GROUPS.length} brands — this is what
-        ProbeShield's own scanner tests, not a claim that it covers every brand or model. Most
-        entries here are a single guess per brand; newer devices increasingly ship with a unique
-        printed password instead of a shared default, in which case none of this will work — check
-        the label on the device or its manual instead.
+        {BRAND_CREDENTIALS.length} entries across {BRAND_GROUPS.length} brands — this is what ProbeShield&apos;s own
+        scanner tests, not a claim that it covers every brand or model. Most entries here are a single guess per brand;
+        newer devices increasingly ship with a unique printed password instead of a shared default, in which case none
+        of this will work — check the label on the device or its manual instead.
       </p>
 
       <h2 id="generic-defaults" className="creds-section-title">
         Common generic defaults
       </h2>
       <p className="legal-text">
-        These aren't tied to one brand — they show up across unbranded, white-label, or
-        never-configured devices of all kinds.
+        These aren&apos;t tied to one brand — they show up across unbranded, white-label, or never-configured devices of
+        all kinds.
       </p>
       <div className="creds-generic-list">
         {GENERIC_CREDENTIALS.map((c, i) => (

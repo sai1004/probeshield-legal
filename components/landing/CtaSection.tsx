@@ -34,7 +34,8 @@ export function CtaSection() {
               letterSpacing: '-0.02em',
             }}
           >
-            Start Auditing Your<br />
+            Start Auditing Your
+            <br />
             <span style={{ color: T.primary }}>Network Today</span>
           </motion.h2>
 
@@ -49,18 +50,14 @@ export function CtaSection() {
               margin: '0 auto 2.5rem',
             }}
           >
-            Free download. No account. No cloud. Just a powerful network security
-            audit in the palm of your hand.
+            Free download. No account. No cloud. Just a powerful network security audit in the palm of your hand.
           </motion.p>
 
           <motion.div variants={fadeUp} style={{ display: 'flex', justifyContent: 'center' }}>
             <DownloadBtn large />
           </motion.div>
 
-          <motion.p
-            variants={fadeUp}
-            style={{ fontSize: '0.8rem', color: T.muted, marginTop: '1rem' }}
-          >
+          <motion.p variants={fadeUp} style={{ fontSize: '0.8rem', color: T.muted, marginTop: '1rem' }}>
             Android 8.0 (Oreo) and above &nbsp;·&nbsp; ~25 MB
           </motion.p>
         </motion.div>

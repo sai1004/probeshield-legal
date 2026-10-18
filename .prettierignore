@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+coverage/
+package-lock.json
+
+# Internal planning/docs, not application code -- not subject to the code-format gate.
+.claude/
+CLAUDE.md

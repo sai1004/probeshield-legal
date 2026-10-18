@@ -27,7 +27,9 @@ export default function Navbar() {
         <div className="navbar-logo-icon">
           <Image src="/logo.png" alt="ProbeShield Logo" width={32} height={32} priority />
         </div>
-        <span className="navbar-wordmark">Probe<span>Shield</span></span>
+        <span className="navbar-wordmark">
+          Probe<span>Shield</span>
+        </span>
       </Link>
 
       <ul className={`navbar-links${open ? ' navbar-links-open' : ''}`}>

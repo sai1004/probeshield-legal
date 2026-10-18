@@ -90,9 +90,8 @@ export default function MacLookupTool() {
       )}
 
       <p className="mac-privacy-note">
-        🔒 Only the first 6 characters (the vendor prefix) are sent — truncated in your browser before
-        anything leaves it. The rest of the address, which identifies your specific device, never goes
-        anywhere.
+        🔒 Only the first 6 characters (the vendor prefix) are sent — truncated in your browser before anything leaves
+        it. The rest of the address, which identifies your specific device, never goes anywhere.
       </p>
 
       {state.status === 'found' && (
@@ -105,16 +104,19 @@ export default function MacLookupTool() {
       {state.status === 'not_found' && (
         <div className="mac-result mac-result-empty">
           <p>
-            No match for <code>{state.oui}</code>. This usually means either the device uses a randomized
-            (privacy) MAC address — common on modern phones when they&apos;re not connected to your saved
-            network — or it&apos;s from a newer registration not yet in the public IEEE database.
+            No match for <code>{state.oui}</code>. This usually means either the device uses a randomized (privacy) MAC
+            address — common on modern phones when they&apos;re not connected to your saved network — or it&apos;s from
+            a newer registration not yet in the public IEEE database.
           </p>
         </div>
       )}
 
       {state.status === 'invalid' && (
         <div className="mac-result mac-result-empty">
-          <p>That doesn&apos;t look like a MAC address — paste at least the first 6 hex characters (e.g. <code>B827EB</code> or <code>B8:27:EB</code>).</p>
+          <p>
+            That doesn&apos;t look like a MAC address — paste at least the first 6 hex characters (e.g.{' '}
+            <code>B827EB</code> or <code>B8:27:EB</code>).
+          </p>
         </div>
       )}
 

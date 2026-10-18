@@ -38,7 +38,9 @@ export default function DefaultPasswordsPage() {
             ? `A commonly tested default is username "${creds[0].username || '(blank)'}" with password "${creds[0].password || '(blank)'}" over ${creds[0].service}. This isn't guaranteed for every model — if it doesn't work, check the label on the device or its manual.`
             : `Commonly tested defaults include ${creds
                 .map((c) => `"${c.username || '(blank)'}" / "${c.password || '(blank)'}"`)
-                .join(' or ')}. These aren't guaranteed for every model — if none work, check the label on the device or its manual.`,
+                .join(
+                  ' or ',
+                )}. These aren't guaranteed for every model — if none work, check the label on the device or its manual.`,
       },
     })),
   }
@@ -55,9 +57,8 @@ export default function DefaultPasswordsPage() {
           </h1>
           <p className="legal-text" style={{ marginTop: '0.5rem' }}>
             A short, honest list — not a claim to cover every brand or model. This is what{' '}
-            <Link href="/">ProbeShield</Link>'s own scanner tests when it finds a device on your
-            network, laid out so you can check it yourself without installing anything. Part of the
-            same idea as our{' '}
+            <Link href="/">ProbeShield</Link>&apos;s own scanner tests when it finds a device on your network, laid out
+            so you can check it yourself without installing anything. Part of the same idea as our{' '}
             <Link href="/blog/home-network-security-checklist/">network security checklist</Link>.
           </p>
           <p className="legal-text" style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>

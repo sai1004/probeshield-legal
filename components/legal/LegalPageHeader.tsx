@@ -20,7 +20,9 @@ export function LegalPageHeader({
   return (
     <div className="page-header">
       <div className="page-badge">{badge}</div>
-      <h1 className="page-title">{title} <span>{titleAccent}</span></h1>
+      <h1 className="page-title">
+        {title} <span>{titleAccent}</span>
+      </h1>
       <div className="page-meta">
         <span className="page-meta-item">
           <strong>Effective Date:</strong> {effectiveDate}

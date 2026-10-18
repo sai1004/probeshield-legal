@@ -42,7 +42,11 @@ export function DownloadBtn({ large = false, small = false }: { large?: boolean;
       ) : (
         'Get it on Google Play'
       )}
-      {!small && <span className="lp-download-subtext" style={{ fontSize: '0.72rem', fontWeight: 500, opacity: 0.65 }}>Free · Android 8+</span>}
+      {!small && (
+        <span className="lp-download-subtext" style={{ fontSize: '0.72rem', fontWeight: 500, opacity: 0.65 }}>
+          Free · Android 8+
+        </span>
+      )}
     </motion.a>
   )
 }

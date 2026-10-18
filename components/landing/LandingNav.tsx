@@ -32,9 +32,15 @@ export function LandingNav() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.65, ease }}
       style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 200,
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 200,
         height: 64,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         background: scrolled || open ? 'rgba(5,20,36,0.92)' : 'transparent',
         backdropFilter: scrolled || open ? 'blur(20px)' : 'none',
         WebkitBackdropFilter: scrolled || open ? 'blur(20px)' : 'none',
@@ -44,11 +50,18 @@ export function LandingNav() {
     >
       {/* Brand */}
       <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', textDecoration: 'none' }}>
-        <div style={{
-          width: 32, height: 32, borderRadius: 8, overflow: 'hidden',
-          background: `linear-gradient(135deg, ${T.primary}, #1B4F8A)`,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
+        <div
+          style={{
+            width: 32,
+            height: 32,
+            borderRadius: 8,
+            overflow: 'hidden',
+            background: `linear-gradient(135deg, ${T.primary}, #1B4F8A)`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           <Image src="/logo.png" alt="ProbeShield" width={32} height={32} priority />
         </div>
         <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.05rem', color: T.text }}>
@@ -101,7 +114,12 @@ function NavLink({ label, href, onClick }: { label: string; href: string; onClic
     <Link
       href={href}
       onClick={onClick}
-      style={{ color: hovered ? T.text : T.muted, fontSize: '0.88rem', textDecoration: 'none', transition: 'color 0.2s' }}
+      style={{
+        color: hovered ? T.text : T.muted,
+        fontSize: '0.88rem',
+        textDecoration: 'none',
+        transition: 'color 0.2s',
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

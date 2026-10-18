@@ -41,7 +41,9 @@ describe('sitemap', () => {
       expect(entry).toBeDefined()
       expect(entry!.lastModified).toEqual(new Date(post.date))
     }
-    const blogPostUrls = entries.filter((e) => e.url.startsWith('https://probeshield.com/blog/') && e.url !== 'https://probeshield.com/blog/')
+    const blogPostUrls = entries.filter(
+      (e) => e.url.startsWith('https://probeshield.com/blog/') && e.url !== 'https://probeshield.com/blog/',
+    )
     expect(blogPostUrls).toHaveLength(posts.length)
   })
 })

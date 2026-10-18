@@ -11,13 +11,7 @@ export function ShieldSvg({ size = 36, color = T.primary }: { size?: number; col
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M9 12l2 2 4-4"
-        stroke={color}
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M9 12l2 2 4-4" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }

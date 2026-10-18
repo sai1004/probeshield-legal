@@ -53,10 +53,7 @@ export default function ChecklistTool() {
   return (
     <div className="checklist-tool">
       <div className="checklist-score">
-        <div
-          className="checklist-ring"
-          style={{ ['--pct' as string]: `${percent}%` }}
-        >
+        <div className="checklist-ring" style={{ ['--pct' as string]: `${percent}%` }}>
           <span className="checklist-ring-number">{checkedCount}</span>
           <span className="checklist-ring-total">/ {total}</span>
         </div>

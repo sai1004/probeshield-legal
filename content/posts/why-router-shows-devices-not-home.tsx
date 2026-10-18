@@ -16,7 +16,7 @@ const faqs: BlogFaq[] = [
   {
     question: 'How can I tell if a device in my router list has a randomized MAC address?',
     answer:
-      "Look at the second character of the MAC address. If the second digit is 2, 6, A, or E (such as da:a1:19:xx:xx:xx or 4e:22:15:xx:xx:xx), it is an IEEE Locally Administered Address, which means it is a randomized privacy address from an iPhone, iPad, Android phone, or Windows 11 PC.",
+      'Look at the second character of the MAC address. If the second digit is 2, 6, A, or E (such as da:a1:19:xx:xx:xx or 4e:22:15:xx:xx:xx), it is an IEEE Locally Administered Address, which means it is a randomized privacy address from an iPhone, iPad, Android phone, or Windows 11 PC.',
   },
   {
     question: 'Can I turn off Private Wi-Fi Address on my home network?',
@@ -40,18 +40,19 @@ function Body() {
     <>
       <div className="highlight-box" style={{ marginBottom: '2rem' }}>
         <p>
-          <strong>Short answer:</strong> You almost certainly don&apos;t have an intruder. When your router shows a device
-          that has left the house or is powered off, it is usually because of <strong>DHCP lease persistence</strong>{' '}
-          (routers keep devices listed for 24–72 hours after they disconnect) or <strong>MAC address randomization</strong>{' '}
-          (iPhones and Androids generating temporary privacy MACs that create duplicate &quot;ghost&quot; entries).
+          <strong>Short answer:</strong> You almost certainly don&apos;t have an intruder. When your router shows a
+          device that has left the house or is powered off, it is usually because of{' '}
+          <strong>DHCP lease persistence</strong> (routers keep devices listed for 24–72 hours after they disconnect) or{' '}
+          <strong>MAC address randomization</strong> (iPhones and Androids generating temporary privacy MACs that create
+          duplicate &quot;ghost&quot; entries).
         </p>
       </div>
 
       <p className="legal-text">
-        You log into your router&apos;s administration dashboard or companion app, click &quot;Connected Devices,&quot; and
-        notice something bewildering: your spouse&apos;s iPhone is listed as connected, even though they are 10 miles away
-        at work. Or you see an unfamiliar device name with full signal strength, and you wonder if a neighbor is siphoning
-        your internet.
+        You log into your router&apos;s administration dashboard or companion app, click &quot;Connected Devices,&quot;
+        and notice something bewildering: your spouse&apos;s iPhone is listed as connected, even though they are 10
+        miles away at work. Or you see an unfamiliar device name with full signal strength, and you wonder if a neighbor
+        is siphoning your internet.
       </p>
       <p className="legal-text">
         These &quot;ghost devices&quot; are one of the most common sources of panic for home network managers. Here is
@@ -65,9 +66,9 @@ function Body() {
         connected clients.
       </p>
       <p className="legal-text">
-        When a phone or computer joins your WiFi, it requests an IP address from your router&apos;s <strong>DHCP</strong>{' '}
-        (Dynamic Host Configuration Protocol) server. The router doesn&apos;t simply lend out the address indefinitely —
-        it grants a <strong>DHCP Lease</strong> with a set timer.
+        When a phone or computer joins your WiFi, it requests an IP address from your router&apos;s{' '}
+        <strong>DHCP</strong> (Dynamic Host Configuration Protocol) server. The router doesn&apos;t simply lend out the
+        address indefinitely — it grants a <strong>DHCP Lease</strong> with a set timer.
       </p>
       <ul className="legal-list">
         <li>
@@ -77,8 +78,8 @@ function Body() {
         </li>
         <li>
           <strong>No goodbye handshake:</strong> When you leave your house, your smartphone drops out of WiFi range. It
-          does not send a formal <em>DHCP Release</em> packet to inform the router it is leaving — the radio signal simply
-          fades out.
+          does not send a formal <em>DHCP Release</em> packet to inform the router it is leaving — the radio signal
+          simply fades out.
         </li>
         <li>
           <strong>The stale table:</strong> Because the lease timer has not expired, the router reserves that IP and
@@ -89,14 +90,15 @@ function Body() {
 
       <h2 className="blog-h2">Reason 2: Smartphone MAC randomization creates &quot;duplicate ghosts&quot;</h2>
       <p className="legal-text">
-        Have you ever noticed two or three entries for the exact same iPhone or Android in your router&apos;s device list?
-        This is caused by mobile privacy features.
+        Have you ever noticed two or three entries for the exact same iPhone or Android in your router&apos;s device
+        list? This is caused by mobile privacy features.
       </p>
       <p className="legal-text">
         Historically, every network interface had a permanent, globally unique hardware identifier called a{' '}
         <strong>MAC address</strong> (like <code>ac:de:48:12:34:56</code>). Because this permanent identifier allowed
         commercial WiFi trackers in shopping malls and airports to follow people across locations, Apple introduced{' '}
-        <strong>Private Wi-Fi Address</strong> in iOS 14, and Google introduced <strong>Randomized MAC</strong> in Android 10.
+        <strong>Private Wi-Fi Address</strong> in iOS 14, and Google introduced <strong>Randomized MAC</strong> in
+        Android 10.
       </p>
       <p className="legal-text">
         With these features enabled, your phone invents a synthetic, randomized MAC address instead of using its true
@@ -107,12 +109,8 @@ function Body() {
           When your phone connects with a new randomized address, your router has no way of knowing it is the same phone
           it saw yesterday.
         </li>
-        <li>
-          The router registers the new MAC as a completely new device and hands it a new IP address.
-        </li>
-        <li>
-          The old MAC address remains in the DHCP table until its lease expires.
-        </li>
+        <li>The router registers the new MAC as a completely new device and hands it a new IP address.</li>
+        <li>The old MAC address remains in the DHCP table until its lease expires.</li>
         <li>
           <strong>The result:</strong> A single household with four smartphones can easily produce 10 to 15 entries in a
           router&apos;s device table over a few days.
@@ -121,12 +119,26 @@ function Body() {
 
       <div className="tip-box">
         <p>
-          <strong>The Secret 2-6-A-E Trick:</strong> How to prove a mystery device is a randomized smartphone: look at the{' '}
-          <strong>second character</strong> of its MAC address. If the second digit is <code>2</code>, <code>6</code>,{' '}
-          <code>A</code>, or <code>E</code> (for example, <code>d<strong>2</strong>:xx</code>, <code>f<strong>6</strong>:xx</code>,{' '}
-          <code>3<strong>a</strong>:xx</code>, or <code>8<strong>e</strong>:xx</code>), it is an IEEE Locally Administered
-          Address. This confirms 100% that the address is generated by software on an iPhone, Android, or Windows 11 PC,
-          not an external hacker&apos;s custom hardware!
+          <strong>The Secret 2-6-A-E Trick:</strong> How to prove a mystery device is a randomized smartphone: look at
+          the <strong>second character</strong> of its MAC address. If the second digit is <code>2</code>,{' '}
+          <code>6</code>, <code>A</code>, or <code>E</code> (for example,{' '}
+          <code>
+            d<strong>2</strong>:xx
+          </code>
+          ,{' '}
+          <code>
+            f<strong>6</strong>:xx
+          </code>
+          ,{' '}
+          <code>
+            3<strong>a</strong>:xx
+          </code>
+          , or{' '}
+          <code>
+            8<strong>e</strong>:xx
+          </code>
+          ), it is an IEEE Locally Administered Address. This confirms 100% that the address is generated by software on
+          an iPhone, Android, or Windows 11 PC, not an external hacker&apos;s custom hardware!
         </p>
       </div>
 
@@ -139,18 +151,16 @@ function Body() {
       />
 
       <h2 className="blog-h2">Reason 3: Low-power &quot;Connected Standby&quot; states in smart appliances</h2>
-      <p className="legal-text">
-        Many gadgets in your home never actually turn off when you press the power button:
-      </p>
+      <p className="legal-text">Many gadgets in your home never actually turn off when you press the power button:</p>
       <ul className="legal-list">
         <li>
           <strong>Smart TVs &amp; streaming sticks:</strong> Roku, Apple TV, Chromecast, and smart TVs from Samsung, LG,
-          and Sony sleep in an ultra-low-power standby mode. They maintain an active WiFi association so they can respond
-          instantly when you cast a YouTube video or turn on the TV via your phone app.
+          and Sony sleep in an ultra-low-power standby mode. They maintain an active WiFi association so they can
+          respond instantly when you cast a YouTube video or turn on the TV via your phone app.
         </li>
         <li>
-          <strong>Game consoles:</strong> PlayStation 5 and Xbox Series X maintain network connectivity in &quot;Rest Mode&quot;
-          to download game patches and background cloud saves during the night.
+          <strong>Game consoles:</strong> PlayStation 5 and Xbox Series X maintain network connectivity in &quot;Rest
+          Mode&quot; to download game patches and background cloud saves during the night.
         </li>
         <li>
           <strong>Smart home plugs &amp; bulbs:</strong> Smart plugs (often powered by{' '}
@@ -166,9 +176,9 @@ function Body() {
       </p>
       <p className="legal-text">
         Some range extenders use a technique called <strong>MAC Masquerading</strong> or Proxy ARP. When a phone roams
-        from the main router to an extender, the extender modifies the client&apos;s MAC address to route packets back to
-        the main gateway. Your main router sees two different MAC entries for the same device — one associated with the
-        router directly, and one associated with the extender.
+        from the main router to an extender, the extender modifies the client&apos;s MAC address to route packets back
+        to the main gateway. Your main router sees two different MAC entries for the same device — one associated with
+        the router directly, and one associated with the extender.
       </p>
 
       <h2 className="blog-h2">How to verify: Is it a ghost device or a real intruder?</h2>
@@ -179,8 +189,8 @@ function Body() {
 
       <ol className="legal-list">
         <li>
-          <strong>Check the MAC address with our vendor tool:</strong> Copy the MAC address from your router and paste it
-          into our free <Link href="/tools/mac-lookup/">MAC Address Vendor Lookup tool</Link>. If the manufacturer is
+          <strong>Check the MAC address with our vendor tool:</strong> Copy the MAC address from your router and paste
+          it into our free <Link href="/tools/mac-lookup/">MAC Address Vendor Lookup tool</Link>. If the manufacturer is
           Apple, Samsung, or Google, but the second digit is 2/6/A/E, it is a family member&apos;s phone using private
           addresses.
         </li>
@@ -192,11 +202,14 @@ function Body() {
           <Link href="/blog/find-hidden-devices-on-wifi/">finding all active devices on your WiFi</Link>.
         </li>
         <li>
-          <strong>Check for data throughput:</strong> In your router&apos;s administration portal, look at the device&apos;s
-          real-time bandwidth consumption (TX/RX packets). A ghost device will show 0 KB/s transfer rates. An active
-          intruder streaming video or browsing the web will show constant active traffic. (If you confirm an intruder,
-          read our guide on{' '}
-          <Link href="/blog/how-to-know-if-someone-is-stealing-your-wifi/">how to know if someone is stealing your WiFi</Link>).
+          <strong>Check for data throughput:</strong> In your router&apos;s administration portal, look at the
+          device&apos;s real-time bandwidth consumption (TX/RX packets). A ghost device will show 0 KB/s transfer rates.
+          An active intruder streaming video or browsing the web will show constant active traffic. (If you confirm an
+          intruder, read our guide on{' '}
+          <Link href="/blog/how-to-know-if-someone-is-stealing-your-wifi/">
+            how to know if someone is stealing your WiFi
+          </Link>
+          ).
         </li>
       </ol>
 
@@ -208,16 +221,16 @@ function Body() {
       <ul className="legal-list">
         <li>
           <strong>Shorten your DHCP lease time:</strong> Log into your router&apos;s settings (check{' '}
-          <Link href="/default-passwords/">standard router logins</Link> if needed), navigate to <strong>LAN &gt; DHCP Server</strong>,
-          and change the lease duration from 24 hours (or 7 days) to <strong>4 hours or 8 hours</strong>. Offline devices
-          will drop off your list within hours instead of days.
+          <Link href="/default-passwords/">standard router logins</Link> if needed), navigate to{' '}
+          <strong>LAN &gt; DHCP Server</strong>, and change the lease duration from 24 hours (or 7 days) to{' '}
+          <strong>4 hours or 8 hours</strong>. Offline devices will drop off your list within hours instead of days.
         </li>
         <li>
           <strong>Disable Private Address for your home network only:</strong> On your iPhone or Android, open your WiFi
           settings, tap the info button (<code>i</code> or gear) next to your home network, and turn off{' '}
-          <strong>Private Wi-Fi Address</strong> (or select <strong>Use device MAC</strong>). Your phone will now use its
-          permanent hardware MAC address on your trusted home network, giving it a stable name and preventing duplicate
-          ghosts. <em>(Keep this setting enabled on public networks like hotels and coffee shops!)</em>
+          <strong>Private Wi-Fi Address</strong> (or select <strong>Use device MAC</strong>). Your phone will now use
+          its permanent hardware MAC address on your trusted home network, giving it a stable name and preventing
+          duplicate ghosts. <em>(Keep this setting enabled on public networks like hotels and coffee shops!)</em>
         </li>
         <li>
           <strong>Reboot your router:</strong> A quick power cycle (unplugging for 15 seconds) flushes volatile memory
@@ -229,18 +242,17 @@ function Body() {
       <div className="warning-box">
         <p>
           <strong>Routine network hygiene:</strong> Want to keep your home network organized and secure against actual
-          threats? Follow our interactive 10-step{' '}
-          <Link href="/checklist/">home network security checklist</Link> to audit guest networks, change default
-          credentials, and isolate IoT equipment.
+          threats? Follow our interactive 10-step <Link href="/checklist/">home network security checklist</Link> to
+          audit guest networks, change default credentials, and isolate IoT equipment.
         </p>
       </div>
 
       <h2 className="blog-h2">Get real-time network visibility with ProbeShield</h2>
       <p className="legal-text">
-        Stop guessing whether an entry on your router is an active intruder or a stale DHCP ghost. ProbeShield for Android
-        scans your network in real time using Layer 2 ARP sweeps, showing you only devices that are actively powered on
-        and connected right now. ProbeShield matches hardware MAC addresses against its local vendor database, checks
-        for open ports, and flags potential security risks — 100% on-device with zero cloud telemetry.
+        Stop guessing whether an entry on your router is an active intruder or a stale DHCP ghost. ProbeShield for
+        Android scans your network in real time using Layer 2 ARP sweeps, showing you only devices that are actively
+        powered on and connected right now. ProbeShield matches hardware MAC addresses against its local vendor
+        database, checks for open ports, and flags potential security risks — 100% on-device with zero cloud telemetry.
       </p>
     </>
   )
@@ -267,8 +279,7 @@ export const post: BlogPost = {
   ],
   cta: {
     headline: 'Get real-time WiFi device visibility on Android',
-    description:
-      'Accurate Layer 2 ARP discovery, automatic MAC vendor identification, and zero cloud tracking.',
+    description: 'Accurate Layer 2 ARP discovery, automatic MAC vendor identification, and zero cloud tracking.',
     buttonText: 'Scan Active WiFi Devices (Google Play)',
   },
   faqs,

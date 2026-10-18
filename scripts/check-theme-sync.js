@@ -90,11 +90,15 @@ function main() {
     const cssValue = cssVars[cssVarName]
 
     if (tValue === undefined) {
-      mismatches.push(`T.${tKey} no longer exists in ${path.relative(process.cwd(), THEME_FILE)} — update the mapping in this script if that's intentional.`)
+      mismatches.push(
+        `T.${tKey} no longer exists in ${path.relative(process.cwd(), THEME_FILE)} — update the mapping in this script if that's intentional.`,
+      )
       continue
     }
     if (cssValue === undefined) {
-      mismatches.push(`${cssVarName} no longer exists in ${path.relative(process.cwd(), GLOBALS_CSS)}, but T.${tKey} still references it.`)
+      mismatches.push(
+        `${cssVarName} no longer exists in ${path.relative(process.cwd(), GLOBALS_CSS)}, but T.${tKey} still references it.`,
+      )
       continue
     }
     if (normalize(tValue) !== normalize(cssValue)) {

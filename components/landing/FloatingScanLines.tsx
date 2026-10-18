@@ -11,7 +11,7 @@ export function FloatingScanLines() {
         style={{ position: 'absolute', top: '15%', left: '8%' }}
       >
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <path d="M12 2H2V12" stroke="#4bdcc1" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M12 2H2V12" stroke="#4bdcc1" strokeWidth="2" strokeLinecap="round" />
         </svg>
       </motion.div>
       {/* Bottom-right corner bracket */}
@@ -22,7 +22,7 @@ export function FloatingScanLines() {
         style={{ position: 'absolute', bottom: '15%', right: '8%' }}
       >
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <path d="M36 46H46V36" stroke="#4bdcc1" strokeWidth="2" strokeLinecap="round"/>
+          <path d="M36 46H46V36" stroke="#4bdcc1" strokeWidth="2" strokeLinecap="round" />
         </svg>
       </motion.div>
       {/* Animated horizontal scan line */}
@@ -30,8 +30,12 @@ export function FloatingScanLines() {
         animate={{ y: ['18vh', '82vh'], opacity: [0, 0.4, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: 'linear', repeatDelay: 4 }}
         style={{
-          position: 'absolute', left: 0, right: 0, height: 1,
-          background: 'linear-gradient(90deg, transparent 5%, rgba(75,220,193,0.5) 40%, rgba(75,220,193,0.5) 60%, transparent 95%)',
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          height: 1,
+          background:
+            'linear-gradient(90deg, transparent 5%, rgba(75,220,193,0.5) 40%, rgba(75,220,193,0.5) 60%, transparent 95%)',
         }}
       />
     </div>

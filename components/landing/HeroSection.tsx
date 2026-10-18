@@ -22,23 +22,33 @@ export function HeroSection() {
       }}
     >
       {/* Layered radial glows */}
-      <div aria-hidden style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: `
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          background: `
           radial-gradient(ellipse 70% 45% at 50% -5%, rgba(75,220,193,0.11) 0%, transparent 65%),
           radial-gradient(ellipse 45% 35% at 80% 90%, rgba(27,79,138,0.14) 0%, transparent 55%),
           radial-gradient(ellipse 35% 25% at 10% 80%, rgba(75,220,193,0.06) 0%, transparent 55%)
         `,
-      }} />
+        }}
+      />
 
       {/* Dot-grid pattern */}
-      <div aria-hidden style={{
-        position: 'absolute', inset: 0, pointerEvents: 'none',
-        backgroundImage: `radial-gradient(circle, rgba(60,74,70,0.45) 1px, transparent 1px)`,
-        backgroundSize: '44px 44px',
-        maskImage: 'radial-gradient(ellipse 85% 65% at 50% 50%, black 30%, transparent 75%)',
-        WebkitMaskImage: 'radial-gradient(ellipse 85% 65% at 50% 50%, black 30%, transparent 75%)',
-      }} />
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          backgroundImage: `radial-gradient(circle, rgba(60,74,70,0.45) 1px, transparent 1px)`,
+          backgroundSize: '44px 44px',
+          maskImage: 'radial-gradient(ellipse 85% 65% at 50% 50%, black 30%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 85% 65% at 50% 50%, black 30%, transparent 75%)',
+        }}
+      />
 
       {/* Floating scan-line decorations */}
       <FloatingScanLines />
@@ -51,16 +61,23 @@ export function HeroSection() {
       >
         {/* Platform badge */}
         <motion.div variants={fadeUp}>
-          <span style={{
-            display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-            background: 'rgba(75,220,193,0.08)',
-            border: `1px solid rgba(75,220,193,0.28)`,
-            color: T.primary,
-            fontSize: '0.72rem', fontWeight: 600,
-            letterSpacing: '0.1em', textTransform: 'uppercase',
-            padding: '0.35rem 1rem', borderRadius: 999,
-            marginBottom: '2rem',
-          }}>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: 'rgba(75,220,193,0.08)',
+              border: `1px solid rgba(75,220,193,0.28)`,
+              color: T.primary,
+              fontSize: '0.72rem',
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              padding: '0.35rem 1rem',
+              borderRadius: 999,
+              marginBottom: '2rem',
+            }}
+          >
             <span style={{ fontSize: '0.9rem' }}>⚡</span>
             Network Security Auditor &nbsp;·&nbsp; Android 8.0+
           </span>
@@ -99,9 +116,9 @@ export function HeroSection() {
             margin: '0 auto 2.5rem',
           }}
         >
-          Discover every device on your WiFi, scan for open ports, and get a clear risk
-          picture — <strong style={{ color: T.text, fontWeight: 600 }}>100% on-device</strong>.
-          No account. No cloud. No compromise.
+          Discover every device on your WiFi, scan for open ports, and get a clear risk picture —{' '}
+          <strong style={{ color: T.text, fontWeight: 600 }}>100% on-device</strong>. No account. No cloud. No
+          compromise.
         </motion.p>
 
         {/* CTA row */}
@@ -147,8 +164,16 @@ export function HeroSection() {
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
           style={{ color: T.muted }}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-            <polyline points="6 9 12 15 18 9"/>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
           </svg>
         </motion.div>
       </motion.div>

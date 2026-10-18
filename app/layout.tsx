@@ -17,10 +17,19 @@ export const metadata: Metadata = {
   description:
     'Discover hidden devices, scan open ports, and get a clear risk picture of your WiFi network. 100% on-device, no cloud, no account. Free Android app.',
   keywords: [
-    'network security', 'android', 'wifi scanner', 'port scanner',
-    'network audit', 'device discovery', 'vulnerability scanner',
-    'home network security', 'probeshield', 'network monitor',
-    'LAN scanner', 'IP scanner', 'network tool',
+    'network security',
+    'android',
+    'wifi scanner',
+    'port scanner',
+    'network audit',
+    'device discovery',
+    'vulnerability scanner',
+    'home network security',
+    'probeshield',
+    'network monitor',
+    'LAN scanner',
+    'IP scanner',
+    'network tool',
   ],
   authors: [{ name: 'ProbeShield', url: 'https://probeshield.com' }],
   creator: 'ProbeShield',
@@ -53,8 +62,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'ProbeShield — Network Security Auditor for Android',
-    description:
-      'Discover hidden devices, scan open ports, get a clear risk picture. 100% on-device. Free.',
+    description: 'Discover hidden devices, scan open ports, get a clear risk picture. 100% on-device. Free.',
     creator: '@probeshield',
   },
 }
@@ -65,6 +73,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font -- this rule predates the
+            App Router and checks for pages/_document.js, which doesn't exist here; loading
+            fonts in app/layout.tsx's own <head> is the documented App Router pattern. */}
         <link
           href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
           rel="stylesheet"

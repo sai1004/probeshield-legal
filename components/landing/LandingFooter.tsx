@@ -17,19 +17,37 @@ export function LandingFooter() {
   ]
 
   return (
-    <footer style={{
-      borderTop: `1px solid ${T.borderSub}`,
-      padding: '3rem 2rem',
-      background: T.bgLow,
-      textAlign: 'center',
-    }}>
+    <footer
+      style={{
+        borderTop: `1px solid ${T.borderSub}`,
+        padding: '3rem 2rem',
+        background: T.bgLow,
+        textAlign: 'center',
+      }}
+    >
       {/* Brand */}
-      <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', marginBottom: '0.5rem' }}>
-        <div style={{
-          width: 28, height: 28, borderRadius: 7, overflow: 'hidden',
-          background: `linear-gradient(135deg, ${T.primary}, #1B4F8A)`,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-        }}>
+      <Link
+        href="/"
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          textDecoration: 'none',
+          marginBottom: '0.5rem',
+        }}
+      >
+        <div
+          style={{
+            width: 28,
+            height: 28,
+            borderRadius: 7,
+            overflow: 'hidden',
+            background: `linear-gradient(135deg, ${T.primary}, #1B4F8A)`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           <Image src="/logo.png" alt="" width={28} height={28} />
         </div>
         <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', color: T.text }}>
@@ -41,7 +59,17 @@ export function LandingFooter() {
         Probe everything. Shield everyone.
       </p>
 
-      <ul style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', listStyle: 'none', margin: '0 0 1.5rem', padding: 0, flexWrap: 'wrap' }}>
+      <ul
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '1.5rem',
+          listStyle: 'none',
+          margin: '0 0 1.5rem',
+          padding: 0,
+          flexWrap: 'wrap',
+        }}
+      >
         {links.map(({ label, href }) => (
           <li key={label}>
             <FooterLink label={label} href={href} />
@@ -49,16 +77,13 @@ export function LandingFooter() {
         ))}
         <CookieSettingsButton />
         <li>
-          <FooterLink
-            label="Google Play"
-            href="https://play.google.com/store/apps/details?id=com.probeshield"
-            icon
-          />
+          <FooterLink label="Google Play" href="https://play.google.com/store/apps/details?id=com.probeshield" icon />
         </li>
       </ul>
 
       <p style={{ fontSize: '0.76rem', color: T.muted, lineHeight: 1.5 }}>
-        © {currentYear} ProbeShield &nbsp;·&nbsp; All Rights Reserved<br />
+        © {currentYear} ProbeShield &nbsp;·&nbsp; All Rights Reserved
+        <br />
         <span style={{ fontSize: '0.7rem', opacity: 0.6 }}>
           Intended for use on networks you own or have explicit permission to scan.
         </span>
