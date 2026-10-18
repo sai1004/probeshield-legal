@@ -135,7 +135,7 @@ Draft 3 targeted articles in `content/posts/`:
 ## Phase 5: Technical SEO & Hygiene Checklist
 
 - [x] **Trailing Slash Verification:** Confirmed every internal `<Link>` and canonical URL includes the trailing slash (`/blog/slug/`).
-- [x] **Sitemap Update:** Verified `app/sitemap.ts` generates valid XML for all routes and posts.
+- [x] **Sitemap Update & Resubmission:** Verified `app/sitemap.ts` generates valid XML for all 16 canonical routes; resubmitted to Google Search Console successfully.
 - [x] **Git Push to Production:** Pushed all commits to `origin dev` and confirmed live deployment on Cloudflare Pages (`https://probeshield.com`).
 - [x] **Search Console Submission:** Priority URLs submitted via GSC URL Inspection ("Request Indexing") to expedite Googlebot recrawling of FAQ rich snippets.
 - [ ] **IndexNow / Bing Webmaster Tools:** Verified key live on production (`/1bb629e5d7166f96b3507106eb1649dd.txt`). Bing/IndexNow will ingest key within 24h.
