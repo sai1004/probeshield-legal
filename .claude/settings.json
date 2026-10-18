@@ -47,5 +47,26 @@
       "Bash(cat .env*)"
     ],
     "disableBypassPermissionsMode": "disable"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/shravan/work/projects/probeshield/probeshield-legal/.claude/hooks/check-theme-sync.sh"
+          },
+          {
+            "type": "command",
+            "command": "/Users/shravan/work/projects/probeshield/probeshield-legal/.claude/hooks/check-reset-modules-gotcha.sh"
+          },
+          {
+            "type": "command",
+            "command": "/Users/shravan/work/projects/probeshield/probeshield-legal/.claude/hooks/format-on-save.sh"
+          }
+        ]
+      }
+    ]
   }
 }
