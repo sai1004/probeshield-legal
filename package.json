@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:theme && next build",
     "start": "next start",
-    "indexnow": "node scripts/ping-indexnow.js"
+    "indexnow": "node scripts/ping-indexnow.js",
+    "check:theme": "node scripts/check-theme-sync.js"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",

@@ -1,0 +1,109 @@
+# ProbeShield Legal Site — Code Quality Refactor Plan
+
+**Scope:** `probeshield-legal` only. Pure refactor — no visual, behavioral, or content changes. Every phase must produce a pixel-identical `npm run build` output; verification is screenshot diffing + `git diff` review, not "looks about right."
+
+## Why
+
+The site works and ships, but `components/LandingPage.tsx` is 1,150 lines holding 18 components, several patterns are copy-pasted instead of shared, and one set of values (brand colors) is defined twice and has already drifted once. None of this is visible to users — it's a cost paid every time someone (human or Claude) has to read, extend, or safely change this code. Below are the five concrete problems found, each with file/line evidence, not a general "clean this up" ask.
+
+## Findings
+
+### 1. `components/LandingPage.tsx` is a 1,150-line monolith
+`wc -l` across the repo: every other component/page file is 15–294 lines; this one is 1,150 — 4x the next-largest file (`app/terms/page.tsx`, 291 lines). It holds 18 functions (`LandingPage`, `ShieldSvg`, `HeroShield`, `DownloadBtn`, `LandingNav`, `NavLink`, `HeroSection`, `FloatingScanLines`, `StatsBar`, `FeaturesSection`, `FeatureCard`, `RiskSection`, `PrivacySection`, `HowItWorksSection`, `CtaSection`, `LandingFooter`, `FooterLink`, plus the animation/data constants at the top). Finding any one section means scrolling through unrelated ones; a merge conflict in one section touches the same file as every other section.
+
+### 2. Brand colors are defined twice, and have already drifted
+`components/LandingPage.tsx:125` declares a `const T = { bg: '#051424', primary: '#4bdcc1', text: '#d4e4fa', ... }` — 13 hardcoded hex/rgba values. These are the *exact same* values already defined as CSS custom properties in `app/globals.css:5-24` (`--bg`, `--primary`, `--text`, etc.), which are themselves documented as the canonical design system in `probeshield-legal/CLAUDE.md`. Proof this isn't theoretical: `globals.css` has since grown a `--bg-bright: #2c3a4c` token that has no counterpart in `T` — the two have already diverged once. The next person to retheme the site has to find and update both.
+
+### 3. The scroll-reveal pattern is copy-pasted 6 times
+`const ref = useRef(null); const inView = useInView(ref, { once: true, margin: '-80px' })` (or the no-margin variant) appears identically in `StatsBar`, `FeaturesSection`, `RiskSection`, `PrivacySection`, `HowItWorksSection`, and `CtaSection` (`components/LandingPage.tsx:582,632,716,796,920,992`). Every section wires this up by hand instead of once.
+
+### 4. The legal-section wrapper is copy-pasted 25 times
+`app/privacy/page.tsx` (12 instances) and `app/terms/page.tsx` (13 instances) each repeat:
+```tsx
+<section className="legal-section" id="section-N">
+  <div className="section-number">Section 0N</div>
+  <h2 className="section-title">...</h2>
+  ...
+</section>
+```
+with the section number **hand-typed as a string** in two places per section (`id="section-5"` and `Section 05`). Inserting or removing a section means manually renumbering every instance after it, in two different string formats, with nothing to catch a mismatch.
+
+### 5. The legal-page header is copy-pasted between the two legal pages
+`app/privacy/page.tsx` and `app/terms/page.tsx` both open with the identical `page-badge` / `page-title` / `page-meta` (Effective Date / Last Updated / Version) block, differing only in the actual text content.
+
+## Non-goals
+
+- No visual changes. No copy changes. No animation timing/easing changes.
+- No new dependencies.
+- Not touching `content/posts/*.tsx` (blog posts) — their `<p className="legal-text">`/`<h2 className="blog-h2">` repetition is prose content, not logic; extracting it would make posts *harder* to read and edit for marginal byte savings. Explicitly out of scope.
+- Not touching `lib/`, `components/ChecklistTool.tsx`, `components/MacLookupTool.tsx`, `components/CredentialsFinder.tsx` — these are already reasonably sized, single-purpose files with no found duplication.
+
+## Target structure
+
+```
+components/
+  landing/
+    index.tsx              # LandingPage — composes the sections below, same default export
+    theme.ts                # re-exports color tokens FROM globals.css values (single source of truth — see Phase 1)
+    animations.ts           # ease, fadeUp, stagger
+    data.ts                 # FEATURES, TRUST_BADGES, PRIVACY_ITEMS
+    useScrollReveal.ts       # the ref+useInView hook (Finding #3)
+    ShieldSvg.tsx
+    HeroShield.tsx
+    DownloadBtn.tsx
+    LandingNav.tsx           # + NavLink
+    HeroSection.tsx
+    FloatingScanLines.tsx
+    StatsBar.tsx
+    FeaturesSection.tsx      # + FeatureCard
+    RiskSection.tsx
+    PrivacySection.tsx
+    HowItWorksSection.tsx
+    CtaSection.tsx
+    LandingFooter.tsx        # + FooterLink
+components/
+  legal/
+    LegalPageHeader.tsx      # Finding #5: badge/title/dates, props instead of copy-paste
+    LegalSection.tsx         # Finding #4: number is derived (auto-incrementing or array index), not hand-typed twice
+```
+
+`components/LandingPage.tsx` becomes a thin re-export (`export { default } from './landing'`) so `app/page.tsx`'s import doesn't need to change — or the import is updated directly; decide at implementation time, whichever keeps the diff smaller.
+
+## Phases
+
+### Phase 1 — Single-source the design tokens (Finding #2) — DONE
+
+- [x] Went with option (c): kept both `T` and the CSS custom properties, added a drift-check script rather than a build-time codegen step (lower risk for a site with no build step today).
+- [x] `scripts/check-theme-sync.js` parses `:root { ... }` from `app/globals.css` and `const T = { ... } as const` from `components/LandingPage.tsx`, maps each of `T`'s 13 keys to its CSS custom property, normalizes whitespace/case, and exits 1 with a specific mismatch message per drifted token. Sanity-tested against a real induced drift (temporarily edited `T.bg`, confirmed it caught it with exit code 1, confirmed clean exit 0 restored).
+- [x] Wired into `package.json`: `"build": "npm run check:theme && next build"`, new `"check:theme"` script.
+- [x] Verified: `npm run build` runs the check first (prints `✔ Theme tokens in sync (13 checked)`), then builds clean with identical route output sizes to before (`/` still 48.6 kB / 148 kB First Load JS).
+
+### Phase 2 — Extract the scroll-reveal hook (Finding #3)
+- [ ] Add `components/landing/useScrollReveal.ts`: `function useScrollReveal(options?) { const ref = useRef(null); const inView = useInView(ref, options ?? { once: true, margin: '-80px' }); return { ref, inView } }`.
+- [ ] Replace all 6 call sites.
+- [ ] Verify: scroll-triggered animations fire at the same scroll position as before (manual check in browser — this is the one change with runtime behavior surface area, even though the code is behaviorally identical).
+
+### Phase 3 — Split `LandingPage.tsx` into `components/landing/*` (Finding #1)
+- [ ] Move `ease`/`fadeUp`/`stagger` → `animations.ts`.
+- [ ] Move `FEATURES`/`TRUST_BADGES`/`PRIVACY_ITEMS` → `data.ts`.
+- [ ] Move color tokens → `theme.ts` (depends on Phase 1's decision).
+- [ ] One component (or tightly-coupled pair, e.g. `FeaturesSection`+`FeatureCard`) per file, moved verbatim — no logic changes in this phase, pure cut-paste-import.
+- [ ] `components/landing/index.tsx` composes them, exported as the page's `LandingPage`.
+- [ ] Verify after **every individual move** (not just at the end): `npm run build`, then a Playwright screenshot of `/` compared byte-for-byt against a pre-refactor baseline screenshot. Moving 18 components in one shot with one verification at the end is how this kind of refactor silently breaks an import order or a closure capture — verify incrementally.
+
+### Phase 4 — Extract `LegalSection` and `LegalPageHeader` (Findings #4, #5)
+- [ ] `LegalSection`: props `{ number: number, title: string, children }` — renders `Section 0{number}` and `id="section-{number}"` from the single `number` prop, so there's exactly one number per section instead of two hand-typed strings that can go out of sync.
+- [ ] `LegalPageHeader`: props `{ badge, title, titleAccent, effectiveDate, lastUpdated, version }`.
+- [ ] Migrate `app/privacy/page.tsx` (12 sections) and `app/terms/page.tsx` (13 sections) to use both.
+- [ ] Verify: Playwright screenshot diff of `/privacy/` and `/terms/` against pre-refactor baselines; `npm run build`.
+
+## Verification approach (every phase)
+
+1. `npm run build` — must stay clean, same route output sizes (`Route (app)` table in build output should be near-identical byte-for-byte for unrelated routes).
+2. Playwright: screenshot each affected route before starting and after each phase; diff them. Zero pixel diff is the bar for a pure refactor — any diff means something leaked in.
+3. `git diff --stat` reviewed before each commit to confirm the change is additive (new files) + mechanical (moves/renames), not rewritten logic.
+4. Commit per phase, not one giant commit — if Phase 3 (the biggest, riskiest one) needs to be reverted, Phases 1/2/4 shouldn't have to go with it.
+
+## Out of scope for this plan, noticed in passing
+
+`PRIVACY_ITEMS` in `components/LandingPage.tsx:117` includes the line `'No analytics, crash reporters, or ads'` — this is now imprecise: the site itself does use GA4 with consent (Section 7 of the Privacy Policy, `ConsentBanner.tsx`), and "crash reporters" is true for the site but could be misread given the Android app's Crashlytics (unrelated system, but the sentence doesn't disambiguate). This is a content-accuracy issue, not a code-quality one — flagging it here rather than fixing it, since fixing it is a content/product decision outside this plan's scope.
