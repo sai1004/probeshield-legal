@@ -95,11 +95,12 @@ components/
 - [x] Verified incrementally, not just at the end: ran `npx tsc --noEmit` after every 2-4 file group (animations/theme/data → ShieldSvg/HeroShield/DownloadBtn → LandingNav → HeroSection/FloatingScanLines → StatsBar/FeaturesSection → RiskSection/PrivacySection → HowItWorksSection/CtaSection → LandingFooter), catching import mistakes immediately rather than at the end of an 18-file move.
 - [x] Final verification after the full split: `npx tsc --noEmit` clean across the whole project; `npm run build` clean, `/` still **exactly** 48.6 kB / 148 kB First Load JS — byte-identical to pre-split, strong evidence nothing was duplicated or left unreferenced. Served the static export, drove it with Playwright: zero console/page errors, all 6 scroll-reveal sections still reach `opacity: 1` on scroll. Full-page screenshot of `/` shows every section (hero, stats, features, risk, privacy, how-it-works, CTA, footer) rendering identically to the original. Spot-checked `/privacy/` and `/terms/` (untouched by this phase) — unaffected.
 
-### Phase 4 — Extract `LegalSection` and `LegalPageHeader` (Findings #4, #5)
-- [ ] `LegalSection`: props `{ number: number, title: string, children }` — renders `Section 0{number}` and `id="section-{number}"` from the single `number` prop, so there's exactly one number per section instead of two hand-typed strings that can go out of sync.
-- [ ] `LegalPageHeader`: props `{ badge, title, titleAccent, effectiveDate, lastUpdated, version }`.
-- [ ] Migrate `app/privacy/page.tsx` (12 sections) and `app/terms/page.tsx` (13 sections) to use both.
-- [ ] Verify: Playwright screenshot diff of `/privacy/` and `/terms/` against pre-refactor baselines; `npm run build`.
+### Phase 4 — Extract `LegalSection` and `LegalPageHeader` (Findings #4, #5) — DONE
+
+- [x] `components/legal/LegalSection.tsx`: props `{ number: number; title: string; children: ReactNode }` — renders `Section 0{number}` and `id="section-{number}"` from the single `number` prop (via `String(number).padStart(2, '0')`), so there's exactly one number per section instead of two hand-typed strings.
+- [x] `components/legal/LegalPageHeader.tsx`: props `{ badge, title, titleAccent, effectiveDate, lastUpdated, version }`.
+- [x] Migrated `app/privacy/page.tsx` (12 sections) and `app/terms/page.tsx` (13 sections) to use both. Content moved verbatim as `children` — no copy changes. The TOC `.map()` block was left as-is in both pages; it's already parameterized by a data array, not hand-duplicated markup, so it wasn't one of the five findings this plan scoped.
+- [x] Verified: `npx tsc --noEmit` clean. `npm run build` clean, `/privacy` and `/terms` both still exactly 1.51 kB / 101 kB First Load JS — byte-identical. Drove the built static export with Playwright: zero console/page errors; confirmed all 12 `section-N` ids present on `/privacy/` (1-12) and all 13 on `/terms/` (1-13), in order; specifically checked the one subtle risk in this migration — passing `title="Children&apos;s Privacy"` as a string-literal prop (not JSX children) — and confirmed via `textContent()` the DOM renders the real apostrophe correctly, not a literal `&apos;`. Full-page screenshot of `/privacy/` matches the pre-refactor baseline exactly (same 7,553px page height, same content, same layout).
 
 ## Verification approach (every phase)
 
