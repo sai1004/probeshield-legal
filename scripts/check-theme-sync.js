@@ -3,7 +3,7 @@
 /**
  * scripts/check-theme-sync.js
  *
- * components/LandingPage.tsx hardcodes a handful of brand colors as a `T` object
+ * components/landing/theme.ts hardcodes a handful of brand colors as a `T` object
  * instead of reading app/globals.css's CSS custom properties, because `T` is consumed
  * inside inline SVG/motion props where a CSS var isn't straightforward to use. That's a
  * second source of truth for the same values — this script is the guardrail: it fails
@@ -18,7 +18,7 @@ const fs = require('fs')
 const path = require('path')
 
 const GLOBALS_CSS = path.join(__dirname, '..', 'app', 'globals.css')
-const LANDING_PAGE = path.join(__dirname, '..', 'components', 'LandingPage.tsx')
+const THEME_FILE = path.join(__dirname, '..', 'components', 'landing', 'theme.ts')
 
 // T's key -> the CSS custom property it must match.
 const T_KEY_TO_CSS_VAR = {
@@ -64,7 +64,7 @@ function parseCssCustomProperties(css) {
 function parseThemeObject(tsx) {
   const blockMatch = tsx.match(/const T = {([^}]*)}\s*as const/)
   if (!blockMatch) {
-    throw new Error(`Could not find "const T = { ... } as const" in ${LANDING_PAGE}`)
+    throw new Error(`Could not find "const T = { ... } as const" in ${THEME_FILE}`)
   }
   const tokens = {}
   const declRe = /(\w+)\s*:\s*'([^']+)'/g
@@ -78,7 +78,7 @@ function parseThemeObject(tsx) {
 
 function main() {
   const css = fs.readFileSync(GLOBALS_CSS, 'utf8')
-  const tsx = fs.readFileSync(LANDING_PAGE, 'utf8')
+  const tsx = fs.readFileSync(THEME_FILE, 'utf8')
 
   const cssVars = parseCssCustomProperties(css)
   const themeTokens = parseThemeObject(tsx)
@@ -90,7 +90,7 @@ function main() {
     const cssValue = cssVars[cssVarName]
 
     if (tValue === undefined) {
-      mismatches.push(`T.${tKey} no longer exists in ${path.relative(process.cwd(), LANDING_PAGE)} — update the mapping in this script if that's intentional.`)
+      mismatches.push(`T.${tKey} no longer exists in ${path.relative(process.cwd(), THEME_FILE)} — update the mapping in this script if that's intentional.`)
       continue
     }
     if (cssValue === undefined) {
