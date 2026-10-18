@@ -78,10 +78,12 @@ components/
 - [x] Wired into `package.json`: `"build": "npm run check:theme && next build"`, new `"check:theme"` script.
 - [x] Verified: `npm run build` runs the check first (prints `✔ Theme tokens in sync (13 checked)`), then builds clean with identical route output sizes to before (`/` still 48.6 kB / 148 kB First Load JS).
 
-### Phase 2 — Extract the scroll-reveal hook (Finding #3)
-- [ ] Add `components/landing/useScrollReveal.ts`: `function useScrollReveal(options?) { const ref = useRef(null); const inView = useInView(ref, options ?? { once: true, margin: '-80px' }); return { ref, inView } }`.
-- [ ] Replace all 6 call sites.
-- [ ] Verify: scroll-triggered animations fire at the same scroll position as before (manual check in browser — this is the one change with runtime behavior surface area, even though the code is behaviorally identical).
+### Phase 2 — Extract the scroll-reveal hook (Finding #3) — DONE
+
+- [x] Added `components/landing/useScrollReveal.ts` — `useScrollReveal(options = { once: true, margin: '-80px' })`, same default every call site already used.
+- [x] Replaced all 6 call sites (`StatsBar`, `FeaturesSection`, `RiskSection`, `PrivacySection`, `HowItWorksSection`, `CtaSection`); 2 of them (`StatsBar`, `CtaSection`) pass `{ once: true }` explicitly since they didn't use the `-80px` margin, same as before.
+- [x] `useRef`/`useInView` dropped from `LandingPage.tsx`'s imports — confirmed via diagnostics they had no other call sites in the file before removing.
+- [x] Verified: `npm run build` — `check:theme` still passes, `/` still exactly 48.6 kB / 148 kB First Load JS. Built the static export, served `out/` with `serve`, drove it with Playwright: zero console/page errors, and after scrolling through all 6 sections every one reached `opacity: 1` (computed style), confirming the reveal animations still fire through the extracted hook. Screenshot of the final CTA/footer section after scroll matches the original layout.
 
 ### Phase 3 — Split `LandingPage.tsx` into `components/landing/*` (Finding #1)
 - [ ] Move `ease`/`fadeUp`/`stagger` → `animations.ts`.

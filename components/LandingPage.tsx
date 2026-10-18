@@ -1,10 +1,11 @@
 'use client'
 
-import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import CookieSettingsButton from '@/components/CookieSettingsButton'
+import { useScrollReveal } from './landing/useScrollReveal'
 
 /* ── Animation presets ─────────────────────────────────── */
 const ease = [0.22, 1, 0.36, 1] as const
@@ -578,8 +579,7 @@ function FloatingScanLines() {
    STATS BAR
    ══════════════════════════════════════════════════════════ */
 function StatsBar() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true })
+  const { ref, inView } = useScrollReveal({ once: true })
 
   return (
     <div style={{ padding: '0 2rem 80px' }}>
@@ -628,8 +628,7 @@ function StatsBar() {
    FEATURES
    ══════════════════════════════════════════════════════════ */
 function FeaturesSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { ref, inView } = useScrollReveal()
 
   return (
     <section id="features" style={{ background: T.bgLow }}>
@@ -712,8 +711,7 @@ function FeatureCard({ icon, title, desc }: { icon: React.ReactNode; title: stri
    RISK SCORING
    ══════════════════════════════════════════════════════════ */
 function RiskSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { ref, inView } = useScrollReveal()
 
   return (
     <section>
@@ -792,8 +790,7 @@ function RiskSection() {
    PRIVACY PROMISE
    ══════════════════════════════════════════════════════════ */
 function PrivacySection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { ref, inView } = useScrollReveal()
 
   return (
     <section style={{ background: T.bgLow }}>
@@ -916,8 +913,7 @@ function PrivacySection() {
    HOW IT WORKS
    ══════════════════════════════════════════════════════════ */
 function HowItWorksSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const { ref, inView } = useScrollReveal()
 
   return (
     <section id="how-it-works">
@@ -988,8 +984,7 @@ function HowItWorksSection() {
    CTA SECTION
    ══════════════════════════════════════════════════════════ */
 function CtaSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true })
+  const { ref, inView } = useScrollReveal({ once: true })
 
   return (
     <section style={{ background: T.bgLow }}>
