@@ -142,9 +142,8 @@ Was a single 1,150-line `components/LandingPage.tsx` — split one component per
 8. `CtaSection` — final download CTA
 9. `LandingFooter`
 
-Shared across these: `animations.ts` (`ease`/`fadeUp`/`stagger`), `theme.ts` (the `T` color object — **must stay
-in sync with `globals.css`'s CSS custom properties**, enforced by `scripts/check-theme-sync.js` at build time),
-`data.tsx` (`FEATURES`/`RISK_LEVELS`/`STEPS`/`STATS`/`TRUST_BADGES`/`PRIVACY_ITEMS`), and `useScrollReveal.ts`
+Shared across these: `animations.ts` (`ease`/`fadeUp`/`stagger`), `theme.ts` (the `T` color object — must stay
+byte-identical to `globals.css`'s CSS custom properties, see `.claude/rules/components.md`), `data.tsx` (`FEATURES`/`RISK_LEVELS`/`STEPS`/`STATS`/`TRUST_BADGES`/`PRIVACY_ITEMS`), and `useScrollReveal.ts`
 (the `useRef` + Framer Motion `useInView` hook every scroll-reveal section uses).
 
 ### `app/globals.css`
@@ -227,15 +226,25 @@ removed, or reordered without the two drifting out of sync (see `.claude/rules/c
 
 ## Testing & Code Quality
 
-- `npm test` runs Jest with coverage; the pre-commit hook (`scripts/hooks/pre-commit`, installed via
-  `./scripts/install-hooks.sh`) blocks the commit if coverage drops below 80% on any of
-  statements/branches/functions/lines, or if format/lint/typecheck fail.
+Full rules live in `.claude/rules/testing.md` (coverage gate, the `jest.resetModules()` gotcha) and
+`.claude/rules/code-style.md` (formatting/lint) — not restated here. Two things worth knowing that aren't
+obvious from the rules alone:
 - Coverage is measured across the whole codebase (`collectCoverageFrom` in `jest.config.js`), not just
   whatever files a test happens to import — `scripts/` is the one deliberate exclusion (standalone Node CLI
   tools, verified by hand instead).
-- `jest.setup.js` polyfills things jsdom doesn't provide: `IntersectionObserver` (Framer Motion's `useInView`
-  needs one to exist, even though jsdom can't fire real intersection events) and `TextEncoder`/`TextDecoder`
-  (`react-dom/server`'s browser build needs them). `NEXT_PUBLIC_GA_ID` also defaults to a test value there, so
-  consent-gated components don't need `jest.resetModules()` to test — that call resets React's own module
-  instance too and breaks hooks; see `.claude/rules/testing.md`.
-- Rule files live in `.claude/rules/`: `testing.md`, `code-style.md`, `components.md`.
+- `jest.setup.js` polyfills things jsdom doesn't provide (`IntersectionObserver`, `TextEncoder`/
+  `TextDecoder`) and defaults `NEXT_PUBLIC_GA_ID` to a test value — that's why consent-gated components
+  don't need `jest.resetModules()` to test.
+
+The pre-commit hook (`scripts/hooks/pre-commit`, installed via `./scripts/install-hooks.sh`) enforces all
+of this on every commit.
+
+## `.claude/` Directory
+
+- `rules/` (always loaded into every session) — `code-style.md`, `components.md`, `testing.md`
+- `hooks/` (run automatically on tool use, via `.claude/settings.json`) — `check-theme-sync.sh` runs
+  `scripts/check-theme-sync.js` the moment `theme.ts` or `globals.css` is edited instead of waiting for the
+  build to catch drift; `check-reset-modules-gotcha.sh` warns if a test file calls `jest.resetModules()`;
+  `format-on-save.sh` runs Prettier on the file just edited
+- No `agents/`, `commands/`, or `skills/` yet in this repo — unlike `probeshield-app`/`probeshield-api`,
+  there's no dedicated audit/review agent or slash command here
