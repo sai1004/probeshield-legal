@@ -21,8 +21,8 @@ export default function TermsOfService() {
           title="Terms of"
           titleAccent="Service"
           effectiveDate="March 26, 2026"
-          lastUpdated="March 26, 2026"
-          version="1.0"
+          lastUpdated="October 18, 2026"
+          version="1.1"
         />
 
         {/* Intro */}
@@ -64,7 +64,7 @@ export default function TermsOfService() {
             By downloading, installing, or using ProbeShield (&quot;the App&quot;), you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, do not install or use the App.
           </p>
           <p className="legal-text">
-            These Terms constitute a legally binding agreement between you and ProbeShield, operated by Saikiran Bavandla (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
+            These Terms constitute a legally binding agreement between you and ProbeShield (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
           </p>
         </LegalSection>
 
@@ -139,7 +139,7 @@ export default function TermsOfService() {
 
         <LegalSection number={6} title="Intellectual Property">
           <p className="legal-text">
-            ProbeShield, including its name, logo, design, code, and all associated content, is the exclusive intellectual property of Saikiran Bavandla / ProbeShield. All rights are reserved.
+            ProbeShield, including its name, logo, design, code, and all associated content, is the exclusive intellectual property of ProbeShield. All rights are reserved.
           </p>
           <p className="legal-text">
             You are granted a limited, non-exclusive, non-transferable, revocable license to use the App for its intended purpose in accordance with these Terms. No ownership rights are transferred to you.

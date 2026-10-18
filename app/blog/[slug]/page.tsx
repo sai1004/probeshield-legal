@@ -47,7 +47,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     description: post.description,
     datePublished: post.date,
     dateModified: post.date,
-    author: { '@type': 'Person', name: 'Saikiran Bavandla', url: 'https://probeshield.com' },
+    author: { '@type': 'Organization', name: 'ProbeShield', url: 'https://probeshield.com' },
     publisher: {
       '@type': 'Organization',
       name: 'ProbeShield',

@@ -21,8 +21,8 @@ export default function PrivacyPolicy() {
           title="Privacy"
           titleAccent="Policy"
           effectiveDate="March 26, 2026"
-          lastUpdated="October 13, 2026"
-          version="1.4"
+          lastUpdated="October 18, 2026"
+          version="1.5"
         />
 
         {/* Intro */}
@@ -60,7 +60,7 @@ export default function PrivacyPolicy() {
 
         <LegalSection number={1} title="Overview">
           <p className="legal-text">
-            ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is operated by Saikiran Bavandla, trading as ProbeShield (probeshield.com). This Privacy Policy applies to the ProbeShield Android application and the website at probeshield.com. The app does not track your behaviour or usage in any way; the website can use Google Analytics, but only with your consent (see Section 7). The app does automatically send a crash report if it crashes — see Section 5 for exactly what that contains.
+            This Privacy Policy applies to ProbeShield (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), the Android application and the website at probeshield.com. The app does not track your behaviour or usage in any way; the website can use Google Analytics, but only with your consent (see Section 7). The app does automatically send a crash report if it crashes — see Section 5 for exactly what that contains.
           </p>
           <p className="legal-text">
             We are committed to protecting your privacy. ProbeShield was built with a privacy-first architecture — the app operates entirely on your device and has no dependency on external servers for its core functionality.

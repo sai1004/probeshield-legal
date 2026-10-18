@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     'home network security', 'probeshield', 'network monitor',
     'LAN scanner', 'IP scanner', 'network tool',
   ],
-  authors: [{ name: 'Saikiran Bavandla', url: 'https://probeshield.com' }],
-  creator: 'Saikiran Bavandla',
+  authors: [{ name: 'ProbeShield', url: 'https://probeshield.com' }],
+  creator: 'ProbeShield',
   publisher: 'ProbeShield',
   icons: {
     icon: '/logo.png',

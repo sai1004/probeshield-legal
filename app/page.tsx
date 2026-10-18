@@ -41,12 +41,6 @@ const jsonLd = {
         '100% on-device. No scan data ever leaves your phone.',
       softwareVersion: '1.2.0',
       datePublished: '2025-01-01',
-      author: {
-        '@type': 'Person',
-        name: 'Saikiran Bavandla',
-        email: 'support@probeshield.com',
-        url: 'https://probeshield.com',
-      },
       publisher: {
         '@type': 'Organization',
         name: 'ProbeShield',
